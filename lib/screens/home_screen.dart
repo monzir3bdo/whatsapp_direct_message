@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/widgets/history/history_widget.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_floating_action_button.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_tabbar.dart';
 import 'package:whatsapp_direct_message/widgets/home/send_widget.dart';
@@ -79,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                 ),
-                const Placeholder()
+                const HistoryWidget()
               ],
             ),
           ),

@@ -24,7 +24,7 @@ class BaseRoute extends PageRouteBuilder<dynamic> {
             );
             final tween = Tween<double>(begin: begin, end: end);
             return FadeTransition(
-              opacity: animation,
+              opacity: curvedAnimations,
               child: widget,
             );
           },
