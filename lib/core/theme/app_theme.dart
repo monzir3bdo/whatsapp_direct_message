@@ -6,7 +6,7 @@ import 'package:whatsapp_direct_message/core/theme/colors.dart';
 ThemeData lightTheme() => ThemeData(
       appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
         statusBarColor: Colors.transparent,
       )),
       elevatedButtonTheme: ElevatedButtonThemeData(

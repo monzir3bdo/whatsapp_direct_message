@@ -12,6 +12,5 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size(double.infinity, 1);
 }
