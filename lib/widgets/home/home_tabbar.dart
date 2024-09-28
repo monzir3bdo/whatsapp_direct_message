@@ -27,6 +27,7 @@ class HomeTabBar extends StatelessWidget {
         ),
         child: TabBar(
           controller: _tabController,
+
           tabs: [
             'Send'.hardCoded,
             'History'.hardCoded,

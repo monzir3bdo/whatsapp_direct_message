@@ -17,11 +17,13 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
             .get(saveEnabledKey, defaultValue: true) ==
         false) {
       emit(const HistoryState.historyDisable());
+      return;
     }
     try {
       final contacts = HiveDatabase.instance.history!.values.toList();
       if (contacts.isEmpty) {
         emit(const HistoryState.empty());
+        return;
       }
       emit(HistoryState.success(contacts: contacts));
     } catch (e) {

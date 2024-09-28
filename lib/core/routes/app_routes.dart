@@ -8,10 +8,11 @@ class AppRoutes {
   static const settingsScreen = '/settings';
 
   static BaseRoute onGenerate(RouteSettings routeSettings) {
-    final arguments = routeSettings.arguments;
     switch (routeSettings.name) {
       case homeScreen:
-        return BaseRoute(screen: const HomeScreen());
+        return BaseRoute(
+          screen: const HomeScreen(),
+        );
       case settingsScreen:
         return BaseRoute(screen: const SettingsScreen());
 
