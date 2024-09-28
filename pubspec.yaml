@@ -44,6 +44,7 @@ dependencies:
   hive_generator: ^2.0.1
   url_launcher: ^6.3.0
   package_info_plus: ^8.0.2
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
