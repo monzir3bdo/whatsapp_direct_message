@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
+import 'package:whatsapp_direct_message/models/contact_model.dart';
 import 'package:whatsapp_direct_message/widgets/history/whatsapp_icon_button.dart';
 
 class HistoryCard extends StatelessWidget {
-  const HistoryCard({super.key});
-
+  const HistoryCard({super.key, required this.contact});
+  final ContactModel contact;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,13 +28,13 @@ class HistoryCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'No Name',
+                contact.name ?? 'No Name',
                 style: AppTextStyles.medium14
                     .copyWith(color: context.color.textColor),
               ),
               Gap(context.height * 0.015),
               Text(
-                '0543659079',
+                contact.phoneNumber,
                 style: AppTextStyles.medium14
                     .copyWith(color: context.color.textColor),
               ),
