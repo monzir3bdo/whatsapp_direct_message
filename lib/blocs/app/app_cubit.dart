@@ -8,7 +8,8 @@ part 'app_state.dart';
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(const AppState.initial());
   bool isDark = HiveDatabase.instance.isDark!.get(darkKey) ?? false;
-  bool saveNumber = true;
+  bool saveNumber =
+      HiveDatabase.instance.isSaveEnabled!.get(saveEnabledKey) ?? true;
 
   void changeTheme() {
     isDark = !isDark;
@@ -18,6 +19,7 @@ class AppCubit extends Cubit<AppState> {
 
   void toggleSaveNumber() {
     saveNumber = !saveNumber;
+    HiveDatabase.instance.isDark!.put(saveEnabledKey, isDark);
     emit(AppState.saveNumbersChanged(save: saveNumber));
   }
 }
