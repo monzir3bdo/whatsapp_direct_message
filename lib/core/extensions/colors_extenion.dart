@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 
 class ColorExtension extends ThemeExtension<ColorExtension> {
-  const ColorExtension({
-    required this.containerColor,
-    required this.textColor,
-    required this.floatingActionButtonColor,
-    required this.greyTabBarColor,
-  });
+  const ColorExtension(
+      {required this.containerColor,
+      required this.textColor,
+      required this.floatingActionButtonColor,
+      required this.greyTabBarColor,
+      required this.containerBorderColor});
 
   final Color? containerColor;
+  final Color? containerBorderColor;
   final Color? greyTabBarColor;
   final Color? textColor;
   final Color? floatingActionButtonColor;
@@ -21,10 +22,12 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
     Color? floatingActionButtonColor,
   }) {
     return ColorExtension(
-        containerColor: containerColor,
-        textColor: textColor,
-        floatingActionButtonColor: floatingActionButtonColor,
-        greyTabBarColor: greyTabBarColor);
+      containerColor: containerColor,
+      textColor: textColor,
+      floatingActionButtonColor: floatingActionButtonColor,
+      greyTabBarColor: greyTabBarColor,
+      containerBorderColor: containerBorderColor,
+    );
   }
 
   @override
@@ -35,7 +38,8 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
         containerColor: containerColor,
         textColor: textColor,
         floatingActionButtonColor: floatingActionButtonColor,
-        greyTabBarColor: null);
+        greyTabBarColor: greyTabBarColor,
+        containerBorderColor: containerBorderColor);
   }
 
   static ColorExtension light = const ColorExtension(
@@ -43,11 +47,13 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
     textColor: AppLightColors.primary,
     floatingActionButtonColor: AppLightColors.backgroundColor,
     greyTabBarColor: AppLightColors.tabGreyColor,
+    containerBorderColor: AppLightColors.black,
   );
   static ColorExtension dark = const ColorExtension(
     containerColor: AppDarkColors.containerColor,
     textColor: AppLightColors.backgroundColor,
     floatingActionButtonColor: AppDarkColors.primary,
     greyTabBarColor: AppDarkColors.darkGrey,
+    containerBorderColor: Color(0xff555555),
   );
 }
