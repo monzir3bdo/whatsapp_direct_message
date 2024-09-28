@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/widgets/settings/settings_container.dart';
+import 'package:whatsapp_direct_message/widgets/settings/settings_dark_theme_widget.dart';
+import 'package:whatsapp_direct_message/widgets/settings/settings_save_numbers_widget.dart';
 import 'package:whatsapp_direct_message/widgets/settings/settings_title_and_back_button.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -17,7 +18,9 @@ class SettingsScreen extends StatelessWidget {
             children: [
               const SettingsTitleAndBackButton(),
               Gap(context.height * 0.06),
-              const SettingsContainer(),
+              const SettingsDarkThemeWidget(),
+              Gap(context.height * 0.05),
+              const SettingsSaveNumbersWidget()
             ],
           ),
         ),
