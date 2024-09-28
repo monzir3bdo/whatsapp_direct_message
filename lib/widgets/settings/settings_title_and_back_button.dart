@@ -13,7 +13,7 @@ class SettingsTitleAndBackButton extends StatelessWidget {
         AppBackButton(),
         SettingsTitle(),
         SizedBox(
-          width: 50,
+          width: 35,
         )
       ],
     );
