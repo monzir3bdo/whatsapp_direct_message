@@ -7,8 +7,15 @@ part 'app_state.dart';
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(const AppState.initial());
   bool isDark = false;
+  bool saveNumber = true;
+
   void changeTheme() {
     isDark = !isDark;
     emit(AppState.themeModeChange(isDark: isDark));
+  }
+
+  void toggleSaveNumber() {
+    saveNumber = !saveNumber;
+    emit(AppState.saveNumbersChanged(save: saveNumber));
   }
 }

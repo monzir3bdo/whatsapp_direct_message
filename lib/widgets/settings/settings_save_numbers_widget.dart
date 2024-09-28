@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_direct_message/blocs/app/app_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
@@ -18,7 +20,12 @@ class SettingsSaveNumbersWidget extends StatelessWidget {
             style:
                 AppTextStyles.medium14.copyWith(color: context.color.textColor),
           ),
-          CupertinoSwitch(value: true, onChanged: (value) {}),
+          CupertinoSwitch(
+            value: context.read<AppCubit>().saveNumber,
+            onChanged: (value) {
+              context.read<AppCubit>().toggleSaveNumber();
+            },
+          ),
         ],
       ),
     );
