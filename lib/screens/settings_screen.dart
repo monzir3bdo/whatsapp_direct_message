@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/widgets/settings/settings_app_bar.dart';
 import 'package:whatsapp_direct_message/widgets/settings/settings_app_version.dart';
 import 'package:whatsapp_direct_message/widgets/settings/settings_change_language_widget.dart';
 import 'package:whatsapp_direct_message/widgets/settings/settings_dark_theme_widget.dart';
@@ -15,6 +16,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: SettingsAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
         child: SafeArea(

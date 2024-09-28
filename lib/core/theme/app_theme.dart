@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:whatsapp_direct_message/core/extensions/colors_extenion.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 
 ThemeData lightTheme() => ThemeData(
+      appBarTheme: const AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.light,
+        statusBarColor: Colors.transparent,
+      )),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
@@ -31,6 +37,11 @@ ThemeData lightTheme() => ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: AppLightColors.primary),
     );
 ThemeData darkTheme() => ThemeData(
+      appBarTheme: const AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness: Brightness.light),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(

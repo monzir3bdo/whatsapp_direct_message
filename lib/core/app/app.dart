@@ -11,6 +11,7 @@ class App extends StatelessWidget {
       home: const SettingsScreen(),
       theme: lightTheme(),
       darkTheme: darkTheme(),
+      themeMode: ThemeMode.dark,
     );
   }
 }
