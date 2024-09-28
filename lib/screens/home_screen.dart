@@ -37,19 +37,69 @@ class _HomeScreenState extends State<HomeScreen>
             height: 80,
           ),
           HomeTabBar(tabController: _tabController),
+          const SizedBox(
+            height: 20,
+          ),
           Expanded(
             child: TabBarView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _tabController,
-              children:  [
-                Column(
-                  children: [
-                    SizedBox(
-                      height: context.height,
-                    )
-                  ],
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Phone Number'.hardCoded,
+                          style: TextStyle(
+                            color: context.color.textColor,
+                            fontSize: 18,
+                          )),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          hintText: 'Enter phone number'.hardCoded,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                              checkColor: AppLightColors.primary,
+                              activeColor: context.color.containerColor,
+                              value: true,
+                              onChanged: (value) {}),
+                          Text(
+                            'show country picker'.hardCoded,
+                            style: const TextStyle(
+                              color: AppLightColors.primary,
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text('Message'.hardCoded,
+                          style: TextStyle(
+                            color: context.color.textColor,
+                            fontSize: 18,
+                          )),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextFormField(
+                        maxLines: 4,
+                        minLines: 4,
+                        decoration: InputDecoration(
+                          hintText: 'Message (optional)'.hardCoded,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                Placeholder()
+                const Placeholder()
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 
 import '../../../core/theme/colors.dart';
@@ -17,9 +18,10 @@ class HomeTabBar extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey[300], // Background color for unselected tabs
-          borderRadius: BorderRadius.circular(
-              50), // Stadium radius for unselected tabs
+          color: context
+              .color.greyTabBarColor, // Background color for unselected tabs
+          borderRadius:
+              BorderRadius.circular(50), // Stadium radius for unselected tabs
         ),
         child: TabBar(
           controller: _tabController,
@@ -27,15 +29,15 @@ class HomeTabBar extends StatelessWidget {
             'Send'.hardCoded,
             'History'.hardCoded,
           ].map((e) => Tab(text: e)).toList(),
+          dividerHeight: 0,
           labelColor: Colors.white,
-          unselectedLabelColor: Colors.black,
-          indicatorSize: TabBarIndicatorSize
-              .tab, // Full width background for selected tab
+          unselectedLabelColor: AppLightColors.primary,
+          indicatorSize:
+              TabBarIndicatorSize.tab, // Full width background for selected tab
           indicator: BoxDecoration(
-            color: AppLightColors
-                .primary, // Background color for selected tab
-            borderRadius: BorderRadius.circular(
-                50), // Stadium shape for selected tab
+            color: AppLightColors.primary, // Background color for selected tab
+            borderRadius:
+                BorderRadius.circular(50), // Stadium shape for selected tab
           ),
           indicatorWeight: 0, // Removes the underline thickness
           labelStyle: const TextStyle(
