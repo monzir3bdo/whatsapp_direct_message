@@ -4,9 +4,10 @@ import 'package:whatsapp_direct_message/core/extensions/build_context_extension.
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
+import 'package:whatsapp_direct_message/widgets/history/go_to_settings_button.dart';
 
-class EmptyHistoryWidget extends StatelessWidget {
-  const EmptyHistoryWidget({super.key});
+class ActivateHistoryWidget extends StatelessWidget {
+  const ActivateHistoryWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +19,14 @@ class EmptyHistoryWidget extends StatelessWidget {
           height: context.height * 0.35,
           color: Colors.indigo,
         ),
-        Gap(context.height * 0.12),
+        Gap(context.height * 0.07),
         Text(
-          'Empty History'.hardCoded,
+          'You Should Activate The Save Feature'.hardCoded,
           style:
               AppTextStyles.semiBold16.copyWith(color: AppLightColors.primary),
-        )
+        ),
+        Gap(context.height * 0.09),
+        GoToSettingsButton()
       ],
     );
   }
