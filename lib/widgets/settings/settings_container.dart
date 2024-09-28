@@ -15,7 +15,7 @@ class SettingsContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
         border: Border.all(
           //todo: Change the border to match the theme
-          color: const Color(0xff555555).withOpacity(0.1),
+          color: context.color.containerBorderColor!.withOpacity(0.1),
         ),
       ),
       child: child,

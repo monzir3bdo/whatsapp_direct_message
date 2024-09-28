@@ -44,7 +44,7 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
 
   static ColorExtension light = const ColorExtension(
     containerColor: AppLightColors.backgroundColor,
-    textColor: AppLightColors.primary,
+    textColor: AppLightColors.black,
     floatingActionButtonColor: AppLightColors.backgroundColor,
     greyTabBarColor: AppLightColors.tabGreyColor,
     containerBorderColor: AppLightColors.black,
