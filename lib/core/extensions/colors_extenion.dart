@@ -34,13 +34,13 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
     return ColorExtension(
         containerColor: containerColor,
         textColor: textColor,
-        floatingActionButtonColor: floatingActionButtonColor, greyTabBarColor: null
-        );
+        floatingActionButtonColor: floatingActionButtonColor,
+        greyTabBarColor: null);
   }
 
   static ColorExtension light = const ColorExtension(
     containerColor: AppLightColors.backgroundColor,
-    textColor: AppLightColors.black,
+    textColor: AppLightColors.primary,
     floatingActionButtonColor: AppLightColors.backgroundColor,
     greyTabBarColor: AppLightColors.tabGreyColor,
   );

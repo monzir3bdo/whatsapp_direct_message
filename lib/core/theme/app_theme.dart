@@ -3,6 +3,12 @@ import 'package:whatsapp_direct_message/core/extensions/colors_extenion.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 
 ThemeData lightTheme() => ThemeData(
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              backgroundColor: AppLightColors.primary)),
       inputDecorationTheme: const InputDecorationTheme(
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -25,6 +31,12 @@ ThemeData lightTheme() => ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: AppLightColors.primary),
     );
 ThemeData darkTheme() => ThemeData(
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              backgroundColor: AppLightColors.primary)),
       inputDecorationTheme: const InputDecorationTheme(
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
