@@ -17,6 +17,8 @@ class HomeTabBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
       child: Container(
+        height: context.height * 0.05,
+        width: context.width * 0.91,
         decoration: BoxDecoration(
           color: context
               .color.greyTabBarColor, // Background color for unselected tabs
