@@ -6,9 +6,11 @@ class AppBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
+    return IconButton(
+      onPressed: () {
+        context.pop();
+      },
+      icon: Container(
         width: 35,
         height: 35,
         decoration: ShapeDecoration(

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/widgets/home/home_floating_action_button.dart';
+import 'package:whatsapp_direct_message/widgets/home/home_tabbar.dart';
+import 'package:whatsapp_direct_message/widgets/home/send_widget.dart';
 
-import 'widgets/home/generate_links_widgets.dart';
-import 'widgets/home/home_tabbar.dart';
-import 'widgets/home/message_widgets.dart';
-import 'widgets/home/phone_number_widget.dart';
-import 'widgets/home/send_widget.dart';
+import '../widgets/home/generate_links_widgets.dart';
+import '../widgets/home/message_widgets.dart';
+import '../widgets/home/phone_number_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: const HomeFloatingActionButton(),
       body: Column(
         children: [
           const SizedBox(

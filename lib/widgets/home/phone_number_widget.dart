@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
-
-import 'show_country_picker.dart';
+import 'package:whatsapp_direct_message/widgets/home/show_country_picker.dart';
 
 class PhoneNumberWidgets extends StatelessWidget {
   const PhoneNumberWidgets({
@@ -56,5 +55,3 @@ class PhoneWidget extends StatelessWidget {
     );
   }
 }
-
-
