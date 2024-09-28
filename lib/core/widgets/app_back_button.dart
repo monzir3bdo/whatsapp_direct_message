@@ -6,12 +6,21 @@ class AppBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: ShapeDecoration(
-          shape: const CircleBorder(), color: context.color.containerColor),
-      child: const Center(child: Icon(Icons.arrow_back_ios_new_sharp)),
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        width: 35,
+        height: 35,
+        decoration: ShapeDecoration(
+            shape: const CircleBorder(), color: context.color.containerColor),
+        child: Center(
+          child: Icon(
+            Icons.arrow_back_ios_new_sharp,
+            color: context.color.textColor,
+            size: 25,
+          ),
+        ),
+      ),
     );
   }
 }

@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const SettingsScreen(),
-      theme: lightTheme(),
+      theme: darkTheme(),
       darkTheme: darkTheme(),
     );
   }
