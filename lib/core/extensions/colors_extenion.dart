@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mystore_app/core/styles/colors/dark_colors.dart';
-import 'package:mystore_app/core/styles/colors/light_colors.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 
 class ColorExtension extends ThemeExtension<ColorExtension> {
