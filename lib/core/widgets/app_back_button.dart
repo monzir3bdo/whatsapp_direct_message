@@ -10,16 +10,23 @@ class AppBackButton extends StatelessWidget {
       onPressed: () {
         context.pop();
       },
+      padding: EdgeInsets.zero,
       icon: Container(
         width: 35,
         height: 35,
         decoration: ShapeDecoration(
-            shape: const CircleBorder(), color: context.color.containerColor),
+          shape: CircleBorder(
+            side: BorderSide(
+              color: context.color.containerBorderColor!.withOpacity(0.2),
+            ),
+          ),
+          color: context.color.containerColor,
+        ),
         child: Center(
           child: Icon(
             Icons.arrow_back_ios_new_sharp,
             color: context.color.textColor,
-            size: 25,
+            size: 18,
           ),
         ),
       ),
