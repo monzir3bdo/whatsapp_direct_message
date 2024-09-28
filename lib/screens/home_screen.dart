@@ -39,8 +39,18 @@ class _HomeScreenState extends State<HomeScreen>
           HomeTabBar(tabController: _tabController),
           Expanded(
             child: TabBarView(
+              physics: const NeverScrollableScrollPhysics(),
               controller: _tabController,
-              children: const [Placeholder(), Placeholder()],
+              children:  [
+                Column(
+                  children: [
+                    SizedBox(
+                      height: context.height,
+                    )
+                  ],
+                ),
+                Placeholder()
+              ],
             ),
           ),
         ],
