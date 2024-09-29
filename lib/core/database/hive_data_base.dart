@@ -13,13 +13,13 @@ class HiveDatabase {
   Box<bool>? isDark;
   Box<bool>? isSaveEnabled;
   Box<String>? selectedLanguage;
-  Box<List<ContactModel>>? history;
+  Box<ContactModel>? history;
   Future<void> init() async {
     await Hive.initFlutter();
     Hive.registerAdapter(ContactModelAdapter());
     isDark = await Hive.openBox<bool>(darkKey);
     isSaveEnabled = await Hive.openBox<bool>(saveEnabledKey);
     selectedLanguage = await Hive.openBox<String>(selectedLanguageKey);
-    history = await Hive.openBox<List<ContactModel>>(historyKey);
+    history = await Hive.openBox<ContactModel>(historyKey);
   }
 }

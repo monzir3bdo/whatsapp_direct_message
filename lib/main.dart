@@ -13,8 +13,7 @@ void main() async {
       MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) =>
-                HistoryBloc()..add(const HistoryEvent.getContacts()),
+            create: (context) => HistoryBloc(),
           ),
           BlocProvider(
             create: (context) => AppCubit(),

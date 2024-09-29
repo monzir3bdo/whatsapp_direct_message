@@ -18,7 +18,7 @@ class ContactModelAdapter extends TypeAdapter<ContactModel> {
     };
     return ContactModel(
       name: fields[0] as String?,
-      phoneNumber: fields[2] as String,
+      phoneNumber: fields[1] as String,
     );
   }
 
@@ -28,7 +28,7 @@ class ContactModelAdapter extends TypeAdapter<ContactModel> {
       ..writeByte(2)
       ..writeByte(0)
       ..write(obj.name)
-      ..writeByte(2)
+      ..writeByte(1)
       ..write(obj.phoneNumber);
   }
 
