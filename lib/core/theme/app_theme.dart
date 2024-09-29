@@ -10,25 +10,41 @@ ThemeData lightTheme() => ThemeData(
         statusBarColor: Colors.transparent,
       )),
       elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              backgroundColor: AppLightColors.primary)),
-      inputDecorationTheme: const InputDecorationTheme(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          backgroundColor: AppLightColors.primary,
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
           borderSide: BorderSide(
-            color: AppLightColors.primary,
+            color: AppLightColors.black.withOpacity(0.2),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(
+            Radius.circular(
+              8,
+            ),
+          ),
+          borderSide: BorderSide(
+            color: AppLightColors.black.withOpacity(0.2),
           ),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(
+              8,
+            ),
+          ),
           borderSide: BorderSide(
-            color: AppLightColors.primary,
+            color: AppLightColors.black.withOpacity(0.2),
           ),
         ),
-        hintStyle: TextStyle(color: AppLightColors.lightGrey),
+        hintStyle: const TextStyle(color: AppLightColors.lightGrey),
       ),
       scaffoldBackgroundColor: AppLightColors.backgroundColor,
       extensions: <ThemeExtension<dynamic>>[
@@ -45,12 +61,12 @@ ThemeData darkTheme() => ThemeData(
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(8),
               ),
               backgroundColor: AppLightColors.primary)),
       inputDecorationTheme: const InputDecorationTheme(
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
           borderSide: BorderSide(
             color: AppLightColors.primary,
           ),

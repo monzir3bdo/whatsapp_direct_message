@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 
 import '../../../core/theme/colors.dart';
 
@@ -17,13 +18,13 @@ class HomeTabBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
       child: Container(
-        height: context.height * 0.048,
+        height: context.height * 0.051,
         width: context.width * 0.91,
         decoration: BoxDecoration(
           color: context
               .color.greyTabBarColor, // Background color for unselected tabs
           borderRadius:
-              BorderRadius.circular(50), // Stadium radius for unselected tabs
+              BorderRadius.circular(42), // Stadium radius for unselected tabs
         ),
         child: TabBar(
           controller: _tabController,
@@ -40,15 +41,11 @@ class HomeTabBar extends StatelessWidget {
           indicator: BoxDecoration(
             color: AppLightColors.primary, // Background color for selected tab
             borderRadius:
-                BorderRadius.circular(50), // Stadium shape for selected tab
+                BorderRadius.circular(42), // Stadium shape for selected tab
           ),
           indicatorWeight: 0, // Removes the underline thickness
-          labelStyle: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-          unselectedLabelStyle: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          labelStyle: AppTextStyles.semiBold16,
+          unselectedLabelStyle: AppTextStyles.semiBold16,
         ),
       ),
     );
