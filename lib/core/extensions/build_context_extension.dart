@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/colors_extenion.dart';
+import 'package:whatsapp_direct_message/core/localization/app_localizations.dart';
 
 extension BuildContextExtension on BuildContext {
   ColorExtension get color => Theme.of(this).extension<ColorExtension>()!;
@@ -11,6 +12,10 @@ extension BuildContextExtension on BuildContext {
       destination,
       arguments: arguments,
     );
+  }
+
+  String translate(String key) {
+    return AppLocalizations.of(this)!.translate(key)!;
   }
 
   void pop() {
