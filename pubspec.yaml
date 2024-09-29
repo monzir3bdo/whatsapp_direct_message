@@ -109,6 +109,8 @@ flutter:
       fonts:
         - asset: assets/fonts/montserrat/Montserrat-Arabic-Bold.ttf
           weight: 700
+        - asset: assets/fonts/montserrat/Montserrat-Arabic-SemiBold.ttf
+          weight: 600
         - asset: assets/fonts/montserrat/Montserrat-Arabic-Medium.ttf
           weight: 500
         - asset: assets/fonts/montserrat/Montserrat-Arabic-Regular.ttf

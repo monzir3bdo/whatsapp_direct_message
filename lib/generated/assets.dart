@@ -17,6 +17,8 @@ class Assets {
       'assets/fonts/montserrat/Montserrat-Arabic-Medium.ttf';
   static const String montserratMontserratArabicRegular =
       'assets/fonts/montserrat/Montserrat-Arabic-Regular.ttf';
+  static const String montserratMontserratArabicSemiBold =
+      'assets/fonts/montserrat/Montserrat-Arabic-SemiBold.ttf';
   static const String poppinsPoppinsBold =
       'assets/fonts/poppins/Poppins-Bold.ttf';
   static const String poppinsPoppinsLight =
