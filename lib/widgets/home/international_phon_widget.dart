@@ -26,6 +26,7 @@ class InternationalPhoneWidget extends StatelessWidget {
       selectorTextStyle: TextStyle(color: context.color.textColor),
       onInputChanged: (number) {
         context.read<SendMessageCubit>().phone = number.phoneNumber;
+        print(context.read<SendMessageCubit>().phone);
       },
       onInputValidated: (bool value) {},
       selectorConfig: const SelectorConfig(

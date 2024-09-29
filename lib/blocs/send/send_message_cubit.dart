@@ -28,7 +28,7 @@ class SendMessageCubit extends Cubit<SendMessageState> {
     final url = Uri(
       scheme: 'https',
       host: 'wa.me',
-      path: "$phoneNumber${phoneController.text}",
+      path: phoneNumber,
       queryParameters: messageController.text.isNotEmpty
           ? {'text': messageController.text}
           : null,
