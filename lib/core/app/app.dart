@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/app/app_cubit.dart';
+import 'package:whatsapp_direct_message/core/localization/app_localizations_setup.dart';
 import 'package:whatsapp_direct_message/core/routes/app_routes.dart';
 import 'package:whatsapp_direct_message/core/theme/app_theme.dart';
 
@@ -15,6 +16,11 @@ class App extends StatelessWidget {
           onGenerateRoute: AppRoutes.onGenerate,
           theme: lightTheme(),
           darkTheme: darkTheme(),
+          locale: Locale('en'),
+          supportedLocales: AppLocalizationsSetup.supportedLocales,
+          localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
+          localeResolutionCallback:
+              AppLocalizationsSetup.localeResolutionCallback,
           themeMode: context.read<AppCubit>().isDark
               ? ThemeMode.dark
               : ThemeMode.light,
