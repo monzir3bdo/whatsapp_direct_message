@@ -10,8 +10,8 @@ import 'message_widgets.dart';
 import 'phone_number_widget.dart';
 import 'send_widget.dart';
 
-class HomeWidget extends StatelessWidget {
-  const HomeWidget({
+class HomeMainWidget extends StatelessWidget {
+  const HomeMainWidget({
     super.key,
   });
 
@@ -42,7 +42,7 @@ class HomeWidget extends StatelessWidget {
             ),
           ),
           const Gap(
-             10,
+            10,
           ),
           const GenerateLinkWidgets()
         ],

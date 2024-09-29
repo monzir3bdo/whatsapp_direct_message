@@ -44,10 +44,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: TabBarView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _tabController,
-              children: const[
-                HomeWidget(),
-                 HistoryWidget()
-              ],
+              children: const [HomeMainWidget(), HistoryWidget()],
             ),
           ),
         ],
@@ -55,5 +52,3 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 }
-
-
