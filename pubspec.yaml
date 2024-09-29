@@ -48,6 +48,8 @@ dependencies:
   flutter_svg: ^2.0.10+1
   hive_flutter: ^1.1.0
   intl_phone_number_input: ^0.7.4
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
