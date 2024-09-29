@@ -1,7 +1,8 @@
-import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
-import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
+import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 
 import '../../generated/assets.dart';
 import 'whatsapp_button.dart';
@@ -17,7 +18,15 @@ class SendWidgets extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         WhatsappButton(
-          onPressed: () {},
+          onPressed: () async {
+            if (context
+                .read<SendMessageCubit>()
+                .formKey
+                .currentState!
+                .validate()) {
+              await context.read<SendMessageCubit>().sendMessage();
+            }
+          },
           text: context.translate(LangKeys.whatsapp),
           icon: Assets.svgWhatsapp,
         ),

@@ -1,8 +1,9 @@
-import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 
 import '../../core/theme/app_text_styels.dart';
 import '../../core/theme/colors.dart';
@@ -20,32 +21,35 @@ class HomeMainWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const PhoneNumberWidgets(),
-          const Gap(
-            20,
-          ),
-          const MessageWidgets(),
-          const Gap(
-            20,
-          ),
-          const SendWidgets(),
-          const Gap(
-            20,
-          ),
-          Text(
-            context.translate(LangKeys.generateLinkToYourWhatsapp),
-            style: AppTextStyles.medium14.copyWith(
-              color: AppLightColors.primary,
+      child: Form(
+        key: context.read<SendMessageCubit>().formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const PhoneNumberWidgets(),
+            const Gap(
+              20,
             ),
-          ),
-          const Gap(
-            10,
-          ),
-          const GenerateLinkWidgets()
-        ],
+            const MessageWidgets(),
+            const Gap(
+              20,
+            ),
+            const SendWidgets(),
+            const Gap(
+              20,
+            ),
+            Text(
+              context.translate(LangKeys.generateLinkToYourWhatsapp),
+              style: AppTextStyles.medium14.copyWith(
+                color: AppLightColors.primary,
+              ),
+            ),
+            const Gap(
+              10,
+            ),
+            const GenerateLinkWidgets()
+          ],
+        ),
       ),
     );
   }
