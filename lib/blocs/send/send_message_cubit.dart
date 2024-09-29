@@ -17,17 +17,27 @@ class SendMessageCubit extends Cubit<SendMessageState> {
     try {
       emit(const SendMessageState.loading());
 
-      await launchUrl(Uri(
-        scheme: 'https',
-        host: 'wa.me',
-        path: "+${phone!.replaceAll('+', '')}",
-        queryParameters: messageController.text.isNotEmpty
-            ? {'text': messageController.text}
-            : null,
-      ));
+      await openWhatsapp(phone!, messageController.text);
       emit(const SendMessageState.success());
     } catch (e) {
       emit(const SendMessageState.success());
+    }
+  }
+
+  Future<void> openWhatsapp(String phoneNumber, String message) async {
+    final url = Uri(
+      scheme: 'https',
+      host: 'wa.me',
+      path: "$phoneNumber${phoneController.text}",
+      queryParameters: messageController.text.isNotEmpty
+          ? {'text': messageController.text}
+          : null,
+    );
+
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
     }
   }
 

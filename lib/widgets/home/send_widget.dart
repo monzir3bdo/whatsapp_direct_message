@@ -14,28 +14,14 @@ class SendWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        WhatsappButton(
-          onPressed: () async {
-            if (context
-                .read<SendMessageCubit>()
-                .formKey
-                .currentState!
-                .validate()) {
-              await context.read<SendMessageCubit>().sendMessage();
-            }
-          },
-          text: context.translate(LangKeys.whatsapp),
-          icon: Assets.svgWhatsapp,
-        ),
-        WhatsappButton(
-          onPressed: () {},
-          text: context.translate(LangKeys.waBusiness),
-          icon: Assets.svgWaBusiness,
-        ),
-      ],
+    return WhatsappButton(
+      onPressed: () async {
+        if (context.read<SendMessageCubit>().formKey.currentState!.validate()) {
+          await context.read<SendMessageCubit>().sendMessage();
+        }
+      },
+      text: context.translate(LangKeys.whatsapp),
+      icon: Assets.svgWhatsapp,
     );
   }
 }

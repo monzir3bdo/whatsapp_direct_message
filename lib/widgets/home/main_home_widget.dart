@@ -31,12 +31,12 @@ class HomeMainWidget extends StatelessWidget {
               20,
             ),
             const MessageWidgets(),
-            const Gap(
-              20,
+            Gap(
+              context.height * 0.035,
             ),
             const SendWidgets(),
-            const Gap(
-              20,
+            Gap(
+              context.height * 0.03,
             ),
             Text(
               context.translate(LangKeys.generateLinkToYourWhatsapp),
@@ -44,8 +44,8 @@ class HomeMainWidget extends StatelessWidget {
                 color: AppLightColors.primary,
               ),
             ),
-            const Gap(
-              10,
+            Gap(
+              context.height * 0.014,
             ),
             const GenerateLinkWidgets()
           ],
