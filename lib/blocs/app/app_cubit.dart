@@ -11,6 +11,8 @@ class AppCubit extends Cubit<AppState> {
       HiveDatabase.instance.isDark!.get(darkKey, defaultValue: false)!;
   bool saveNumber = HiveDatabase.instance.isSaveEnabled!
       .get(saveEnabledKey, defaultValue: true)!;
+  String locale = HiveDatabase.instance.selectedLanguage!
+      .get(selectedLanguageKey, defaultValue: 'en')!;
 
   void changeTheme() async {
     isDark = !isDark;
@@ -22,5 +24,16 @@ class AppCubit extends Cubit<AppState> {
     saveNumber = !saveNumber;
     await HiveDatabase.instance.isSaveEnabled!.put(saveEnabledKey, saveNumber);
     emit(AppState.saveNumbersChanged(save: saveNumber));
+  }
+
+  void changeLocale() async {
+    if (locale == 'en') {
+      locale = 'ar';
+    } else {
+      locale = 'en';
+    }
+    await HiveDatabase.instance.selectedLanguage!
+        .put(selectedLanguageKey, locale);
+    emit(AppState.languageChanged(language: locale));
   }
 }
