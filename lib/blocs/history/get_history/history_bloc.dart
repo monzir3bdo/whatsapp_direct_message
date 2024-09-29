@@ -20,7 +20,8 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
       return;
     }
     try {
-      final contacts = HiveDatabase.instance.history!.values.toList();
+      final contacts =
+          HiveDatabase.instance.history!.get(historyKey, defaultValue: [])!;
       if (contacts.isEmpty) {
         emit(const HistoryState.empty());
         return;
