@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 
 import '../../core/theme/colors.dart';
 
 class WhatsappButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
-  final IconData icon;
+  final String icon;
   const WhatsappButton({
     super.key,
     required this.onPressed,
@@ -26,10 +27,14 @@ class WhatsappButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon),
-          Text(text,
-              style: AppTextStyles.medium14
-                  .copyWith(color: AppLightColors.backgroundColor)),
+          SvgPicture.asset(
+            icon,
+            width: 30,
+            height: 30,
+            colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          ),
+          const Gap(5),
+          Text(text, style: const TextStyle(fontSize: 18, color: Colors.white)),
         ],
       ),
     );

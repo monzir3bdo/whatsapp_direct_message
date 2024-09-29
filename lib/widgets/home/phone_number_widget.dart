@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/widgets/home/show_country_picker.dart';
+
+import 'international_phon_widget.dart';
 
 class PhoneNumberWidgets extends StatelessWidget {
   const PhoneNumberWidgets({
@@ -19,6 +22,7 @@ class PhoneNumberWidgets extends StatelessWidget {
           height: 10,
         ),
         PhoneWidget(),
+        InternationalPhoneWidget(),
         ShowCountryPickerCheckBox(),
       ],
     );
