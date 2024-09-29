@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
+
+import '../../blocs/send/send_message_cubit.dart';
 
 class MessageWidgets extends StatelessWidget {
   const MessageWidgets({
@@ -24,6 +27,7 @@ class MessageWidgets extends StatelessWidget {
         SizedBox(
           height: context.height * 0.18,
           child: TextFormField(
+            controller: context.read<SendMessageCubit>().messageController,
             maxLines: 10,
             minLines: 10,
             decoration: InputDecoration(
