@@ -22,7 +22,7 @@ class SendWidgets extends StatelessWidget {
         WhatsappButton(
           onPressed: () {},
           text: 'Wa Business'.hardCoded,
-          icon: Assets.svgWhatsapp,
+          icon: Assets.svgWaBusiness,
         ),
       ],
     );
