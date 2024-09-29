@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
+import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/widgets/home/show_country_picker.dart';
 
 class PhoneNumberWidgets extends StatelessWidget {
@@ -32,10 +33,7 @@ class PhoneTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text('Phone Number'.hardCoded,
-        style: TextStyle(
-          color: context.color.textColor,
-          fontSize: 18,
-        ));
+        style: AppTextStyles.medium14.copyWith(color: AppLightColors.primary));
   }
 }
 

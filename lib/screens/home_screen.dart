@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
+import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/widgets/history/history_widget.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_floating_action_button.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_tabbar.dart';
@@ -52,10 +55,11 @@ class _HomeScreenState extends State<HomeScreen>
               controller: _tabController,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Gap(context.height * 0.04),
                       const PhoneNumberWidgets(),
                       const SizedBox(
                         height: 20,
@@ -68,11 +72,12 @@ class _HomeScreenState extends State<HomeScreen>
                       const SizedBox(
                         height: 20,
                       ),
-                      Text('Generate Link to Your Whatsapp'.hardCoded,
-                          style: TextStyle(
-                            color: context.color.textColor,
-                            fontSize: 18,
-                          )),
+                      Text(
+                        'Generate Link to Your Whatsapp'.hardCoded,
+                        style: AppTextStyles.medium14.copyWith(
+                          color: AppLightColors.primary,
+                        ),
+                      ),
                       const SizedBox(
                         height: 10,
                       ),
