@@ -1,10 +1,12 @@
-import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:lottie/lottie.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
+
+import '../../generated/assets.dart';
 
 class EmptyHistoryWidget extends StatelessWidget {
   const EmptyHistoryWidget({super.key});
@@ -14,11 +16,7 @@ class EmptyHistoryWidget extends StatelessWidget {
     return Column(
       children: [
         Gap(context.height * 0.12),
-        Container(
-          width: context.width * 0.8,
-          height: context.height * 0.35,
-          color: Colors.indigo,
-        ),
+        Lottie.asset(Assets.animationsEmpty, repeat: false),
         Gap(context.height * 0.12),
         Text(
           context.translate(LangKeys.emptyHistory),
