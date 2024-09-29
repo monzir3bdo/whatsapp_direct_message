@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/widgets/history/history_widget.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_floating_action_button.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_tabbar.dart';
+
 import '../widgets/home/main_home_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -44,7 +45,10 @@ class _HomeScreenState extends State<HomeScreen>
             child: TabBarView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _tabController,
-              children: const [HomeMainWidget(), HistoryWidget()],
+              children: const [
+                HomeMainWidget(),
+                HistoryWidget(),
+              ],
             ),
           ),
         ],
