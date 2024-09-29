@@ -22,5 +22,7 @@
     "remove_history": "حذف السجل",
     "save_numbers": "حفظ الأرقام",
     "share_the_app": "مشاركة التطبيق",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "or_extract_phone_number_from_copied_text": "أو استخرج رقم الهاتف من النص المنسوخ",
+    "paste_the_text_here": "الصق النص هنا"
 }

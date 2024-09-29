@@ -27,4 +27,6 @@ class LangKeys {
   static const String saveNumbers = 'save_numbers';
   static const String shareTheApp = 'share_the_app';
   static const String settings = 'settings';
+  static const String orExtractPhoneNumberFromCopiedText = 'or_extract_phone_number_from_copied_text';
+  static const String pasteTheTextHere = 'paste_the_text_here';
 }

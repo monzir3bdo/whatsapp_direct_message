@@ -10,6 +10,7 @@ class SendMessageCubit extends Cubit<SendMessageState> {
   SendMessageCubit() : super(const SendMessageState.initial());
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
+  final TextEditingController copiedPhoneController = TextEditingController();
 
   String? phone;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
