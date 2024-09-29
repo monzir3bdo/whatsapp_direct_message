@@ -6,7 +6,7 @@ part 'contact_model.g.dart';
 class ContactModel {
   @HiveField(0)
   final String? name;
-  @HiveField(2)
+  @HiveField(1)
   final String phoneNumber;
 
   ContactModel({this.name, required this.phoneNumber});

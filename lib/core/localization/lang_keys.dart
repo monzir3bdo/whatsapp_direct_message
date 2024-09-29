@@ -29,4 +29,5 @@ class LangKeys {
   static const String settings = 'settings';
   static const String orExtractPhoneNumberFromCopiedText = 'or_extract_phone_number_from_copied_text';
   static const String pasteTheTextHere = 'paste_the_text_here';
+  static const String copyYourLink = 'copy_your_link';
 }
