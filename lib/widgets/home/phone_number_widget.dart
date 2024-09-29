@@ -14,29 +14,31 @@ class PhoneNumberWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PhoneTitle(),
-        SizedBox(
+        PhoneTitle(title:context.translate(LangKeys.phoneNumber)),
+        const SizedBox(
           height: 10,
         ),
         // PhoneWidget(),
-        InternationalPhoneWidget(),
-        ShowCountryPickerCheckBox(),
+        const InternationalPhoneWidget(),
+        const ShowCountryPickerCheckBox(),
       ],
     );
   }
 }
 
 class PhoneTitle extends StatelessWidget {
+  final String title;
   const PhoneTitle({
     super.key,
+    required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Text(context.translate(LangKeys.phoneNumber),
+    return Text(title,
         style: AppTextStyles.medium14.copyWith(color: AppLightColors.primary));
   }
 }

@@ -22,5 +22,7 @@
     "remove_history": "Remove History",
     "save_numbers": "Save Numbers",
     "share_the_app": "Share The App",
-    "settings": "Settings"
+    "settings": "Settings",
+    "or_extract_phone_number_from_copied_text": "Or Extract Phone Number from copied text",
+    "paste_the_text_here": "Paste the text here"
 }
