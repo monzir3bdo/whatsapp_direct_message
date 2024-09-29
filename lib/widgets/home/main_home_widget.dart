@@ -22,7 +22,6 @@ class HomeMainWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Gap(context.height * 0.04),
           const PhoneNumberWidgets(),
           const Gap(
             20,
