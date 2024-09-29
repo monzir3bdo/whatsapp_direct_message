@@ -16,7 +16,7 @@ class App extends StatelessWidget {
           onGenerateRoute: AppRoutes.onGenerate,
           theme: lightTheme(),
           darkTheme: darkTheme(),
-          locale: Locale('en'),
+          locale: Locale(context.read<AppCubit>().locale),
           supportedLocales: AppLocalizationsSetup.supportedLocales,
           localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
           localeResolutionCallback:
