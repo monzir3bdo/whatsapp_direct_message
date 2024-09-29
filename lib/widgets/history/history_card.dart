@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/models/contact_model.dart';
-import 'package:whatsapp_direct_message/widgets/history/whatsapp_icon_button.dart';
+import 'package:whatsapp_direct_message/widgets/history/history_send_message.dart';
 
 class HistoryCard extends StatelessWidget {
   const HistoryCard({super.key, required this.contact});
@@ -40,7 +40,9 @@ class HistoryCard extends StatelessWidget {
               ),
             ],
           ),
-          const WhatsappIconButton(),
+          HistorySendMessage(
+            phoneNumber: contact.phoneNumber,
+          )
         ],
       ),
     );
