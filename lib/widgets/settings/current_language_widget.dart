@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
@@ -13,7 +14,7 @@ class CurrentLanguageWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'Arabc'.hardCoded,
+          context.translate(LangKeys.arabc),
           style:
               AppTextStyles.medium14.copyWith(color: context.color.textColor),
         ),

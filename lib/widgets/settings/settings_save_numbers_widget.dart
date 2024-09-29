@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/app/app_cubit.dart';
@@ -17,7 +18,7 @@ class SettingsSaveNumbersWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Save Numbers'.hardCoded,
+            context.translate(LangKeys.saveNumbers),
             style:
                 AppTextStyles.medium14.copyWith(color: context.color.textColor),
           ),

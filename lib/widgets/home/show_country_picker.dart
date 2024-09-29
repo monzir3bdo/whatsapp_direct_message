@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
@@ -19,7 +20,7 @@ class ShowCountryPickerCheckBox extends StatelessWidget {
             value: true,
             onChanged: (value) {}),
         Text(
-          'show country picker'.hardCoded,
+          context.translate(LangKeys.showCountryPicker),
           style: const TextStyle(
             color: AppLightColors.primary,
           ),

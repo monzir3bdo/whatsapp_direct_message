@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
@@ -9,7 +10,7 @@ class SettingsTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Settings'.hardCoded,
+      context.translate(LangKeys.settings),
       style: AppTextStyles.semiBold16
           .copyWith(color: context.color.textColor, fontSize: 17),
     );

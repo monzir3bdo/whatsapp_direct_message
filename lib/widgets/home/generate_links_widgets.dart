@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
@@ -28,7 +29,7 @@ class GenerateLinkWidgets extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 child: Text(
-                  'Generate'.hardCoded,
+                  context.translate(LangKeys.generate),
                   style: AppTextStyles.medium14.copyWith(
                     fontSize: 16,
                     color: AppLightColors.backgroundColor,
@@ -42,7 +43,7 @@ class GenerateLinkWidgets extends StatelessWidget {
           height: 15,
         ),
         Center(
-          child: Text('wa.me/+96654510255'.hardCoded,
+          child: Text(context.translate(LangKeys.waMe96654510255),
               style: AppTextStyles.semiBold16.copyWith(
                 color: AppLightColors.primary,
               )),

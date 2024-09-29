@@ -1,3 +1,5 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
+import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
@@ -12,7 +14,7 @@ class SettingsRemoveHistory extends StatelessWidget {
       child: TextButton(
         onPressed: () {},
         child: Text(
-          'Remove History'.hardCoded,
+          context.translate(LangKeys.removeHistory),
           style: AppTextStyles.medium14.copyWith(
             color: AppLightColors.red,
           ),

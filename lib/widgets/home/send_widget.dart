@@ -1,3 +1,5 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
+import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 
@@ -16,12 +18,12 @@ class SendWidgets extends StatelessWidget {
       children: [
         WhatsappButton(
           onPressed: () {},
-          text: 'Whatsapp'.hardCoded,
+          text: context.translate(LangKeys.whatsapp),
           icon: Assets.svgWhatsapp,
         ),
         WhatsappButton(
           onPressed: () {},
-          text: 'Wa Business'.hardCoded,
+          text: context.translate(LangKeys.waBusiness),
           icon: Assets.svgWaBusiness,
         ),
       ],

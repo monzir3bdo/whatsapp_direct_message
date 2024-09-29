@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
@@ -35,7 +36,7 @@ class HomeMainWidget extends StatelessWidget {
             20,
           ),
           Text(
-            'Generate Link to Your Whatsapp'.hardCoded,
+            context.translate(LangKeys.generateLinkToYourWhatsapp),
             style: AppTextStyles.medium14.copyWith(
               color: AppLightColors.primary,
             ),

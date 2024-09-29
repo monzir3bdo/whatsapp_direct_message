@@ -1,1 +1,26 @@
-{}
+{
+    "you_should_activate_the_save_feature": "يجب عليك تفعيل ميزة الحفظ",
+    "empty_history": "سجل فارغ",
+    "go_to_settings": "اذهب إلى الإعدادات",
+    "previous_numbers": "الأرقام السابقة",
+    "generate": "توليد",
+    "wa_me_96654510255": "wa.me/+96654510255",
+    "send": "إرسال",
+    "history": "السجل",
+    "generate_link_to_your_whatsapp": "توليد رابط إلى واتسابك",
+    "message": "الرسالة",
+    "enter_your_message_optional_": "أدخل رسالتك (اختياري)",
+    "phone_number": "رقم الهاتف",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "whatsapp": "واتساب",
+    "wa_business": "واتساب بزنس",
+    "show_country_picker": "إظهار اختيار الدولة",
+    "arabc": "عربي",
+    "app_version": "إصدار التطبيق",
+    "change_language": "تغيير اللغة",
+    "dark_theme": "الوضع الليلي",
+    "remove_history": "حذف السجل",
+    "save_numbers": "حفظ الأرقام",
+    "share_the_app": "مشاركة التطبيق",
+    "settings": "الإعدادات"
+}

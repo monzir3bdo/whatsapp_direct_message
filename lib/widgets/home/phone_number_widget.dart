@@ -1,3 +1,5 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
+import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
@@ -36,7 +38,7 @@ class PhoneTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Phone Number'.hardCoded,
+    return Text(context.translate(LangKeys.phoneNumber),
         style: AppTextStyles.medium14.copyWith(color: AppLightColors.primary));
   }
 }
@@ -51,7 +53,7 @@ class PhoneWidget extends StatelessWidget {
     return Form(
       child: TextFormField(
         decoration: InputDecoration(
-          hintText: 'Enter phone number'.hardCoded,
+          hintText: context.translate(LangKeys.enterPhoneNumber),
         ),
       ),
     );

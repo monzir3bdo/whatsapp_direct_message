@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
@@ -21,7 +22,7 @@ class ActivateHistoryWidget extends StatelessWidget {
         ),
         Gap(context.height * 0.07),
         Text(
-          'You Should Activate The Save Feature'.hardCoded,
+          context.translate(LangKeys.youShouldActivateTheSaveFeature),
           style:
               AppTextStyles.semiBold16.copyWith(color: AppLightColors.primary),
         ),

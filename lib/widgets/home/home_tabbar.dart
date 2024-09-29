@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
@@ -30,8 +31,8 @@ class HomeTabBar extends StatelessWidget {
           controller: _tabController,
 
           tabs: [
-            'Send'.hardCoded,
-            'History'.hardCoded,
+            context.translate(LangKeys.send),
+            context.translate(LangKeys.history),
           ].map((e) => Tab(text: e)).toList(),
           dividerHeight: 0,
           labelColor: Colors.white,

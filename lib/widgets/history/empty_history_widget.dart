@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
@@ -20,7 +21,7 @@ class EmptyHistoryWidget extends StatelessWidget {
         ),
         Gap(context.height * 0.12),
         Text(
-          'Empty History'.hardCoded,
+          context.translate(LangKeys.emptyHistory),
           style:
               AppTextStyles.semiBold16.copyWith(color: AppLightColors.primary),
         )
