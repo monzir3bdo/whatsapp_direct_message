@@ -32,4 +32,7 @@ class LangKeys {
   static const String pasteTheTextHere = 'paste_the_text_here';
   static const String copyYourLink = 'copy_your_link';
   static const String noName = 'no_name';
+  static const String noPhoneNumberFoundInTheCopiedText = 'no_phone_number_found_in_the_copied_text';
+  static const String paste = 'paste';
+  static const String pasteTextHere = 'paste_text_here';
 }

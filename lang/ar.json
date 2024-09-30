@@ -26,5 +26,8 @@
     "or_extract_phone_number_from_copied_text": "استخراج رقم الهاتف من الرسائل",
     "paste_the_text_here": "الصق النص هنا",
     "copy_your_link": "انسخ الرابط",
-    "no_name": "بدون اسم"
+    "no_name": "بدون اسم",
+    "no_phone_number_found_in_the_copied_text": "لم يتم العثور على رقم هاتف في النص المنسوخ",
+    "paste": "الصق",
+    "paste_text_here": "الصق النص هنا"
 }

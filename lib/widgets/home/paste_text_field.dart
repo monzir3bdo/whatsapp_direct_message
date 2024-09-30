@@ -1,3 +1,4 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
@@ -31,7 +32,7 @@ class PasteTextField extends StatelessWidget {
       },
       decoration: InputDecoration(
         hintText:
-            "Paste Text Here".hardCoded,
+            context.translate(LangKeys.pasteTextHere),
       ),
     );
   }

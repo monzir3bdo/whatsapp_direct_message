@@ -26,5 +26,8 @@
     "or_extract_phone_number_from_copied_text": "Or Extract Phone Number from copied text",
     "paste_the_text_here": "Paste the text here",
     "copy_your_link": "Copy Your Link",
-    "no_name": "No Name"
+    "no_name": "No Name",
+    "no_phone_number_found_in_the_copied_text": "No phone number found in the copied text",
+    "paste": "Paste",
+    "paste_text_here": "Paste Text Here"
 }

@@ -1,3 +1,5 @@
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
+import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,6 +20,7 @@ class SendMessageCubit extends Cubit<SendMessageState> {
   final List<String> phoneNumbers = [];
   String? phone;
   String? copiedPhone;
+  String generatedLink = '';
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final GlobalKey<FormState> pasteFormKey = GlobalKey<FormState>();
 
@@ -60,7 +63,7 @@ class SendMessageCubit extends Cubit<SendMessageState> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content:
-                  Text('No phone number found in the copied text'.hardCoded),
+                  Text(context.translate(LangKeys.noPhoneNumberFoundInTheCopiedText)),
             ),
           );
         }
