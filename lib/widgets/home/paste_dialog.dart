@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/widgets/home/phone_number_widget.dart';
 import 'package:whatsapp_direct_message/widgets/home/send_copied.dart';
 
@@ -35,15 +36,12 @@ class PasteDialog extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         PhoneTitle(
-                          title: "Extract phone from pasted text".hardCoded,
+                          title: context
+                              .translate(LangKeys.extractPhoneNumberFromText),
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        const Gap(15),
                         const PasteTextField(),
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        const Gap(10),
                         context.read<SendMessageCubit>().phoneNumbers.isNotEmpty
                             ? Column(
                                 children: context
@@ -62,13 +60,9 @@ class PasteDialog extends StatelessWidget {
                                 }).toList(),
                               )
                             : const SizedBox(),
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        const Gap(10),
                         const CopiedMessageWidgets(),
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        const Gap(15),
                         const SendPastedWidgets(),
                       ],
                     ),

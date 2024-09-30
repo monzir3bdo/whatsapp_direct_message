@@ -30,6 +30,7 @@
     "no_phone_number_found_in_the_copied_text": "لم يتم العثور على رقم هاتف في النص المنسوخ",
     "paste": "الصق",
     "paste_text_here": "الصق النص هنا",
-    "link_generated_successfully": "تم إنشاء الرابط بنجاح"
+    "link_generated_successfully": "تم إنشاء الرابط بنجاح",
+    "extract_phone_number_from_text": "قم بنسخ النص واحصل على رقم الهاتف"
 
 }

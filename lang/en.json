@@ -30,5 +30,6 @@
     "no_phone_number_found_in_the_copied_text": "No phone number found in the copied text",
     "paste": "Paste",
     "paste_text_here": "Paste Text Here",
-    "link_generated_successfully": "Link generated successfully"
+    "link_generated_successfully": "Link generated successfully",
+    "extract_phone_number_from_text": "Extract Phone Number From Text"
 }
