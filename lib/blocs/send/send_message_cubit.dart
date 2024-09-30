@@ -1,14 +1,10 @@
-import 'dart:math';
-
-import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
-import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
-import 'package:whatsapp_direct_message/core/functions/functions.dart';
+import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/validators/custom_regex.dart';
 
 import '../../core/widgets/snack_bars.dart';
@@ -95,6 +91,18 @@ class SendMessageCubit extends Cubit<SendMessageState> {
   }
 
   Future<void> openWhatsapp(String phoneNumber, String message) async {
+    if (phoneNumber.startsWith('00')) {
+      String newNumber = phoneNumber.replaceFirst('00', '+');
+      launchUrl(Uri(
+        scheme: 'https',
+        host: 'wa.me',
+        path: newNumber,
+        queryParameters: messageController.text.isNotEmpty
+            ? {'text': messageController.text}
+            : null,
+      ));
+      return;
+    }
     final url = Uri(
       scheme: 'https',
       host: 'wa.me',
