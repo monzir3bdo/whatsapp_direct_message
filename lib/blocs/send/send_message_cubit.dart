@@ -16,7 +16,6 @@ class SendMessageCubit extends Cubit<SendMessageState> {
   SendMessageCubit() : super(const SendMessageState.initial());
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
-  final TextEditingController generateLinkController = TextEditingController();
   final TextEditingController copiedPhoneController = TextEditingController();
   final TextEditingController copiedMessageController = TextEditingController();
   final List<String> phoneNumbers = [];
@@ -74,20 +73,6 @@ class SendMessageCubit extends Cubit<SendMessageState> {
     } catch (e) {
       emit(const SendMessageState.success());
     }
-  }
-
-  Future<void> generateLink(BuildContext context) async {
-    emit(const SendMessageState.loading());
-    final String link = 'https://wa.me/$phoneForGenerate';
-    generatedLink = link;
-    emit(const SendMessageState.success());
-    SnackBars.showSucessSnackBar(
-        context, context.translate(LangKeys.linkGeneratedSuccessfully));
-  }
-
-  Future<void> copyLink() async {
-    await Clipboard.setData(ClipboardData(text: generatedLink));
-    emit(const SendMessageState.success());
   }
 
   Future<void> openWhatsapp(String phoneNumber, String message) async {
