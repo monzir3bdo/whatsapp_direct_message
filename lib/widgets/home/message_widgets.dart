@@ -27,6 +27,9 @@ class MessageWidgets extends StatelessWidget {
         SizedBox(
           height: context.height * 0.18,
           child: TextFormField(
+            onTapOutside: (pointerDown) {
+              FocusManager.instance.primaryFocus!.unfocus();
+            },
             controller: context.read<SendMessageCubit>().messageController,
             maxLines: 10,
             minLines: 10,

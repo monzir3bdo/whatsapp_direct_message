@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 
+import '../../core/theme/app_text_styels.dart';
 import '../../core/theme/colors.dart';
 
 class WhatsappButton extends StatelessWidget {
@@ -39,7 +40,8 @@ class WhatsappButton extends StatelessWidget {
             ),
             const Gap(5),
             Text(text,
-                style: const TextStyle(fontSize: 18, color: Colors.white)),
+                style: AppTextStyles.regular12
+                    .copyWith(fontSize: 18, color: Colors.white)),
           ],
         ),
       ),

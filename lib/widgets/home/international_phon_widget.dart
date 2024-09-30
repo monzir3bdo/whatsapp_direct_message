@@ -12,11 +12,13 @@ class InternationalPhoneWidget extends StatelessWidget {
   final TextEditingController controller;
   final Function(PhoneNumber)? onInputChanged;
   final String? Function(String?)? validator;
+  final Widget? suffix;
   const InternationalPhoneWidget({
     super.key,
     required this.controller,
     this.onInputChanged,
     this.validator,
+    this.suffix,
   });
 
   @override
@@ -34,13 +36,14 @@ class InternationalPhoneWidget extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: InternationalPhoneNumberInput(
-          inputDecoration: const InputDecoration(
-              focusedBorder: OutlineInputBorder(
+          inputDecoration: InputDecoration(
+              suffixIcon: suffix,
+              focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.transparent,
                 ),
               ),
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.transparent,
                 ),
@@ -50,7 +53,7 @@ class InternationalPhoneWidget extends StatelessWidget {
           textStyle: AppTextStyles.medium14.copyWith(
               fontSize: 12,
               color: context.read<AppCubit>().isDark
-                  ? const Color(0xff616161)
+                  ? const Color(0xffbcbcbc)
                   : const Color(0xffd7d7d7)),
           selectorTextStyle: TextStyle(color: context.color.textColor),
           onInputChanged: onInputChanged,

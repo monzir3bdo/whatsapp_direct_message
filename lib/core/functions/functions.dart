@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 List<String> extractLongNumbers(String text) {
   // Remove all spaces from the text
   text = text.replaceAll(' ', '');
@@ -12,4 +14,8 @@ List<String> extractLongNumbers(String text) {
   List<String> longNumbers = matches.map((match) => match.group(0)!).toList();
 
   return longNumbers;
+}
+
+Future<void> copy({required String data}) async {
+  await Clipboard.setData(ClipboardData(text: data));
 }

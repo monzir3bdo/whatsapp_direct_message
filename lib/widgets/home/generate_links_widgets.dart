@@ -1,11 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:whatsapp_direct_message/blocs/generate/generate_link_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/widgets/home/generate_button.dart';
-import 'package:whatsapp_direct_message/widgets/home/generate_result_widget.dart';
+import 'package:whatsapp_direct_message/core/theme/colors.dart';
+import 'package:whatsapp_direct_message/widgets/home/generate_or_copy_widget.dart';
 
-import '../../blocs/send/send_message_cubit.dart';
 import '../../core/localization/lang_keys.dart';
 import 'international_phon_widget.dart';
 
@@ -23,8 +24,28 @@ class GenerateLinkWidgets extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Form(
-              key: context.read<SendMessageCubit>().generateFormKey,
+              key: context.read<GenerateLinkCubit>().generateFormKey,
               child: InternationalPhoneWidget(
+                suffix: BlocBuilder<GenerateLinkCubit, GenerateLinkState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      linkGenerated: (_) {
+                        return IconButton(
+                          onPressed: () {
+                            context.read<GenerateLinkCubit>().clearLink();
+                          },
+                          icon: const Icon(
+                            CupertinoIcons.xmark,
+                            color: AppLightColors.red,
+                          ),
+                        );
+                      },
+                      orElse: () {
+                        return const SizedBox.shrink();
+                      },
+                    );
+                  },
+                ),
                 validator: (phoneNumber) {
                   if (phoneNumber!.length < 6) {
                     return context.translate(LangKeys.enterPhoneNumber);
@@ -32,19 +53,16 @@ class GenerateLinkWidgets extends StatelessWidget {
                   return null;
                 },
                 controller:
-                    context.read<SendMessageCubit>().generateLinkController,
+                    context.read<GenerateLinkCubit>().generateLinkController,
                 onInputChanged: (number) {
-                  context.read<SendMessageCubit>().phoneForGenerate =
-                      number.phoneNumber;
+                  context.read<GenerateLinkCubit>().phone = number.phoneNumber!;
                 },
               ),
             ),
             Gap(context.height * 0.03),
-            const GenerateButton(),
+            const GenerateOrCopyWidget(),
           ],
         ),
-        Gap(context.height * 0.018),
-        const GenerateResultWidget(),
       ],
     );
   }

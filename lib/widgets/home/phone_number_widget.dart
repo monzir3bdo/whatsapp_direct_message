@@ -44,7 +44,6 @@ class PhoneNumberWidgets extends StatelessWidget {
                 controller: context.read<SendMessageCubit>().phoneController,
                 onInputChanged: (number) {
                   context.read<SendMessageCubit>().phone = number.phoneNumber;
-                  print(context.read<SendMessageCubit>().phone);
                 },
               ),
             ),
