@@ -19,10 +19,12 @@ class GenerateResultWidget extends StatelessWidget {
             ? const SizedBox()
             : TextButton(
                 onPressed: () => context.read<SendMessageCubit>().copyLink(),
-                child: Text(context.translate(LangKeys.copyYourLink),
-                    style: AppTextStyles.semiBold16.copyWith(
-                      color: AppLightColors.primary,
-                    )),
+                child: Text(
+                  context.translate(LangKeys.copyYourLink),
+                  style: AppTextStyles.semiBold16.copyWith(
+                    color: AppLightColors.primary,
+                  ),
+                ),
               ),
       );
     });

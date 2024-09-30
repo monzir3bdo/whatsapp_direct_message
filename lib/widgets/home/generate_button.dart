@@ -5,7 +5,6 @@ import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/core/widgets/app_button.dart';
-import 'package:whatsapp_direct_message/widgets/home/whatsapp_button.dart';
 
 import '../../blocs/send/send_message_cubit.dart';
 
@@ -18,7 +17,7 @@ class GenerateButton extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: () {
-            return AppButton(
+            return const AppButton(
               child: CircularProgressIndicator(),
             );
           },
