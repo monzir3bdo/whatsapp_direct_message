@@ -14,10 +14,15 @@ class EmptyHistoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Gap(context.height * 0.12),
-        Lottie.asset(Assets.animationsEmpty, repeat: false),
-        Gap(context.height * 0.12),
+        Lottie.asset(
+          Assets.animationsEmpty,
+          width: context.width * 0.8,
+          height: context.height * 0.35,
+          fit: BoxFit.cover,
+        ),
+        Gap(context.height * 0.05),
         Text(
           context.translate(LangKeys.emptyHistory),
           style:

@@ -21,7 +21,7 @@ class ActivateHistoryWidget extends StatelessWidget {
           Assets.animationsChangeSettings2,
           width: context.width * 0.8,
           height: context.height * 0.35,
-          repeat: false,
+          fit: BoxFit.cover,
         ),
         Container(
           color: Colors.indigo,
