@@ -32,7 +32,21 @@ class PhoneNumberWidgets extends StatelessWidget {
             ),
             Visibility(
               visible: context.read<VisibilityCubit>().showCountryPicker,
-              child: const InternationalPhoneWidget(),
+              child: InternationalPhoneWidget(
+                validator: context.read<VisibilityCubit>().showCountryPicker
+                    ? (phoneNumber) {
+                        if (phoneNumber!.length < 6) {
+                          return context.translate(LangKeys.enterPhoneNumber);
+                        }
+                        return null;
+                      }
+                    : null,
+                controller: context.read<SendMessageCubit>().phoneController,
+                onInputChanged: (number) {
+                  context.read<SendMessageCubit>().phone = number.phoneNumber;
+                  print(context.read<SendMessageCubit>().phone);
+                },
+              ),
             ),
             const ShowCountryPickerCheckBox(),
           ],

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:bloc/bloc.dart';
@@ -15,14 +17,18 @@ class SendMessageCubit extends Cubit<SendMessageState> {
   SendMessageCubit() : super(const SendMessageState.initial());
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
+  final TextEditingController generateLinkController = TextEditingController();
   final TextEditingController copiedPhoneController = TextEditingController();
   final TextEditingController copiedMessageController = TextEditingController();
   final List<String> phoneNumbers = [];
+
   String? phone;
   String? copiedPhone;
+  String? phoneForGenerate;
   String generatedLink = '';
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final GlobalKey<FormState> pasteFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> generateFormKey = GlobalKey<FormState>();
 
   Future<void> sendMessage() async {
     try {
@@ -62,8 +68,8 @@ class SendMessageCubit extends Cubit<SendMessageState> {
         if (phoneNumbers.isEmpty) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content:
-                  Text(context.translate(LangKeys.noPhoneNumberFoundInTheCopiedText)),
+              content: Text(context
+                  .translate(LangKeys.noPhoneNumberFoundInTheCopiedText)),
             ),
           );
         }
@@ -72,6 +78,18 @@ class SendMessageCubit extends Cubit<SendMessageState> {
     } catch (e) {
       emit(const SendMessageState.success());
     }
+  }
+
+  Future<void> generateLink() async {
+    emit(const SendMessageState.loading());
+    final String link = 'https://wa.me/$phoneForGenerate';
+    generatedLink = link;
+    emit(const SendMessageState.success());
+  }
+
+  Future<void> copyLink() async {
+    await Clipboard.setData(ClipboardData(text: generatedLink));
+    emit(const SendMessageState.success());
   }
 
   Future<void> openWhatsapp(String phoneNumber, String message) async {

@@ -11,8 +11,11 @@ import '../../blocs/visibility/visibility_cubit.dart';
 import '../../core/localization/lang_keys.dart';
 
 class InternationalPhoneWidget extends StatelessWidget {
+  final TextEditingController controller;
+  final Function(PhoneNumber)? onInputChanged;
+  final String? Function(String?)? validator;
   const InternationalPhoneWidget({
-    super.key,
+    super.key, required this.controller, this.onInputChanged, this.validator,
   });
 
   @override
@@ -39,7 +42,7 @@ class InternationalPhoneWidget extends StatelessWidget {
                 color: Colors.transparent,
               ),
             )),
-        textFieldController: context.read<SendMessageCubit>().phoneController,
+        textFieldController: controller,
         hintText: context.translate(LangKeys.enterPhoneNumber),
         textStyle: AppTextStyles.medium14.copyWith(
             fontSize: 12,
@@ -47,22 +50,12 @@ class InternationalPhoneWidget extends StatelessWidget {
                 ? const Color(0xff616161)
                 : const Color(0xffd7d7d7)),
         selectorTextStyle: TextStyle(color: context.color.textColor),
-        onInputChanged: (number) {
-          context.read<SendMessageCubit>().phone = number.phoneNumber;
-          print(context.read<SendMessageCubit>().phone);
-        },
+        onInputChanged: onInputChanged,
         onInputValidated: (bool value) {},
         selectorConfig: const SelectorConfig(
           selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
         ),
-        validator: context.read<VisibilityCubit>().showCountryPicker
-            ? (phoneNumber) {
-                if (phoneNumber!.length < 6) {
-                  return context.translate(LangKeys.enterPhoneNumber);
-                }
-                return null;
-              }
-            : null,
+        validator: validator,
       ),
     );
   }
