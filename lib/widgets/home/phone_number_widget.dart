@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
+import 'package:whatsapp_direct_message/blocs/visibility/visibility_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
@@ -14,17 +17,27 @@ class PhoneNumberWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        PhoneTitle(title:context.translate(LangKeys.phoneNumber)),
-        const SizedBox(
-          height: 10,
-        ),
-        // PhoneWidget(),
-        const InternationalPhoneWidget(),
-        const ShowCountryPickerCheckBox(),
-      ],
+    return BlocBuilder<VisibilityCubit, VisibilityState>(
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            PhoneTitle(title: context.translate(LangKeys.phoneNumber)),
+            const SizedBox(
+              height: 10,
+            ),
+            Visibility(
+              visible: !context.read<VisibilityCubit>().showCountryPicker,
+              child: const PhoneWidget(),
+            ),
+            Visibility(
+              visible: context.read<VisibilityCubit>().showCountryPicker,
+              child: const InternationalPhoneWidget(),
+            ),
+            const ShowCountryPickerCheckBox(),
+          ],
+        );
+      },
     );
   }
 }
@@ -50,12 +63,22 @@ class PhoneWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: TextFormField(
-        decoration: InputDecoration(
-          hintText: context.translate(LangKeys.enterPhoneNumber),
-        ),
+    return TextFormField(
+      keyboardType: TextInputType.number,
+      onChanged: (value) {
+        context.read<SendMessageCubit>().phone = value;
+      },
+      decoration: InputDecoration(
+        hintText: context.translate(LangKeys.enterPhoneNumber),
       ),
+      validator: context.read<VisibilityCubit>().showCountryPicker
+          ? null
+          : (phoneNumber) {
+              if (phoneNumber!.length < 8) {
+                return context.translate(LangKeys.enterPhoneNumber);
+              }
+              return null;
+            },
     );
   }
 }

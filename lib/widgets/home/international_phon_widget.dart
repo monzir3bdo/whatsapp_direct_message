@@ -7,6 +7,7 @@ import 'package:whatsapp_direct_message/core/extensions/build_context_extension.
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 
+import '../../blocs/visibility/visibility_cubit.dart';
 import '../../core/localization/lang_keys.dart';
 
 class InternationalPhoneWidget extends StatelessWidget {
@@ -17,7 +18,7 @@ class InternationalPhoneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         border: Border.all(
           color: context.read<AppCubit>().isDark
@@ -54,12 +55,14 @@ class InternationalPhoneWidget extends StatelessWidget {
         selectorConfig: const SelectorConfig(
           selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
         ),
-        validator: (phoneNumber) {
-          if (phoneNumber!.length < 6) {
-            return context.translate(LangKeys.enterPhoneNumber);
-          }
-          return null;
-        },
+        validator: context.read<VisibilityCubit>().showCountryPicker
+            ? (phoneNumber) {
+                if (phoneNumber!.length < 6) {
+                  return context.translate(LangKeys.enterPhoneNumber);
+                }
+                return null;
+              }
+            : null,
       ),
     );
   }

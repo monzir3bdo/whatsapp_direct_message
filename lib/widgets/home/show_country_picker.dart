@@ -1,9 +1,10 @@
-import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 
 import '../../../core/theme/colors.dart';
+import '../../blocs/visibility/visibility_cubit.dart';
 
 class ShowCountryPickerCheckBox extends StatelessWidget {
   const ShowCountryPickerCheckBox({
@@ -14,11 +15,18 @@ class ShowCountryPickerCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Checkbox(
-            checkColor: AppLightColors.primary,
-            activeColor: context.color.containerColor,
-            value: true,
-            onChanged: (value) {}),
+        BlocBuilder<VisibilityCubit, VisibilityState>(
+          builder: (context, state) {
+            return Checkbox(
+              checkColor: AppLightColors.primary,
+              activeColor: context.color.containerColor,
+              value: context.read<VisibilityCubit>().showCountryPicker,
+              onChanged: (value) {
+                context.read<VisibilityCubit>().toggleCountryPickerVisibility();
+              },
+            );
+          },
+        ),
         Text(
           context.translate(LangKeys.showCountryPicker),
           style: const TextStyle(
