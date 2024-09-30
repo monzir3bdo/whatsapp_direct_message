@@ -86,7 +86,7 @@ class SendMessageCubit extends Cubit<SendMessageState> {
     generatedLink = link;
     emit(const SendMessageState.success());
     SnackBars.showSucessSnackBar(
-        context, 'Link generated successfully'.hardCoded);
+        context, context.translate(LangKeys.linkGeneratedSuccessfully));
   }
 
   Future<void> copyLink() async {

@@ -35,4 +35,5 @@ class LangKeys {
   static const String noPhoneNumberFoundInTheCopiedText = 'no_phone_number_found_in_the_copied_text';
   static const String paste = 'paste';
   static const String pasteTextHere = 'paste_text_here';
+  static const String linkGeneratedSuccessfully = 'link_generated_successfully';
 }

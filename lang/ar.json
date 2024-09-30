@@ -29,5 +29,7 @@
     "no_name": "بدون اسم",
     "no_phone_number_found_in_the_copied_text": "لم يتم العثور على رقم هاتف في النص المنسوخ",
     "paste": "الصق",
-    "paste_text_here": "الصق النص هنا"
+    "paste_text_here": "الصق النص هنا",
+    "link_generated_successfully": "تم إنشاء الرابط بنجاح"
+
 }
