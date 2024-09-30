@@ -9,6 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 import 'package:whatsapp_direct_message/core/functions/functions.dart';
+import 'package:whatsapp_direct_message/core/validators/custom_regex.dart';
+
+import '../../core/widgets/snack_bars.dart';
 
 part 'send_message_cubit.freezed.dart';
 part 'send_message_state.dart';
@@ -61,17 +64,14 @@ class SendMessageCubit extends Cubit<SendMessageState> {
       String? clipboardText = clipboardData?.text;
       if (clipboardText != null) {
         phoneNumbers.clear();
-        phoneNumbers.addAll(extractLongNumbers(clipboardText));
+        phoneNumbers
+            .addAll(CustomRegex.extractPhoneNumberFromString(clipboardText));
         if (phoneNumbers.isNotEmpty) {
           copiedPhoneController.text = phoneNumbers.first;
         }
         if (phoneNumbers.isEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(context
-                  .translate(LangKeys.noPhoneNumberFoundInTheCopiedText)),
-            ),
-          );
+          SnackBars.showErrorSnackBar(context,
+              context.translate(LangKeys.noPhoneNumberFoundInTheCopiedText));
         }
       }
       emit(const SendMessageState.success());
@@ -80,11 +80,13 @@ class SendMessageCubit extends Cubit<SendMessageState> {
     }
   }
 
-  Future<void> generateLink() async {
+  Future<void> generateLink(BuildContext context) async {
     emit(const SendMessageState.loading());
     final String link = 'https://wa.me/$phoneForGenerate';
     generatedLink = link;
     emit(const SendMessageState.success());
+    SnackBars.showSucessSnackBar(
+        context, 'Link generated successfully'.hardCoded);
   }
 
   Future<void> copyLink() async {

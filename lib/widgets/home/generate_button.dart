@@ -18,23 +18,22 @@ class GenerateButton extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: () {
-            return  AppButton(
+            return AppButton(
               child: CircularProgressIndicator(),
             );
           },
           orElse: () {
             return AppButton(
-               onpressed: () async {
+              onpressed: () async {
                 if (context
                     .read<SendMessageCubit>()
                     .generateFormKey
                     .currentState!
                     .validate()) {
-                  await context.read<SendMessageCubit>().generateLink();
-                 
+                  await context.read<SendMessageCubit>().generateLink(context);
                 }
               },
-              child:  Text(
+              child: Text(
                 context.translate(LangKeys.generate),
                 style: AppTextStyles.medium14.copyWith(
                   fontSize: 16,
