@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 import 'package:whatsapp_direct_message/widgets/home/phone_number_widget.dart';
-
 import 'package:whatsapp_direct_message/widgets/home/send_copied.dart';
 
 import '../../blocs/send/send_message_cubit.dart';
 import 'copied_text_message_widgets.dart';
 import 'paste_text_field.dart';
+
 class PasteDialog extends StatelessWidget {
   const PasteDialog({
     super.key,
@@ -22,24 +22,20 @@ class PasteDialog extends StatelessWidget {
           builder: (context, state) {
         return Dialog(
           backgroundColor: context.color.containerColor,
-          child: state ==
-                  const SendMessageState.generateNumbersIsLoading()
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+          child: state == const SendMessageState.generateNumbersIsLoading()
               ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : Form(
-                  key: context
-                      .read<SendMessageCubit>()
-                      .pasteFormKey,
+                  key: context.read<SendMessageCubit>().pasteFormKey,
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         PhoneTitle(
-                          title:
-                              "Extract phone from pasted text"
-                                  .hardCoded,
+                          title: "Extract phone from pasted text".hardCoded,
                         ),
                         const SizedBox(
                           height: 10,
@@ -48,10 +44,7 @@ class PasteDialog extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        context
-                                .read<SendMessageCubit>()
-                                .phoneNumbers
-                                .isNotEmpty
+                        context.read<SendMessageCubit>().phoneNumbers.isNotEmpty
                             ? Column(
                                 children: context
                                     .read<SendMessageCubit>()
@@ -60,13 +53,11 @@ class PasteDialog extends StatelessWidget {
                                   return TextButton(
                                     onPressed: () {
                                       context
-                                          .read<
-                                              SendMessageCubit>()
+                                          .read<SendMessageCubit>()
                                           .copiedPhoneController
                                           .text = phoneNumber;
                                     },
-                                    child: PhoneTitle(
-                                        title: phoneNumber),
+                                    child: PhoneTitle(title: phoneNumber),
                                   );
                                 }).toList(),
                               )
