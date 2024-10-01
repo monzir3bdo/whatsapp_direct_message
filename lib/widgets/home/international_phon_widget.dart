@@ -55,11 +55,8 @@ class InternationalPhoneWidget extends StatelessWidget {
               )),
           textFieldController: controller,
           hintText: context.translate(LangKeys.enterPhoneNumber),
-          textStyle: AppTextStyles.medium14.copyWith(
-              fontSize: 12,
-              color: context.read<AppCubit>().isDark
-                  ? const Color(0xffbcbcbc)
-                  : const Color(0xffd7d7d7)),
+          textStyle: AppTextStyles.medium14
+              .copyWith(fontSize: 12, color: context.color.textColor),
           selectorTextStyle: TextStyle(color: context.color.textColor),
           onInputChanged: onInputChanged,
           onInputValidated: (bool value) {},
