@@ -21,15 +21,17 @@ class GenerateButton extends StatelessWidget {
             );
           },
           orElse: () {
-            return AppButton(
-              onpressed: () {
-                context.read<GenerateLinkCubit>().generateLink();
-              },
-              child: Text(
-                context.translate(LangKeys.generate),
-                style: AppTextStyles.medium14.copyWith(
-                  fontSize: 14,
-                  color: AppLightColors.backgroundColor,
+            return Form(
+              child: AppButton(
+                onpressed: () {
+                  context.read<GenerateLinkCubit>().generateLink();
+                },
+                child: Text(
+                  context.translate(LangKeys.generate),
+                  style: AppTextStyles.medium14.copyWith(
+                    fontSize: 14,
+                    color: AppLightColors.backgroundColor,
+                  ),
                 ),
               ),
             );

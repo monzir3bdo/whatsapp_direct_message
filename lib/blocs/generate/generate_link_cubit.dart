@@ -11,8 +11,8 @@ class GenerateLinkCubit extends Cubit<GenerateLinkState> {
   final TextEditingController generateLinkController = TextEditingController();
   String phone = "";
   generateLink() async {
-    emit(const GenerateLinkState.loading());
     if (generateFormKey.currentState!.validate()) {
+      emit(const GenerateLinkState.loading());
       final String link = 'https://wa.me/$phone';
       emit(GenerateLinkState.linkGenerated(link: link));
     }
