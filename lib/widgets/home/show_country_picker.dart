@@ -20,6 +20,9 @@ class ShowCountryPickerCheckBox extends StatelessWidget {
           builder: (context, state) {
             return Checkbox(
               checkColor: AppLightColors.primary,
+              fillColor:
+                  const WidgetStatePropertyAll(AppLightColors.backgroundColor),
+              side: BorderSide(color: Colors.black.withOpacity(0.2)),
               activeColor: context.color.containerColor,
               value: context.read<VisibilityCubit>().showCountryPicker,
               onChanged: (value) {
