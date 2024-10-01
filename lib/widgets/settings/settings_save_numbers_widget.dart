@@ -7,8 +7,7 @@ import 'package:whatsapp_direct_message/core/extensions/build_context_extension.
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/widgets/settings/settings_container.dart';
-
-import '../../core/theme/colors.dart';
+import 'package:whatsapp_direct_message/widgets/settings/settings_save_numbers_turn_off_dialog.dart';
 
 class SettingsSaveNumbersWidget extends StatelessWidget {
   const SettingsSaveNumbersWidget({super.key});
@@ -29,43 +28,11 @@ class SettingsSaveNumbersWidget extends StatelessWidget {
             onChanged: (value) {
               if (context.read<AppCubit>().saveNumber) {
                 showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        backgroundColor: context.color.containerColor,
-                        title: Text(
-                            context.translate(LangKeys.stopSavingNumbers),
-                            style: AppTextStyles.bold16
-                                .copyWith(color: context.color.textColor)),
-                        content: Text(
-                            context.translate(LangKeys.stopSavingNumbersDesc),
-                            style: AppTextStyles.medium14
-                                .copyWith(color: context.color.textColor)),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(context.translate(LangKeys.cancel),
-                                style: AppTextStyles.medium14
-                                    .copyWith(color: context.color.textColor)),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              context.read<AppCubit>().toggleSaveNumber();
-                              context
-                                  .read<HistoryBloc>()
-                                  .add(const HistoryEvent.getContacts());
-                              Navigator.pop(context);
-                            },
-                            child: Text(context.translate(LangKeys.stop),
-                                style: AppTextStyles.medium14.copyWith(
-                                  color: AppLightColors.red,
-                                )),
-                          ),
-                        ],
-                      );
-                    });
+                  context: context,
+                  builder: (context) {
+                    return const SettingsSaveNumbersTurnOffDialog();
+                  },
+                );
               } else {
                 context.read<AppCubit>().toggleSaveNumber();
                 context

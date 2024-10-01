@@ -17,6 +17,12 @@ ThemeData lightTheme() => ThemeData(
           backgroundColor: AppLightColors.primary,
         ),
       ),
+      dialogTheme: DialogTheme(
+        backgroundColor: AppLightColors.backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+      ),
       inputDecorationTheme: InputDecorationTheme(
         focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -86,6 +92,12 @@ ThemeData darkTheme() => ThemeData(
         hintStyle: TextStyle(color: Colors.white),
       ),
       scaffoldBackgroundColor: AppDarkColors.backgroundColor,
+      dialogTheme: DialogTheme(
+        backgroundColor: AppDarkColors.backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+      ),
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppDarkColors.primary,
       ),
