@@ -95,8 +95,10 @@ ThemeData darkTheme() => ThemeData(
       dialogTheme: DialogTheme(
         backgroundColor: AppDarkColors.backgroundColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6),
-        ),
+            borderRadius: BorderRadius.circular(6),
+            side: BorderSide(
+              color: AppLightColors.backgroundColor.withOpacity(0.2),
+            )),
       ),
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppDarkColors.primary,
