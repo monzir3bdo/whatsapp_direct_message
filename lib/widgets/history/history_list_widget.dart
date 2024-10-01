@@ -13,6 +13,7 @@ class HistoryListWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: CustomScrollView(
+        physics: const ClampingScrollPhysics(),
         slivers: [
           const HistoryTitle(),
           SliverGap(context.height * 0.025),
