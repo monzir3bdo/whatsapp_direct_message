@@ -45,6 +45,12 @@ class SendMessageCubit extends Cubit<SendMessageState> {
       copiedPhone = copiedPhoneController.text.replaceAll('\r', '');
       await openWhatsapp(copiedPhone!, copiedMessageController.text);
 
+      copiedPhone = copiedPhoneController.text;
+      if (copiedPhone!.startsWith('\r')) {
+        copiedPhone = copiedPhone!.replaceFirst('\r', '');
+        copiedPhone = copiedPhone!.replaceFirst(' ', '');
+      }
+      await openWhatsapp(copiedPhone!, copiedMessageController.text);
       emit(const SendMessageState.success());
     } catch (e) {
       emit(const SendMessageState.success());
