@@ -31,6 +31,10 @@
     "paste": "قم بلصق النص",
     "paste_text_here": "الصق النص هنا",
     "link_generated_successfully": "تم إنشاء الرابط بنجاح",
-    "extract_phone_number_from_text": "قم بنسخ النص واحصل على رقم الهاتف"
+    "extract_phone_number_from_text": "قم بنسخ النص واحصل على رقم الهاتف",
+    "are_you_sure_you_want_to_remove_the_history_": "هل أنت متأكد أنك تريد حذف السجل؟",
+    "cancel": "إلغاء",
+    "history_removed_successfully": "تم حذف السجل بنجاح",
+    "remove": "حذف"
 
 }

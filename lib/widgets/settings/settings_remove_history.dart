@@ -6,6 +6,7 @@ import 'package:whatsapp_direct_message/core/extensions/build_context_extension.
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
+import 'package:whatsapp_direct_message/core/widgets/snack_bars.dart';
 
 class SettingsRemoveHistory extends StatelessWidget {
   const SettingsRemoveHistory({super.key});
@@ -15,8 +16,42 @@ class SettingsRemoveHistory extends StatelessWidget {
     return Center(
       child: TextButton(
         onPressed: () {
-          HiveDatabase.instance.history!.clear();
-          context.read<HistoryBloc>().add(const HistoryEvent.getContacts());
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text(context.translate(LangKeys.removeHistory)),
+                  content: Text(
+                      context.translate(LangKeys.areYouSureYouWantToRemoveTheHistory),
+                      style: AppTextStyles.medium14.copyWith()),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(context.translate(LangKeys.cancel),
+                          style: AppTextStyles.medium14.copyWith()),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        HiveDatabase.instance.history!.clear();
+                        context
+                            .read<HistoryBloc>()
+                            .add(const HistoryEvent.getContacts());
+                        SnackBars.showSucessSnackBar(
+                          context,
+                          context.translate(LangKeys.historyRemovedSuccessfully),
+                        );
+                        Navigator.pop(context);
+                      },
+                      child: Text(context.translate(LangKeys.remove),
+                          style: AppTextStyles.medium14.copyWith(
+                            color: AppLightColors.red,
+                          )),
+                    ),
+                  ],
+                );
+              });
         },
         child: Text(
           context.translate(LangKeys.removeHistory),

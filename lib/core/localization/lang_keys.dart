@@ -39,4 +39,8 @@ class LangKeys {
   static const String linkGeneratedSuccessfully = 'link_generated_successfully';
   static const String extractPhoneNumberFromText =
       'extract_phone_number_from_text';
+  static const String areYouSureYouWantToRemoveTheHistory = 'are_you_sure_you_want_to_remove_the_history_';
+  static const String cancel = 'cancel';
+  static const String historyRemovedSuccessfully = 'history_removed_successfully';
+  static const String remove = 'remove';
 }
