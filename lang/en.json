@@ -32,11 +32,11 @@
     "paste_text_here": "Paste Text Here",
     "link_generated_successfully": "Link generated successfully",
     "extract_phone_number_from_text": "Extract Phone Number From Text",
-    "are_you_sure_you_want_to_remove_the_history_": "Are you sure you want to remove the history?",
+    "are_you_sure_you_want_to_remove_the_history_": "Are you sure you want to remove the history?after the delete is successful there is no going back",
     "cancel": "Cancel",
     "history_removed_successfully": "History removed successfully",
     "remove": "Remove",
     "stop_saving_numbers": "Stop saving numbers",
     "stop": "Stop",
-    "stop_saving_numbers_desc": "Stopping the saving of numbers will delete all the numbers that have been saved so far. Are you sure you want to stop?"
+    "stop_saving_numbers_desc": "Stopping Numbers Save Feature will delete all the numbers that have been saved so far and you will not be able to save a new one. Are you sure you want to stop?"
 }
