@@ -23,7 +23,7 @@ class GenerateButton extends StatelessWidget {
           orElse: () {
             return Form(
               child: AppButton(
-                onpressed: () {
+                onPressed: () {
                   context.read<GenerateLinkCubit>().generateLink();
                 },
                 child: Text(

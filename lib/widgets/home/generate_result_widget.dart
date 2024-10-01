@@ -13,7 +13,7 @@ class GenerateResultWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      onpressed: () {
+      onPressed: () {
         copy(data: link);
         Fluttertoast.showToast(
           msg: "Link Copied",

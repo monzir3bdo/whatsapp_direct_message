@@ -21,8 +21,9 @@ class SendWidgets extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: () {
-            return const AppButton(
-              child: CircularProgressIndicator(),
+            return AppButton(
+              onPressed: () {},
+              child: const CircularProgressIndicator(),
             );
           },
           orElse: () {

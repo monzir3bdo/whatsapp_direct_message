@@ -38,5 +38,9 @@
     "remove": "Remove",
     "stop_saving_numbers": "Stop saving numbers",
     "stop": "Stop",
-    "stop_saving_numbers_desc": "Stopping Numbers Save Feature will delete all the numbers that have been saved so far and you will not be able to save a new one. Are you sure you want to stop?"
+    "stop_saving_numbers_desc": "Stopping Numbers Save Feature will delete all the numbers that have been saved so far and you will not be able to save a new one. Are you sure you want to stop?",
+"delete": "Delete",
+  "edit": "Edit",
+    "add_label": "Add Label",
+    "save": "Save"
 }

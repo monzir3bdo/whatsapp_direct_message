@@ -48,4 +48,8 @@ class LangKeys {
   static const String stopSavingNumbers = 'stop_saving_numbers';
   static const String stop = 'stop';
   static const String stopSavingNumbersDesc = 'stop_saving_numbers_desc';
+  static const String delete = 'delete';
+  static const String edit = 'edit';
+  static const String save = 'save';
+  static const String addLabel = 'add_label';
 }

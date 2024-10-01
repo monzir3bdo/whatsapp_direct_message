@@ -5,8 +5,10 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/blocs/history/get_history/history_bloc.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/models/contact_model.dart';
+import 'package:whatsapp_direct_message/widgets/history/history_add_label_widget.dart';
 import 'package:whatsapp_direct_message/widgets/history/history_card.dart';
 
 class HistoryCardList extends StatelessWidget {
@@ -18,6 +20,7 @@ class HistoryCardList extends StatelessWidget {
       itemCount: contacts.length,
       itemBuilder: (context, index) {
         return Slidable(
+          useTextDirection: false,
           startActionPane: ActionPane(
             motion: const BehindMotion(),
             children: [
@@ -30,12 +33,22 @@ class HistoryCardList extends StatelessWidget {
                         .add(const HistoryEvent.getContacts());
                   }
                 },
+                label: context.translate(LangKeys.delete),
                 icon: CupertinoIcons.delete,
                 backgroundColor: AppLightColors.red,
               ),
               SlidableAction(
                 icon: Icons.edit,
-                onPressed: (context) {},
+                label: context.translate(LangKeys.edit),
+                onPressed: (context) {
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (context) => HistoryAddLabelWidget(
+                      contact: contacts[index],
+                    ),
+                  );
+                },
               ),
             ],
           ),

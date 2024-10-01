@@ -15,7 +15,7 @@ class PasteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      onpressed: () {
+      onPressed: () {
         showDialog(
             context: context,
             builder: (context) {
