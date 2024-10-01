@@ -42,10 +42,9 @@ class SendMessageCubit extends Cubit<SendMessageState> {
   Future<void> sendCopiedTextMessage() async {
     try {
       emit(const SendMessageState.loading());
+      copiedPhone = copiedPhoneController.text.replaceAll('\r', '');
+      await openWhatsapp(copiedPhone!, copiedMessageController.text);
 
-      await openWhatsapp(
-          copiedPhoneController.text, copiedMessageController.text);
-      copiedPhone = copiedPhoneController.text;
       emit(const SendMessageState.success());
     } catch (e) {
       emit(const SendMessageState.success());

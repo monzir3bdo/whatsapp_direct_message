@@ -12,7 +12,6 @@ class HistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.height * 0.09,
       padding: const EdgeInsetsDirectional.only(start: 16, end: 10, top: 15),
       decoration: BoxDecoration(
         color: context.color.containerColor,
@@ -42,6 +41,7 @@ class HistoryCard extends StatelessWidget {
                       .copyWith(color: context.color.textColor),
                 ),
               ),
+              const Gap(12),
             ],
           ),
           HistorySendMessage(

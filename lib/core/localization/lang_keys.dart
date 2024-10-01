@@ -19,7 +19,7 @@ class LangKeys {
   static const String whatsapp = 'whatsapp';
   static const String waBusiness = 'wa_business';
   static const String showCountryPicker = 'show_country_picker';
-  static const String arabc = 'arabc';
+  static const String arabic = 'arabic';
   static const String appVersion = 'app_version';
   static const String changeLanguage = 'change_language';
   static const String darkTheme = 'dark_theme';
@@ -39,9 +39,11 @@ class LangKeys {
   static const String linkGeneratedSuccessfully = 'link_generated_successfully';
   static const String extractPhoneNumberFromText =
       'extract_phone_number_from_text';
-  static const String areYouSureYouWantToRemoveTheHistory = 'are_you_sure_you_want_to_remove_the_history_';
+  static const String areYouSureYouWantToRemoveTheHistory =
+      'are_you_sure_you_want_to_remove_the_history_';
   static const String cancel = 'cancel';
-  static const String historyRemovedSuccessfully = 'history_removed_successfully';
+  static const String historyRemovedSuccessfully =
+      'history_removed_successfully';
   static const String remove = 'remove';
   static const String stopSavingNumbers = 'stop_saving_numbers';
   static const String stop = 'stop';
