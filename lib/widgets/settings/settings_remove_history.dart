@@ -20,17 +20,26 @@ class SettingsRemoveHistory extends StatelessWidget {
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  title: Text(context.translate(LangKeys.removeHistory)),
+                  backgroundColor: context.color.containerColor,
+                  title: Text(context.translate(LangKeys.removeHistory),
+                      style: AppTextStyles.bold16.copyWith(
+                        color: context.color.textColor,
+                      )),
                   content: Text(
-                      context.translate(LangKeys.areYouSureYouWantToRemoveTheHistory),
-                      style: AppTextStyles.medium14.copyWith()),
+                      context.translate(
+                          LangKeys.areYouSureYouWantToRemoveTheHistory),
+                      style: AppTextStyles.medium14.copyWith(
+                        color: context.color.textColor,
+                      )),
                   actions: [
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
                       child: Text(context.translate(LangKeys.cancel),
-                          style: AppTextStyles.medium14.copyWith()),
+                          style: AppTextStyles.medium14.copyWith(
+                            color: context.color.textColor,
+                          )),
                     ),
                     TextButton(
                       onPressed: () {
@@ -40,7 +49,8 @@ class SettingsRemoveHistory extends StatelessWidget {
                             .add(const HistoryEvent.getContacts());
                         SnackBars.showSucessSnackBar(
                           context,
-                          context.translate(LangKeys.historyRemovedSuccessfully),
+                          context
+                              .translate(LangKeys.historyRemovedSuccessfully),
                         );
                         Navigator.pop(context);
                       },

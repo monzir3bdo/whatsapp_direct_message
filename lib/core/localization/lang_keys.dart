@@ -43,4 +43,7 @@ class LangKeys {
   static const String cancel = 'cancel';
   static const String historyRemovedSuccessfully = 'history_removed_successfully';
   static const String remove = 'remove';
+  static const String stopSavingNumbers = 'stop_saving_numbers';
+  static const String stop = 'stop';
+  static const String stopSavingNumbersDesc = 'stop_saving_numbers_desc';
 }
