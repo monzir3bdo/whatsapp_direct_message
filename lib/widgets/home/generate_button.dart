@@ -28,7 +28,7 @@ class GenerateButton extends StatelessWidget {
               child: Text(
                 context.translate(LangKeys.generate),
                 style: AppTextStyles.medium14.copyWith(
-                  fontSize: 16,
+                  fontSize: 14,
                   color: AppLightColors.backgroundColor,
                 ),
               ),

@@ -31,17 +31,17 @@ class WhatsappButton extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Text(text,
+                style: AppTextStyles.medium14
+                    .copyWith(fontSize: 14, color: Colors.white)),
+            const Gap(5),
             SvgPicture.asset(
               icon,
-              width: 30,
-              height: 30,
+              width: 20,
+              height: 20,
               colorFilter:
                   const ColorFilter.mode(Colors.white, BlendMode.srcIn),
             ),
-            const Gap(5),
-            Text(text,
-                style: AppTextStyles.regular12
-                    .copyWith(fontSize: 18, color: Colors.white)),
           ],
         ),
       ),

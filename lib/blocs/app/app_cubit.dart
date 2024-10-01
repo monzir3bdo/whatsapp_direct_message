@@ -8,7 +8,8 @@ part 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(const AppState.initial());
-  bool isDark =  HiveDatabase.instance.isDark!.get(darkKey)?? ThemeMode.system == ThemeMode.dark;
+  bool isDark = HiveDatabase.instance.isDark!.get(darkKey) ??
+      ThemeMode.system == ThemeMode.dark;
   bool saveNumber = HiveDatabase.instance.isSaveEnabled!
       .get(saveEnabledKey, defaultValue: true)!;
   String locale = HiveDatabase.instance.selectedLanguage!
@@ -32,6 +33,7 @@ class AppCubit extends Cubit<AppState> {
     } else {
       locale = 'en';
     }
+
     await HiveDatabase.instance.selectedLanguage!
         .put(selectedLanguageKey, locale);
     emit(AppState.languageChanged(language: locale));

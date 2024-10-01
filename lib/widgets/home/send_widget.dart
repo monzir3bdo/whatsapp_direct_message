@@ -26,22 +26,26 @@ class SendWidgets extends StatelessWidget {
             );
           },
           orElse: () {
-            return WhatsappButton(
-              onPressed: () async {
-                if (context
-                    .read<SendMessageCubit>()
-                    .formKey
-                    .currentState!
-                    .validate()) {
-                  await context.read<SendMessageCubit>().sendMessage();
-                  if (context.mounted) {
-                    HiveDatabase.instance.history!.add(ContactModel(
-                        phoneNumber: context.read<SendMessageCubit>().phone!));
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: WhatsappButton(
+                onPressed: () async {
+                  if (context
+                      .read<SendMessageCubit>()
+                      .formKey
+                      .currentState!
+                      .validate()) {
+                    await context.read<SendMessageCubit>().sendMessage();
+                    if (context.mounted) {
+                      HiveDatabase.instance.history!.add(ContactModel(
+                          phoneNumber:
+                              context.read<SendMessageCubit>().phone!));
+                    }
                   }
-                }
-              },
-              text: context.translate(LangKeys.whatsapp),
-              icon: Assets.svgWhatsapp,
+                },
+                text: context.translate(LangKeys.whatsapp),
+                icon: Assets.svgWhatsapp,
+              ),
             );
           },
         );

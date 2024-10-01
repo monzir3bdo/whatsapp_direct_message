@@ -50,8 +50,8 @@ class HomeTabBar extends StatelessWidget {
                 BorderRadius.circular(42), // Stadium shape for selected tab
           ),
           indicatorWeight: 0, // Removes the underline thickness
-          labelStyle: AppTextStyles.semiBold16,
-          unselectedLabelStyle: AppTextStyles.semiBold16,
+          labelStyle: AppTextStyles.semiBold16.copyWith(fontSize: 14),
+          unselectedLabelStyle: AppTextStyles.semiBold16.copyWith(fontSize: 14),
         ),
       ),
     );
