@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/routes/app_routes.dart';
 
+import '../../core/database/hive_data_base.dart';
+
 class HomeFloatingActionButton extends StatelessWidget {
   const HomeFloatingActionButton({super.key});
 
@@ -14,8 +16,11 @@ class HomeFloatingActionButton extends StatelessWidget {
       },
       backgroundColor: context.color.floatingActionButtonColor,
       shape: const CircleBorder(),
-      child: const Icon(
+      child: Icon(
         CupertinoIcons.settings_solid,
+        color: HiveDatabase.instance!.isDark!.get(darkKey, defaultValue: false)!
+            ? Colors.white
+            : Colors.black,
         size: 30,
       ),
     );

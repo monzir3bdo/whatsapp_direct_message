@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
 import 'package:whatsapp_direct_message/blocs/visibility/visibility_cubit.dart';
+import 'package:whatsapp_direct_message/core/database/hive_data_base.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
@@ -83,6 +84,12 @@ class PhoneWidget extends StatelessWidget {
       },
       decoration: InputDecoration(
         hintText: context.translate(LangKeys.enterPhoneNumber),
+        hintStyle: AppTextStyles.regular12.copyWith(
+          color:
+              HiveDatabase.instance!.isDark!.get(darkKey, defaultValue: false)!
+                  ? const Color(0xff808080)
+                  : const Color(0xffbcbcbc),
+        ),
       ),
       validator: context.read<VisibilityCubit>().showCountryPicker
           ? null

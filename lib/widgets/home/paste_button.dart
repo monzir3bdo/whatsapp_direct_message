@@ -4,6 +4,7 @@ import 'package:whatsapp_direct_message/core/extensions/build_context_extension.
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
+import 'package:whatsapp_direct_message/core/widgets/app_button.dart';
 import 'package:whatsapp_direct_message/widgets/home/paste_dialog.dart';
 
 class PasteButton extends StatelessWidget {
@@ -13,33 +14,29 @@ class PasteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: context.width,
-      height: 50,
-      child: ElevatedButton(
-        onPressed: () {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return const PasteDialog();
-              });
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              context.translate(LangKeys.paste),
-              style: AppTextStyles.medium14
-                  .copyWith(color: AppLightColors.backgroundColor),
-            ),
-            const Gap(5),
-            const Icon(
-              Icons.paste,
-              color: Colors.white,
-              size: 18,
-            ),
-          ],
-        ),
+    return AppButton(
+      onpressed: () {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return const PasteDialog();
+            });
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            context.translate(LangKeys.paste),
+            style: AppTextStyles.medium14
+                .copyWith(color: AppLightColors.backgroundColor),
+          ),
+          const Gap(5),
+          const Icon(
+            Icons.paste,
+            color: Colors.white,
+            size: 18,
+          ),
+        ],
       ),
     );
   }
