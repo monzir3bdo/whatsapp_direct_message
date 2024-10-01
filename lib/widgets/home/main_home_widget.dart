@@ -24,6 +24,7 @@ class HomeMainWidget extends StatelessWidget {
       child: Form(
         key: context.read<SendMessageCubit>().formKey,
         child: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
