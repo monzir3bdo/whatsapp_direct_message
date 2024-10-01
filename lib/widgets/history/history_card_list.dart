@@ -40,6 +40,8 @@ class HistoryCardList extends StatelessWidget {
               SlidableAction(
                 icon: Icons.edit,
                 label: context.translate(LangKeys.edit),
+                backgroundColor: AppLightColors.primary,
+                foregroundColor: AppLightColors.backgroundColor,
                 onPressed: (context) {
                   showModalBottomSheet(
                     context: context,
