@@ -39,6 +39,7 @@ class HistoryCard extends StatelessWidget {
                   contact.phoneNumber,
                   style: AppTextStyles.medium14
                       .copyWith(color: context.color.textColor),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               const Gap(12),
