@@ -6,6 +6,10 @@ class CustomRegex {
 // Find all matches and convert them to a list
     List<String> phoneNumbers =
         regExp.allMatches(input).map((m) => m.group(0)!).toList();
-    return phoneNumbers;
+
+    final trimmedNumbers = phoneNumbers
+        .map((number) => number.replaceFirst('00', '+').trim())
+        .toList();
+    return trimmedNumbers;
   }
 }
