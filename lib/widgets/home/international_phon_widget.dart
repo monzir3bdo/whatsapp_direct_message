@@ -46,11 +46,6 @@ class InternationalPhoneWidget extends StatelessWidget {
                   color: Colors.transparent,
                 ),
               ),
-              errorBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                ),
-              ),
               enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.transparent,
