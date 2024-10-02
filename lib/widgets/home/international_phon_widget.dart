@@ -13,12 +13,14 @@ class InternationalPhoneWidget extends StatelessWidget {
   final Function(PhoneNumber)? onInputChanged;
   final String? Function(String?)? validator;
   final Widget? suffix;
+  final PhoneNumber? initialValue;
   const InternationalPhoneWidget({
     super.key,
     required this.controller,
     this.onInputChanged,
     this.validator,
     this.suffix,
+    this.initialValue,
   });
 
   @override
@@ -36,6 +38,7 @@ class InternationalPhoneWidget extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: InternationalPhoneNumberInput(
+          initialValue: initialValue,
           inputDecoration: InputDecoration(
               suffixIcon: suffix,
               focusedBorder: const OutlineInputBorder(

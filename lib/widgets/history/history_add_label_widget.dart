@@ -7,6 +7,7 @@ import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/core/widgets/app_button.dart';
+import 'package:whatsapp_direct_message/core/widgets/app_text_field.dart';
 import 'package:whatsapp_direct_message/models/contact_model.dart';
 import 'package:whatsapp_direct_message/widgets/history/history_add_label_title.dart';
 
@@ -33,20 +34,18 @@ class _HistoryAddLabelWidgetState extends State<HistoryAddLabelWidget> {
       decoration: BoxDecoration(
           color: context.color.containerColor,
           borderRadius: BorderRadius.circular(6)),
-      padding: EdgeInsets.only(
-          left: 10,
-          right: 10,
-          top: 20,
-          bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding: const EdgeInsets.only(
+        left: 10,
+        right: 10,
+        top: 20,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const HistoryAddLabelTitle(),
-          TextField(
+          AppTextField(
+            hintText: context.translate(LangKeys.labelHint),
             controller: labelController,
-            onTapOutside: (pointer) {
-              FocusManager.instance.primaryFocus?.unfocus();
-            },
           ),
           AppButton(
             onPressed: () {

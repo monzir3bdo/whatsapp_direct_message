@@ -46,8 +46,12 @@ class HistoryCardList extends StatelessWidget {
                   showModalBottomSheet(
                     context: context,
                     isScrollControlled: true,
-                    builder: (context) => HistoryAddLabelWidget(
-                      contact: contacts[index],
+                    builder: (context) => Padding(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: HistoryAddLabelWidget(
+                        contact: contacts[index],
+                      ),
                     ),
                   );
                 },

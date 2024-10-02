@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:whatsapp_direct_message/blocs/extract/extract_text/extract_text_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/core/widgets/app_button.dart';
-import 'package:whatsapp_direct_message/widgets/home/paste_dialog.dart';
+import 'package:whatsapp_direct_message/widgets/home/new_paste_dialog.dart';
 
 class PasteButton extends StatelessWidget {
   const PasteButton({
@@ -17,10 +19,14 @@ class PasteButton extends StatelessWidget {
     return AppButton(
       onPressed: () {
         showDialog(
-            context: context,
-            builder: (context) {
-              return const PasteDialog();
-            });
+          context: context,
+          builder: (context) {
+            return BlocProvider(
+              create: (context) => ExtractTextCubit(),
+              child: const NewPasteDialog(),
+            );
+          },
+        );
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
