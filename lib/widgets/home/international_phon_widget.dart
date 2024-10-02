@@ -72,6 +72,7 @@ class InternationalPhoneWidget extends StatelessWidget {
             selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
           ),
           validator: validator,
+          initialValue: initialValue,
         ),
       ),
     );

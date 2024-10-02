@@ -46,5 +46,7 @@
     "label_hint": "Enter Something to let you remember the number in case you need it",
     "no_number_found": "No Number Found",
     "retry": "Retry",
-    "entered_text_not_contains_phone_numbers": "The Entered text not contains any valid number"
+    "entered_text_not_contains_phone_numbers": "The Entered text not contains any valid number",
+    "we_found": "We Found"
+
 }

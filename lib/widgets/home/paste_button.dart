@@ -31,10 +31,7 @@ class PasteButton extends StatelessWidget {
                   create: (context) => ExtractSuccessCubit(),
                 ),
               ],
-              child: BlocProvider(
-                create: (context) => ExtractTextCubit(),
-                child: const NewPasteDialog(),
-              ),
+              child: const NewPasteDialog(),
             );
           },
         );

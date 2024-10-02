@@ -46,5 +46,6 @@
     "label_hint": "اكتب شيء يجعلك تتذكر الاسم",
     "no_number_found": "لم يتم العثور على رقم",
     "retry": "إعادة المحاولة",
-    "entered_text_not_contains_phone_numbers": "النص المدخل لا يحتوي على اي رقم صالح"
+    "entered_text_not_contains_phone_numbers": "النص المدخل لا يحتوي على اي رقم صالح",
+    "we_found": "لقد وجدنا"
 }

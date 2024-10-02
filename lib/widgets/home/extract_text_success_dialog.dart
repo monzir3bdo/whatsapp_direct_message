@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_success_cubit.dart';
+import 'package:whatsapp_direct_message/blocs/extract/extract_text/extract_text_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
@@ -29,6 +31,15 @@ class ExtractTextSuccessDialog extends StatelessWidget {
               BlocBuilder<ExtractSuccessCubit, ExtractSuccessState>(
                 builder: (context, state) {
                   return InternationalPhoneWidget(
+                    suffix: IconButton(
+                      onPressed: () {
+                        context.read<ExtractTextCubit>().retry();
+                      },
+                      icon: const Icon(
+                        CupertinoIcons.xmark,
+                        color: Colors.red,
+                      ),
+                    ),
                     initialValue:
                         context.read<ExtractSuccessCubit>().phoneNumber,
                     controller: context
@@ -42,16 +53,25 @@ class ExtractTextSuccessDialog extends StatelessWidget {
                   );
                 },
               ),
+              Gap(10),
+              Text(
+                '${context.translate(LangKeys.weFound)}(${numbers.length}) ${context.translate(LangKeys.phoneNumber)}',
+                style: AppTextStyles.semiBold16
+                    .copyWith(fontSize: 12, color: context.color.textColor),
+              ),
+              Gap(10),
               ...List.generate(
                 numbers.length,
                 (index) {
-                  return GestureDetector(
-                    onTap: () async {
+                  return TextButton(
+                    style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                    onPressed: () {
                       context
                           .read<ExtractSuccessCubit>()
                           .changeNumber(numbers[index]);
                     },
                     child: Text(
+                      textDirection: TextDirection.ltr,
                       numbers[index],
                       style: const TextStyle(color: AppLightColors.primary),
                     ),

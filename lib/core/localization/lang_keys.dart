@@ -55,6 +55,7 @@ class LangKeys {
   static const String labelHint = 'label_hint';
   static const String retry = 'retry';
   static const String noNumberFound = 'no_number_found';
+  static const String weFound = 'we_found';
   static const String enteredTextNotContainsNumber =
       'entered_text_not_contains_phone_numbers';
 }
