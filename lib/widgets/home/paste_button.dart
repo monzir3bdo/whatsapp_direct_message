@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_success_cubit.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_text/extract_text_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
@@ -21,9 +22,19 @@ class PasteButton extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) {
-            return BlocProvider(
-              create: (context) => ExtractTextCubit(),
-              child: const NewPasteDialog(),
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => ExtractTextCubit(),
+                ),
+                BlocProvider(
+                  create: (context) => ExtractSuccessCubit(),
+                ),
+              ],
+              child: BlocProvider(
+                create: (context) => ExtractTextCubit(),
+                child: const NewPasteDialog(),
+              ),
             );
           },
         );

@@ -21,10 +21,9 @@ class NewPasteDialog extends StatelessWidget {
             return const ExtractTextEmptyDialog();
           },
           success: (numbers) {
-            return BlocProvider(
-              create: (context) => ExtractSuccessCubit(),
-              child: ExtractTextSuccessDialog(numbers: numbers),
-            );
+            context.read<ExtractSuccessCubit>().changeNumber(numbers.first);
+
+            return ExtractTextSuccessDialog(numbers: numbers);
           },
           orElse: () {
             return const ExtractTextDialog();

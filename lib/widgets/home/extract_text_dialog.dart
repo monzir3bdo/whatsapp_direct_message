@@ -21,9 +21,9 @@ class ExtractTextDialog extends StatelessWidget {
           children: [
             Text(
               context.translate(LangKeys.extractPhoneNumberFromText),
-              style: AppTextStyles.semiBold16.copyWith(
+              style: AppTextStyles.bold16.copyWith(
                 color: context.color.textColor,
-                fontSize: 12,
+                fontSize: 13,
               ),
             ),
             Gap(context.height * 0.02),

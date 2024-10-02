@@ -2,11 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/validators/custom_regex.dart';
 
+import '../../core/functions/functions.dart';
 import '../../core/widgets/snack_bars.dart';
 
 part 'send_message_cubit.freezed.dart';
@@ -77,35 +77,6 @@ class SendMessageCubit extends Cubit<SendMessageState> {
       emit(const SendMessageState.success());
     } catch (e) {
       emit(const SendMessageState.success());
-    }
-  }
-
-  Future<void> openWhatsapp(String phoneNumber, String message) async {
-    if (phoneNumber.startsWith('00')) {
-      String newNumber = phoneNumber.replaceFirst('00', '+');
-      launchUrl(Uri(
-        scheme: 'https',
-        host: 'wa.me',
-        path: newNumber,
-        queryParameters: messageController.text.isNotEmpty
-            ? {'text': messageController.text}
-            : null,
-      ));
-      return;
-    }
-    final url = Uri(
-      scheme: 'https',
-      host: 'wa.me',
-      path: phoneNumber,
-      queryParameters: messageController.text.isNotEmpty
-          ? {'text': messageController.text}
-          : null,
-    );
-
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      throw 'Could not launch $url';
     }
   }
 

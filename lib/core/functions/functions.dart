@@ -1,4 +1,7 @@
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:whatsapp_direct_message/core/database/hive_data_base.dart';
+import 'package:whatsapp_direct_message/models/contact_model.dart';
 
 List<String> extractLongNumbers(String text) {
   // Remove all spaces from the text
@@ -18,4 +21,33 @@ List<String> extractLongNumbers(String text) {
 
 Future<void> copy({required String data}) async {
   await Clipboard.setData(ClipboardData(text: data));
+}
+
+Future<void> openWhatsapp(String phoneNumber, String message) async {
+  if (phoneNumber.startsWith('00')) {
+    String newNumber = phoneNumber.replaceFirst('00', '+');
+    launchUrl(Uri(
+      scheme: 'https',
+      host: 'wa.me',
+      path: newNumber,
+      queryParameters: message.isNotEmpty ? {'text': message} : null,
+    ));
+    await HiveDatabase.instance.history!
+        .add(ContactModel(phoneNumber: newNumber));
+    return;
+  }
+  final url = Uri(
+    scheme: 'https',
+    host: 'wa.me',
+    path: phoneNumber,
+    queryParameters: message.isNotEmpty ? {'text': message} : null,
+  );
+  await HiveDatabase.instance.history!
+      .add(ContactModel(phoneNumber: phoneNumber));
+
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }

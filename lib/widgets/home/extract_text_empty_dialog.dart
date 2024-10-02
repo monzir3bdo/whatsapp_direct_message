@@ -22,10 +22,20 @@ class ExtractTextEmptyDialog extends StatelessWidget {
           children: [
             Text(
               context.translate(LangKeys.noNumberFound),
-              style: AppTextStyles.medium14.copyWith(),
+              style: AppTextStyles.medium14.copyWith(
+                color: context.color.textColor,
+              ),
             ),
             Gap(context.height * 0.01),
-            Text(context.translate(LangKeys.enteredTextNotContainsNumber)),
+            Text(
+              context.translate(LangKeys.enteredTextNotContainsNumber),
+              style: AppTextStyles.semiBold16.copyWith(
+                fontSize: 12,
+                color: context.color.textColor,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Gap(context.height * 0.01),
             AppButton(
               onPressed: () {
                 context.read<ExtractTextCubit>().retry();
@@ -34,7 +44,8 @@ class ExtractTextEmptyDialog extends StatelessWidget {
                 context.translate(
                   LangKeys.retry,
                 ),
-                style: AppTextStyles.medium14.copyWith(
+                style: AppTextStyles.semiBold16.copyWith(
+                  color: context.color.textColor,
                   fontSize: 12,
                 ),
               ),
