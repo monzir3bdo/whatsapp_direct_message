@@ -38,19 +38,29 @@ class InternationalPhoneWidget extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: InternationalPhoneNumberInput(
-          initialValue: initialValue,
           inputDecoration: InputDecoration(
-              suffixIcon: suffix,
-              focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                ),
+            suffixIcon: suffix,
+            focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.transparent,
               ),
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                ),
-              )),
+            ),
+            focusedErrorBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.transparent,
+              ),
+            ),
+            errorBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.transparent,
+              ),
+            ),
+            enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.transparent,
+              ),
+            ),
+          ),
           textFieldController: controller,
           hintText: context.translate(LangKeys.enterPhoneNumber),
           textStyle: AppTextStyles.medium14
