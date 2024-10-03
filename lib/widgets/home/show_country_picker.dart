@@ -21,7 +21,7 @@ class ShowCountryPickerCheckBox extends StatelessWidget {
           builder: (context, state) {
             return Checkbox(
               checkColor: AppLightColors.primary,
-              fillColor: !HiveDatabase.instance.isDark!.get(darkKey)!
+              fillColor: !HiveDatabase.instance.isDark!.get(darkKey,defaultValue: false)!
                   ? WidgetStatePropertyAll(Colors.black.withOpacity(0.1))
                   : WidgetStatePropertyAll(Colors.white.withOpacity(0.1)),
               side: BorderSide(color: Colors.black.withOpacity(0.2)),
