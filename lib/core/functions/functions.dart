@@ -42,6 +42,13 @@ Future<void> openWhatsapp(String phoneNumber, String message) async {
     path: phoneNumber,
     queryParameters: message.isNotEmpty ? {'text': message} : null,
   );
+  if (HiveDatabase.instance.history!.values
+      .any((value) => value.phoneNumber == phoneNumber)) {
+    await HiveDatabase.instance.history!.values
+        .firstWhere((value) => value.phoneNumber == phoneNumber)
+        .delete();
+  }
+
   await HiveDatabase.instance.history!
       .add(ContactModel(phoneNumber: phoneNumber));
 
