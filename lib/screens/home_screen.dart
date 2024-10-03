@@ -32,26 +32,31 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: const HomeFloatingActionButton(),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 80,
-          ),
-          HomeTabBar(tabController: _tabController),
-          const SizedBox(
-            height: 20,
-          ),
-          Expanded(
-            child: TabBarView(
-              physics: const NeverScrollableScrollPhysics(),
-              controller: _tabController,
-              children: const [
-                HomeMainWidget(),
-                HistoryWidget(),
-              ],
+      body: GestureDetector(
+        onTap: () {
+          FocusManager.instance.primaryFocus!.unfocus();
+        },
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 80,
             ),
-          ),
-        ],
+            HomeTabBar(tabController: _tabController),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: TabBarView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: _tabController,
+                children: const [
+                  HomeMainWidget(),
+                  HistoryWidget(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
