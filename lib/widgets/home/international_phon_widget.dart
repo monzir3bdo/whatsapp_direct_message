@@ -39,28 +39,29 @@ class InternationalPhoneWidget extends StatelessWidget {
         textDirection: TextDirection.ltr,
         child: InternationalPhoneNumberInput(
           inputDecoration: InputDecoration(
-            suffixIcon: suffix,
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.transparent,
+              suffixIcon: suffix,
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                ),
               ),
-            ),
-            focusedErrorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.transparent,
+              focusedErrorBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                ),
               ),
-            ),
-            errorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.transparent,
+              errorBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                ),
               ),
-            ),
-            enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.transparent,
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                ),
               ),
-            ),
-          ),
+              hintStyle: AppTextStyles.medium14
+                  .copyWith(fontSize: 12, color: context.color.textColor)),
           textFieldController: controller,
           hintText: context.translate(LangKeys.enterPhoneNumber),
           textStyle: AppTextStyles.medium14
@@ -72,7 +73,7 @@ class InternationalPhoneWidget extends StatelessWidget {
             selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
           ),
           validator: validator,
-          initialValue: initialValue,
+          initialValue: initialValue ?? PhoneNumber(isoCode: 'SD'),
         ),
       ),
     );
