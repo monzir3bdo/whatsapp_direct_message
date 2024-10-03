@@ -15,22 +15,24 @@ class SettingsScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Constants.paddingH),
-      child: Column(
-        children: [
-          const SettingsDarkThemeWidget(),
-          Gap(context.height * 0.05),
-          const SettingsSaveNumbersWidget(),
-          Gap(context.height * 0.05),
-          const SettingsChangeLanguageWidget(),
-          Gap(context.height * 0.05),
-          const SettingsAppVersion(),
-          Gap(context.height * 0.05),
-          const SettingsShareApp(),
-          Gap(context.height * 0.06),
-          const SettingsRemoveHistory(),
-        ],
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: Constants.paddingH),
+        child: Column(
+          children: [
+            const SettingsDarkThemeWidget(),
+            Gap(context.height * 0.05),
+            const SettingsSaveNumbersWidget(),
+            Gap(context.height * 0.05),
+            const SettingsChangeLanguageWidget(),
+            Gap(context.height * 0.05),
+            const SettingsAppVersion(),
+            Gap(context.height * 0.05),
+            const SettingsShareApp(),
+            Gap(context.height * 0.06),
+            const SettingsRemoveHistory(),
+          ],
+        ),
       ),
     );
   }

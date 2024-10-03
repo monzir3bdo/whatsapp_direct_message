@@ -11,8 +11,13 @@ class HomeFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {
-        context.pushNamed(AppRoutes.settingsScreen);
+      onPressed: () async {
+        FocusManager.instance.primaryFocus!.unfocus();
+        await Future.delayed(const Duration(milliseconds: 100), () {
+          if (context.mounted) {
+            context.pushNamed(AppRoutes.settingsScreen);
+          }
+        });
       },
       backgroundColor: context.color.floatingActionButtonColor,
       shape: const CircleBorder(),
