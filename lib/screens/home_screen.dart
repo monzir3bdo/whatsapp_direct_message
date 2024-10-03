@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
+import 'package:whatsapp_direct_message/blocs/visibility/visibility_cubit.dart';
 import 'package:whatsapp_direct_message/widgets/history/history_widget.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_floating_action_button.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_tabbar.dart';
@@ -49,9 +52,22 @@ class _HomeScreenState extends State<HomeScreen>
               child: TabBarView(
                 physics: const NeverScrollableScrollPhysics(),
                 controller: _tabController,
-                children: const [
-                  HomeMainWidget(),
-                  HistoryWidget(),
+                children: [
+                  MultiBlocProvider(
+                    providers: [
+                      BlocProvider(
+                        create: (context) => SendMessageCubit(),
+                      ),
+                      BlocProvider(
+                        create: (context) => VisibilityCubit(),
+                      ),
+                      BlocProvider(
+                        create: (context) => SendMessageCubit(),
+                      ),
+                    ],
+                    child: const HomeMainWidget(),
+                  ),
+                  const HistoryWidget(),
                 ],
               ),
             ),
