@@ -13,7 +13,7 @@ class HomeFloatingActionButton extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () async {
         FocusManager.instance.primaryFocus!.unfocus();
-        await Future.delayed(const Duration(milliseconds: 100), () {
+        await Future.delayed(const Duration(milliseconds: 50), () {
           if (context.mounted) {
             context.pushNamed(AppRoutes.settingsScreen);
           }
@@ -23,7 +23,7 @@ class HomeFloatingActionButton extends StatelessWidget {
       shape: const CircleBorder(),
       child: Icon(
         CupertinoIcons.settings_solid,
-        color: HiveDatabase.instance!.isDark!.get(darkKey, defaultValue: false)!
+        color: HiveDatabase.instance.isDark!.get(darkKey, defaultValue: false)!
             ? Colors.white
             : Colors.black,
         size: 30,
