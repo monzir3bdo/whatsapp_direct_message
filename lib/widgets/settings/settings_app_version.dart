@@ -28,7 +28,14 @@ class SettingsAppVersion extends StatelessWidget {
                     style: AppTextStyles.medium14
                         .copyWith(color: context.color.textColor),
                   );
+                } else if (snapshot.hasError) {
+                  return Text(
+                    'Nan',
+                    style: AppTextStyles.medium14
+                        .copyWith(color: context.color.textColor),
+                  );
                 }
+
                 return const CircularProgressIndicator();
               })
         ],
