@@ -3,7 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:whatsapp_direct_message/core/extensions/colors_extenion.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 
+import '../database/hive_data_base.dart';
+import 'app_text_styels.dart';
+
 ThemeData lightTheme() => ThemeData(
+  fontFamily: HiveDatabase.instance.selectedLanguage!
+                .get(selectedLanguageKey, defaultValue: 'en') ==
+            'en'
+        ? poppinsFont
+        : montserrat,
+        fontFamilyFallback:const [poppinsFont, montserrat],
       appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.dark,
@@ -59,6 +68,12 @@ ThemeData lightTheme() => ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: AppLightColors.primary),
     );
 ThemeData darkTheme() => ThemeData(
+  fontFamily: HiveDatabase.instance.selectedLanguage!
+                .get(selectedLanguageKey, defaultValue: 'en') ==
+            'en'
+        ? poppinsFont
+        : montserrat,
+        fontFamilyFallback:const [poppinsFont, montserrat],
       appBarTheme: const AppBarTheme(
         systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
