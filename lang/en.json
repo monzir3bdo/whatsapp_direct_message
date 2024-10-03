@@ -39,14 +39,14 @@
     "stop_saving_numbers": "Stop saving numbers",
     "stop": "Stop",
     "stop_saving_numbers_desc": "Stopping Numbers Save Feature will delete all the numbers that have been saved so far and you will not be able to save a new one. Are you sure you want to stop?",
-"delete": "Delete",
-  "edit": "Edit",
+    "delete": "Delete",
+    "edit": "Edit",
     "add_label": "Add Label",
     "save": "Save",
     "label_hint": "Enter Something to let you remember the number in case you need it",
     "no_number_found": "No Number Found",
     "retry": "Retry",
     "entered_text_not_contains_phone_numbers": "The Entered text not contains any valid number",
-    "we_found": "We Found"
-
+    "we_found": "We Found",
+    "you_can_enter_a_message": "You can Enter a Message"
 }

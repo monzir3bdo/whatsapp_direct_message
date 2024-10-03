@@ -14,8 +14,11 @@ class ExtractTextDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-        color: context.color.containerColor,
-        padding: const EdgeInsets.only(top: 10, left: 8, right: 8),
+        decoration: BoxDecoration(
+          color: context.color.containerColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

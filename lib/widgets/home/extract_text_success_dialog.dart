@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_success_cubit.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_text/extract_text_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
@@ -20,8 +21,11 @@ class ExtractTextSuccessDialog extends StatelessWidget {
     return Dialog(
       child: Container(
         width: context.width * 0.8,
-        color: context.color.containerColor,
-        padding: const EdgeInsets.only(top: 10, left: 8, right: 8),
+        decoration: BoxDecoration(
+          color: context.color.containerColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: const EdgeInsets.all(10),
         child: Form(
           key: context.read<ExtractSuccessCubit>().extractMessageKey,
           child: Column(
@@ -47,7 +51,7 @@ class ExtractTextSuccessDialog extends StatelessWidget {
                         .phoneNumberController,
                     validator: (phoneNumber) {
                       phoneNumber!.length < 5
-                          ? 'Enter a valid Phone number'
+                          ? context.translate(LangKeys.enterPhoneNumber)
                           : null;
                     },
                   );
@@ -79,7 +83,7 @@ class ExtractTextSuccessDialog extends StatelessWidget {
                 },
               ),
               AppTextField(
-                hintText: 'You can Enter a Message',
+                hintText: context.translate(LangKeys.youCanEnterAMessage),
                 controller: TextEditingController(),
                 minLines: 10,
               ),
@@ -94,6 +98,7 @@ class ExtractTextSuccessDialog extends StatelessWidget {
                   ),
                   style: AppTextStyles.medium14.copyWith(
                     fontSize: 12,
+                    color: Colors.white,
                   ),
                 ),
               ),

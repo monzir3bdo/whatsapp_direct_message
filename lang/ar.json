@@ -47,5 +47,6 @@
     "no_number_found": "لم يتم العثور على رقم",
     "retry": "إعادة المحاولة",
     "entered_text_not_contains_phone_numbers": "النص المدخل لا يحتوي على اي رقم صالح",
-    "we_found": "لقد وجدنا"
+    "we_found": "لقد وجدنا",
+    "you_can_enter_a_message": "يمكنك إدخال رسالة"
 }
