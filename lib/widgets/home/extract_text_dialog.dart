@@ -18,7 +18,7 @@ class ExtractTextDialog extends StatelessWidget {
           color: context.color.containerColor,
           borderRadius: BorderRadius.circular(10),
         ),
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -33,10 +33,17 @@ class ExtractTextDialog extends StatelessWidget {
             AppTextField(
               hintText: context.translate(LangKeys.pasteTheTextHere),
               controller: context.read<ExtractTextCubit>().pasteController,
-              onChanged: (value) {
-                context
-                    .read<ExtractTextCubit>()
-                    .extractPhoneNumbersFromText(value);
+              onChanged: (value) async {
+                await Future.delayed(
+                  const Duration(milliseconds: 350),
+                  () {
+                    if (context.mounted) {
+                      context
+                          .read<ExtractTextCubit>()
+                          .extractPhoneNumbersFromText(value);
+                    }
+                  },
+                );
               },
               minLines: 10,
             ),
