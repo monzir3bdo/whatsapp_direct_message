@@ -60,4 +60,5 @@ class LangKeys {
       'entered_text_not_contains_phone_numbers';
   static const String youCanEnterAMessage = 'you_can_enter_a_message';
   static const String shareText = 'share_text';
+  static const String pastTextAndGetNumber = 'paste_text_and_get_number';
 }

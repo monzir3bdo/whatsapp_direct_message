@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_success_cubit.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_text/extract_text_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/widgets/home/paste_dialog.dart';
@@ -50,7 +51,7 @@ class NewPasteWidget extends StatelessWidget {
             ),
             const Gap(5),
             Text(
-              'Paste Text And Get Number From it',
+              context.translate(LangKeys.pastTextAndGetNumber),
               style: AppTextStyles.semiBold16.copyWith(
                 color: context.color.textColor,
                 fontSize: 13,
