@@ -1,4 +1,4 @@
-package com.whatsappdirectmessage.app.whatsapp_direct_message
+package com.whatsappdirectmessage.app
 
 import io.flutter.embedding.android.FlutterActivity
 
