@@ -53,7 +53,7 @@ class NewPasteWidget extends StatelessWidget {
             Text(
               context.translate(LangKeys.pastTextAndGetNumber),
               style: AppTextStyles.semiBold16.copyWith(
-                color: context.color.textColor,
+                color: AppLightColors.backgroundColor,
                 fontSize: 13,
               ),
             )
