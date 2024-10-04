@@ -12,7 +12,8 @@ class SettingsShareApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return SettingsContainer(
       onTap: () async {
-        await Share.share('${context.translate(LangKeys.shareText)} ');
+        await Share.share(
+            '${context.translate(LangKeys.shareText)} https://play.google.com/store/apps/details?id=com.whatsappdirectmessage.app');
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
