@@ -7,12 +7,12 @@ import '../database/hive_data_base.dart';
 import 'app_text_styels.dart';
 
 ThemeData lightTheme() => ThemeData(
-  fontFamily: HiveDatabase.instance.selectedLanguage!
-                .get(selectedLanguageKey, defaultValue: 'en') ==
-            'en'
-        ? poppinsFont
-        : montserrat,
-        fontFamilyFallback:const [poppinsFont, montserrat],
+      fontFamily: HiveDatabase.instance.selectedLanguage!
+                  .get(selectedLanguageKey, defaultValue: 'en') ==
+              'en'
+          ? poppinsFont
+          : montserrat,
+      fontFamilyFallback: const [poppinsFont, montserrat],
       appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.dark,
@@ -34,7 +34,7 @@ ThemeData lightTheme() => ThemeData(
       ),
       inputDecorationTheme: InputDecorationTheme(
         focusedBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
+          borderRadius: const BorderRadius.all(Radius.circular(6)),
           borderSide: BorderSide(
             color: AppLightColors.black.withOpacity(0.2),
           ),
@@ -42,7 +42,7 @@ ThemeData lightTheme() => ThemeData(
         enabledBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(
             Radius.circular(
-              8,
+              6,
             ),
           ),
           borderSide: BorderSide(
@@ -68,12 +68,12 @@ ThemeData lightTheme() => ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: AppLightColors.primary),
     );
 ThemeData darkTheme() => ThemeData(
-  fontFamily: HiveDatabase.instance.selectedLanguage!
-                .get(selectedLanguageKey, defaultValue: 'en') ==
-            'en'
-        ? poppinsFont
-        : montserrat,
-        fontFamilyFallback:const [poppinsFont, montserrat],
+      fontFamily: HiveDatabase.instance.selectedLanguage!
+                  .get(selectedLanguageKey, defaultValue: 'en') ==
+              'en'
+          ? poppinsFont
+          : montserrat,
+      fontFamilyFallback: const [poppinsFont, montserrat],
       appBarTheme: const AppBarTheme(
         systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,

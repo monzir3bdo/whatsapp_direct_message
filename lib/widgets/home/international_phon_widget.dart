@@ -33,7 +33,7 @@ class InternationalPhoneWidget extends StatelessWidget {
               ? AppDarkColors.textFieldBorderColor
               : AppLightColors.textFieldBorderColor,
         ),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Directionality(
         textDirection: TextDirection.ltr,
