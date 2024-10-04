@@ -59,4 +59,5 @@ class LangKeys {
   static const String enteredTextNotContainsNumber =
       'entered_text_not_contains_phone_numbers';
   static const String youCanEnterAMessage = 'you_can_enter_a_message';
+  static const String shareText = 'share_text';
 }

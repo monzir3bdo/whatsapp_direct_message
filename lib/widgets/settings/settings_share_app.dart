@@ -1,7 +1,7 @@
-import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/widgets/settings/settings_container.dart';
 
@@ -11,6 +11,9 @@ class SettingsShareApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsContainer(
+      onTap: () async {
+        await Share.share('${context.translate(LangKeys.shareText)} ');
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
