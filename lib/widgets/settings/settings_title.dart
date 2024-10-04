@@ -1,7 +1,6 @@
-import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/core/extensions/string_extension.dart';
+import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 
 class SettingsTitle extends StatelessWidget {
@@ -11,8 +10,10 @@ class SettingsTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       context.translate(LangKeys.settings),
-      style: AppTextStyles.semiBold16
-          .copyWith(color: context.color.textColor, fontSize: 17),
+      style: AppTextStyles.semiBold16.copyWith(
+        color: context.color.textColor,
+        fontSize: 17,
+      ),
     );
   }
 }
