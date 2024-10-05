@@ -65,15 +65,19 @@ void incrementTapCount() {
       HiveDatabase.instance.tapCount?.get(tapCountKey, defaultValue: 0);
   HiveDatabase.instance.tapCount?.put(tapCountKey, (currentTaps ?? 0) + 1);
 }
-Future<void> showReviewApp()async{
+
+Future<void> showReviewApp() async {
   int? currentTaps =
       HiveDatabase.instance.tapCount?.get(tapCountKey, defaultValue: 0);
-  if ((currentTaps??0) >= 10) {
+  if ((currentTaps ?? 0) >= 10 &&
+      !(HiveDatabase.instance.isRateUsShown
+              ?.get(isRateUsShownKey, defaultValue: false) ??
+          false)) {
     final InAppReview inAppReview = InAppReview.instance;
+    HiveDatabase.instance.isRateUsShown?.put(isRateUsShownKey, true);
 
     if (await inAppReview.isAvailable()) {
       inAppReview.requestReview();
     }
   }
-
 }
