@@ -4,6 +4,7 @@ import 'package:whatsapp_direct_message/core/extensions/build_context_extension.
 import 'package:whatsapp_direct_message/core/routes/app_routes.dart';
 
 import '../../core/database/hive_data_base.dart';
+import '../../core/functions/functions.dart';
 
 class HomeFloatingActionButton extends StatelessWidget {
   const HomeFloatingActionButton({super.key});
@@ -12,6 +13,7 @@ class HomeFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () async {
+        incrementTapCount();
         FocusManager.instance.primaryFocus!.unfocus();
         await Future.delayed(const Duration(milliseconds: 50), () {
           if (context.mounted) {

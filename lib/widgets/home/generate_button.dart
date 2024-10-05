@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/generate/generate_link_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/functions/functions.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
@@ -24,6 +25,7 @@ class GenerateButton extends StatelessWidget {
             return Form(
               child: AppButton(
                 onPressed: () {
+                  incrementTapCount();
                   context.read<GenerateLinkCubit>().generateLink();
                 },
                 child: Text(

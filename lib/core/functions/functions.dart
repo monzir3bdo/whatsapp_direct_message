@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_direct_message/core/database/hive_data_base.dart';
 import 'package:whatsapp_direct_message/models/contact_model.dart';
@@ -57,4 +58,22 @@ Future<void> openWhatsapp(String phoneNumber, String message) async {
   } else {
     throw 'Could not launch $url';
   }
+}
+
+void incrementTapCount() {
+  int? currentTaps =
+      HiveDatabase.instance.tapCount?.get(tapCountKey, defaultValue: 0);
+  HiveDatabase.instance.tapCount?.put(tapCountKey, (currentTaps ?? 0) + 1);
+}
+Future<void> showReviewApp()async{
+  int? currentTaps =
+      HiveDatabase.instance.tapCount?.get(tapCountKey, defaultValue: 0);
+  if ((currentTaps??0) >= 10) {
+    final InAppReview inAppReview = InAppReview.instance;
+
+    if (await inAppReview.isAvailable()) {
+      inAppReview.requestReview();
+    }
+  }
+
 }

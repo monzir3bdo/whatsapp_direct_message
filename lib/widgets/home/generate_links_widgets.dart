@@ -7,6 +7,7 @@ import 'package:whatsapp_direct_message/core/extensions/build_context_extension.
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/widgets/home/generate_or_copy_widget.dart';
 
+import '../../core/functions/functions.dart';
 import '../../core/localization/lang_keys.dart';
 import 'international_phon_widget.dart';
 
@@ -32,6 +33,7 @@ class GenerateLinkWidgets extends StatelessWidget {
                       linkGenerated: (_) {
                         return IconButton(
                           onPressed: () {
+                            incrementTapCount();
                             context.read<GenerateLinkCubit>().clearLink();
                           },
                           icon: const Icon(

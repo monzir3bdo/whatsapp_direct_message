@@ -14,6 +14,7 @@ class GenerateResultWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppButton(
       onPressed: () {
+        incrementTapCount();
         copy(data: link);
         Fluttertoast.showToast(
           msg: "Link Copied",

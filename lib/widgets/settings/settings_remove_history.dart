@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/functions/functions.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
@@ -13,6 +14,7 @@ class SettingsRemoveHistory extends StatelessWidget {
     return Center(
       child: TextButton(
         onPressed: () {
+          incrementTapCount();
           showDialog(
             context: context,
             builder: (context) {

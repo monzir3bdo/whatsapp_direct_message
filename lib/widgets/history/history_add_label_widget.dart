@@ -11,6 +11,8 @@ import 'package:whatsapp_direct_message/core/widgets/app_text_field.dart';
 import 'package:whatsapp_direct_message/models/contact_model.dart';
 import 'package:whatsapp_direct_message/widgets/history/history_add_label_title.dart';
 
+import '../../core/functions/functions.dart';
+
 class HistoryAddLabelWidget extends StatefulWidget {
   const HistoryAddLabelWidget({super.key, required this.contact});
   final ContactModel contact;
@@ -49,6 +51,7 @@ class _HistoryAddLabelWidgetState extends State<HistoryAddLabelWidget> {
           ),
           AppButton(
             onPressed: () {
+              incrementTapCount();
               widget.contact.name = labelController.text;
               widget.contact.save();
               context.read<HistoryBloc>().add(const HistoryEvent.getContacts());

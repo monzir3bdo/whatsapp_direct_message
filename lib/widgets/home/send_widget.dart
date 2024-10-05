@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/functions/functions.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/widgets/app_button.dart';
 
@@ -29,6 +30,7 @@ class SendWidgets extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: WhatsappButton(
                 onPressed: () async {
+                  incrementTapCount();
                   if (context
                       .read<SendMessageCubit>()
                       .formKey

@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_success_cubit.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_text/extract_text_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
+import 'package:whatsapp_direct_message/core/functions/functions.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
@@ -19,6 +20,7 @@ class PasteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppButton(
       onPressed: () {
+        incrementTapCount();
         showDialog(
           context: context,
           builder: (context) {
