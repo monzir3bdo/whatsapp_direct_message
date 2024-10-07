@@ -5,10 +5,10 @@ import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_su
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
-import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/core/widgets/app_button.dart';
 import 'package:whatsapp_direct_message/core/widgets/app_text_field.dart';
 import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_field_without_country_code.dart';
+import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_number_text_button.dart';
 import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_with_country_code.dart';
 
 class ExtractTextSuccessDialog extends StatelessWidget {
@@ -52,28 +52,7 @@ class ExtractTextSuccessDialog extends StatelessWidget {
               ...List.generate(
                 numbers.length,
                 (index) {
-                  return TextButton(
-                    style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                    onPressed: () {
-                      context
-                          .read<ExtractSuccessCubit>()
-                          .changeNumber(numbers[index]);
-                    },
-                    child: (!numbers[index].startsWith('+') &&
-                            !numbers[index].startsWith('00'))
-                        ? Text(
-                            textDirection: TextDirection.ltr,
-                            '${numbers[index]}(${context.translate(LangKeys.withoutCountryCode)})',
-                            style:
-                                const TextStyle(color: AppLightColors.primary),
-                          )
-                        : Text(
-                            textDirection: TextDirection.ltr,
-                            numbers[index],
-                            style:
-                                const TextStyle(color: AppLightColors.primary),
-                          ),
-                  );
+                  return ExtractPhoneNumberTextButton(number: numbers[index]);
                 },
               ),
               AppTextField(
