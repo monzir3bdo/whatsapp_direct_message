@@ -5,11 +5,11 @@ import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_su
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
-import 'package:whatsapp_direct_message/core/widgets/app_button.dart';
-import 'package:whatsapp_direct_message/core/widgets/app_text_field.dart';
 import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_field_without_country_code.dart';
 import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_number_text_button.dart';
 import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_with_country_code.dart';
+import 'package:whatsapp_direct_message/widgets/home/extract/extract_send_message.dart';
+import 'package:whatsapp_direct_message/widgets/home/extract/extract_success_send_button.dart';
 
 class ExtractTextSuccessDialog extends StatelessWidget {
   const ExtractTextSuccessDialog({super.key, required this.numbers});
@@ -55,27 +55,9 @@ class ExtractTextSuccessDialog extends StatelessWidget {
                   return ExtractPhoneNumberTextButton(number: numbers[index]);
                 },
               ),
-              AppTextField(
-                hintText: context.translate(LangKeys.youCanEnterAMessage),
-                controller:
-                    context.read<ExtractSuccessCubit>().messageController,
-                minLines: 10,
-              ),
+              const ExtractSendMessage(),
               Gap(context.height * 0.01),
-              AppButton(
-                onPressed: () {
-                  context.read<ExtractSuccessCubit>().sendMessage();
-                },
-                child: Text(
-                  context.translate(
-                    LangKeys.send,
-                  ),
-                  style: AppTextStyles.medium14.copyWith(
-                    fontSize: 12,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              const ExtractSuccessSendButton(),
               Gap(context.height * 0.01)
             ],
           ),
