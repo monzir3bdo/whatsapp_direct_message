@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_success_cubit.dart';
-import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
-import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
+import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_number_without_country_code.dart';
 
 import '../../../core/theme/colors.dart';
 
@@ -17,11 +16,7 @@ class ExtractPhoneNumberTextButton extends StatelessWidget {
         context.read<ExtractSuccessCubit>().changeNumber(number);
       },
       child: (!number.startsWith('+') && !number.startsWith('00'))
-          ? Text(
-              textDirection: TextDirection.ltr,
-              '$number(${context.translate(LangKeys.withoutCountryCode)})',
-              style: const TextStyle(color: AppLightColors.primary),
-            )
+          ? ExtractPhoneNumberWithoutCountryCode(number: number)
           : Text(
               textDirection: TextDirection.ltr,
               number,
