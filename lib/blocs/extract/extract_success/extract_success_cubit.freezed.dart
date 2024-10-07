@@ -20,6 +20,7 @@ mixin _$ExtractSuccessState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() sendMessage,
+    required TResult Function(String phoneNumber) phoneWithoutCountryCode,
     required TResult Function(String phoneNumber) numberChanged,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$ExtractSuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? sendMessage,
+    TResult? Function(String phoneNumber)? phoneWithoutCountryCode,
     TResult? Function(String phoneNumber)? numberChanged,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$ExtractSuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? sendMessage,
+    TResult Function(String phoneNumber)? phoneWithoutCountryCode,
     TResult Function(String phoneNumber)? numberChanged,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,8 @@ mixin _$ExtractSuccessState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_PhoneWithoutCountryCode value)
+        phoneWithoutCountryCode,
     required TResult Function(_NumberChanged value) numberChanged,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +54,7 @@ mixin _$ExtractSuccessState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
     TResult? Function(_NumberChanged value)? numberChanged,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +62,7 @@ mixin _$ExtractSuccessState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
     TResult Function(_NumberChanged value)? numberChanged,
     required TResult orElse(),
   }) =>
@@ -126,6 +133,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() sendMessage,
+    required TResult Function(String phoneNumber) phoneWithoutCountryCode,
     required TResult Function(String phoneNumber) numberChanged,
   }) {
     return initial();
@@ -136,6 +144,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? sendMessage,
+    TResult? Function(String phoneNumber)? phoneWithoutCountryCode,
     TResult? Function(String phoneNumber)? numberChanged,
   }) {
     return initial?.call();
@@ -146,6 +155,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? sendMessage,
+    TResult Function(String phoneNumber)? phoneWithoutCountryCode,
     TResult Function(String phoneNumber)? numberChanged,
     required TResult orElse(),
   }) {
@@ -160,6 +170,8 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_PhoneWithoutCountryCode value)
+        phoneWithoutCountryCode,
     required TResult Function(_NumberChanged value) numberChanged,
   }) {
     return initial(this);
@@ -170,6 +182,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
     TResult? Function(_NumberChanged value)? numberChanged,
   }) {
     return initial?.call(this);
@@ -180,6 +193,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
     TResult Function(_NumberChanged value)? numberChanged,
     required TResult orElse(),
   }) {
@@ -237,6 +251,7 @@ class _$SendMessageImpl implements _SendMessage {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() sendMessage,
+    required TResult Function(String phoneNumber) phoneWithoutCountryCode,
     required TResult Function(String phoneNumber) numberChanged,
   }) {
     return sendMessage();
@@ -247,6 +262,7 @@ class _$SendMessageImpl implements _SendMessage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? sendMessage,
+    TResult? Function(String phoneNumber)? phoneWithoutCountryCode,
     TResult? Function(String phoneNumber)? numberChanged,
   }) {
     return sendMessage?.call();
@@ -257,6 +273,7 @@ class _$SendMessageImpl implements _SendMessage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? sendMessage,
+    TResult Function(String phoneNumber)? phoneWithoutCountryCode,
     TResult Function(String phoneNumber)? numberChanged,
     required TResult orElse(),
   }) {
@@ -271,6 +288,8 @@ class _$SendMessageImpl implements _SendMessage {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_PhoneWithoutCountryCode value)
+        phoneWithoutCountryCode,
     required TResult Function(_NumberChanged value) numberChanged,
   }) {
     return sendMessage(this);
@@ -281,6 +300,7 @@ class _$SendMessageImpl implements _SendMessage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
     TResult? Function(_NumberChanged value)? numberChanged,
   }) {
     return sendMessage?.call(this);
@@ -291,6 +311,7 @@ class _$SendMessageImpl implements _SendMessage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
     TResult Function(_NumberChanged value)? numberChanged,
     required TResult orElse(),
   }) {
@@ -303,6 +324,165 @@ class _$SendMessageImpl implements _SendMessage {
 
 abstract class _SendMessage implements ExtractSuccessState {
   const factory _SendMessage() = _$SendMessageImpl;
+}
+
+/// @nodoc
+abstract class _$$PhoneWithoutCountryCodeImplCopyWith<$Res> {
+  factory _$$PhoneWithoutCountryCodeImplCopyWith(
+          _$PhoneWithoutCountryCodeImpl value,
+          $Res Function(_$PhoneWithoutCountryCodeImpl) then) =
+      __$$PhoneWithoutCountryCodeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String phoneNumber});
+}
+
+/// @nodoc
+class __$$PhoneWithoutCountryCodeImplCopyWithImpl<$Res>
+    extends _$ExtractSuccessStateCopyWithImpl<$Res,
+        _$PhoneWithoutCountryCodeImpl>
+    implements _$$PhoneWithoutCountryCodeImplCopyWith<$Res> {
+  __$$PhoneWithoutCountryCodeImplCopyWithImpl(
+      _$PhoneWithoutCountryCodeImpl _value,
+      $Res Function(_$PhoneWithoutCountryCodeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ExtractSuccessState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? phoneNumber = null,
+  }) {
+    return _then(_$PhoneWithoutCountryCodeImpl(
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PhoneWithoutCountryCodeImpl implements _PhoneWithoutCountryCode {
+  const _$PhoneWithoutCountryCodeImpl({required this.phoneNumber});
+
+  @override
+  final String phoneNumber;
+
+  @override
+  String toString() {
+    return 'ExtractSuccessState.phoneWithoutCountryCode(phoneNumber: $phoneNumber)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PhoneWithoutCountryCodeImpl &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, phoneNumber);
+
+  /// Create a copy of ExtractSuccessState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PhoneWithoutCountryCodeImplCopyWith<_$PhoneWithoutCountryCodeImpl>
+      get copyWith => __$$PhoneWithoutCountryCodeImplCopyWithImpl<
+          _$PhoneWithoutCountryCodeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() sendMessage,
+    required TResult Function(String phoneNumber) phoneWithoutCountryCode,
+    required TResult Function(String phoneNumber) numberChanged,
+  }) {
+    return phoneWithoutCountryCode(phoneNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? sendMessage,
+    TResult? Function(String phoneNumber)? phoneWithoutCountryCode,
+    TResult? Function(String phoneNumber)? numberChanged,
+  }) {
+    return phoneWithoutCountryCode?.call(phoneNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? sendMessage,
+    TResult Function(String phoneNumber)? phoneWithoutCountryCode,
+    TResult Function(String phoneNumber)? numberChanged,
+    required TResult orElse(),
+  }) {
+    if (phoneWithoutCountryCode != null) {
+      return phoneWithoutCountryCode(phoneNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_PhoneWithoutCountryCode value)
+        phoneWithoutCountryCode,
+    required TResult Function(_NumberChanged value) numberChanged,
+  }) {
+    return phoneWithoutCountryCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
+    TResult? Function(_NumberChanged value)? numberChanged,
+  }) {
+    return phoneWithoutCountryCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
+    TResult Function(_NumberChanged value)? numberChanged,
+    required TResult orElse(),
+  }) {
+    if (phoneWithoutCountryCode != null) {
+      return phoneWithoutCountryCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PhoneWithoutCountryCode implements ExtractSuccessState {
+  const factory _PhoneWithoutCountryCode({required final String phoneNumber}) =
+      _$PhoneWithoutCountryCodeImpl;
+
+  String get phoneNumber;
+
+  /// Create a copy of ExtractSuccessState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PhoneWithoutCountryCodeImplCopyWith<_$PhoneWithoutCountryCodeImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -376,6 +556,7 @@ class _$NumberChangedImpl implements _NumberChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() sendMessage,
+    required TResult Function(String phoneNumber) phoneWithoutCountryCode,
     required TResult Function(String phoneNumber) numberChanged,
   }) {
     return numberChanged(phoneNumber);
@@ -386,6 +567,7 @@ class _$NumberChangedImpl implements _NumberChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? sendMessage,
+    TResult? Function(String phoneNumber)? phoneWithoutCountryCode,
     TResult? Function(String phoneNumber)? numberChanged,
   }) {
     return numberChanged?.call(phoneNumber);
@@ -396,6 +578,7 @@ class _$NumberChangedImpl implements _NumberChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? sendMessage,
+    TResult Function(String phoneNumber)? phoneWithoutCountryCode,
     TResult Function(String phoneNumber)? numberChanged,
     required TResult orElse(),
   }) {
@@ -410,6 +593,8 @@ class _$NumberChangedImpl implements _NumberChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_PhoneWithoutCountryCode value)
+        phoneWithoutCountryCode,
     required TResult Function(_NumberChanged value) numberChanged,
   }) {
     return numberChanged(this);
@@ -420,6 +605,7 @@ class _$NumberChangedImpl implements _NumberChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SendMessage value)? sendMessage,
+    TResult? Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
     TResult? Function(_NumberChanged value)? numberChanged,
   }) {
     return numberChanged?.call(this);
@@ -430,6 +616,7 @@ class _$NumberChangedImpl implements _NumberChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_PhoneWithoutCountryCode value)? phoneWithoutCountryCode,
     TResult Function(_NumberChanged value)? numberChanged,
     required TResult orElse(),
   }) {

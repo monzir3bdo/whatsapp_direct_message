@@ -14,6 +14,13 @@ class ExtractSuccessCubit extends Cubit<ExtractSuccessState> {
   TextEditingController phoneNumberController = TextEditingController();
   GlobalKey<FormState> extractMessageKey = GlobalKey<FormState>();
   changeNumber(String selectedPhoneNumber) async {
+    if (!selectedPhoneNumber.startsWith('+') &&
+        !selectedPhoneNumber.startsWith('00')) {
+      emit(ExtractSuccessState.phoneWithoutCountryCode(
+          phoneNumber: selectedPhoneNumber));
+      phoneNumberController.text = selectedPhoneNumber;
+      return;
+    }
     PhoneNumber number =
         await PhoneNumber.getRegionInfoFromPhoneNumber(selectedPhoneNumber);
     phoneNumber =
