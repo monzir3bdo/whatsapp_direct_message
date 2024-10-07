@@ -1,16 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/blocs/extract/extract_success/extract_success_cubit.dart';
-import 'package:whatsapp_direct_message/blocs/extract/extract_text/extract_text_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/core/widgets/app_button.dart';
 import 'package:whatsapp_direct_message/core/widgets/app_text_field.dart';
-import 'package:whatsapp_direct_message/widgets/home/international_phon_widget.dart';
+import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_field_without_country_code.dart';
+import 'package:whatsapp_direct_message/widgets/home/extract/extract_phone_with_country_code.dart';
 
 class ExtractTextSuccessDialog extends StatelessWidget {
   const ExtractTextSuccessDialog({super.key, required this.numbers});
@@ -35,48 +34,10 @@ class ExtractTextSuccessDialog extends StatelessWidget {
                 builder: (context, state) {
                   return state.maybeWhen(
                     phoneWithoutCountryCode: (number) {
-                      return InternationalPhoneWidget(
-                        suffix: IconButton(
-                          onPressed: () {
-                            context.read<ExtractTextCubit>().retry();
-                          },
-                          icon: const Icon(
-                            CupertinoIcons.xmark,
-                            color: Colors.red,
-                          ),
-                        ),
-                        controller: context
-                            .read<ExtractSuccessCubit>()
-                            .phoneNumberController,
-                        validator: (phoneNumber) {
-                          phoneNumber!.length < 5
-                              ? context.translate(LangKeys.enterPhoneNumber)
-                              : null;
-                        },
-                      );
+                      return const ExtractPhoneFieldWithoutCountryCode();
                     },
                     orElse: () {
-                      return InternationalPhoneWidget(
-                        suffix: IconButton(
-                          onPressed: () {
-                            context.read<ExtractTextCubit>().retry();
-                          },
-                          icon: const Icon(
-                            CupertinoIcons.xmark,
-                            color: Colors.red,
-                          ),
-                        ),
-                        initialValue:
-                            context.read<ExtractSuccessCubit>().phoneNumber,
-                        controller: context
-                            .read<ExtractSuccessCubit>()
-                            .phoneNumberController,
-                        validator: (phoneNumber) {
-                          phoneNumber!.length < 5
-                              ? context.translate(LangKeys.enterPhoneNumber)
-                              : null;
-                        },
-                      );
+                      return const ExtractPhoneWithCountryCode();
                     },
                   );
                 },
