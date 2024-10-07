@@ -62,4 +62,5 @@ class LangKeys {
   static const String shareText = 'share_text';
   static const String pastTextAndGetNumber = 'paste_text_and_get_number';
   static const String withoutCountryCode = 'without_country_code';
+  static const String labelRequired = 'label_required';
 }

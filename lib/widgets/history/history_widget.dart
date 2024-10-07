@@ -14,9 +14,7 @@ class HistoryWidget extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           success: (contacts) {
-            return HistoryListWidget(
-              contacts: contacts.reversed.toList(),
-            );
+            return HistoryListWidget(contacts: contacts.reversed.toList());
           },
           historyDisable: () {
             return const ActivateHistoryWidget();

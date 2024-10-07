@@ -10,18 +10,21 @@ class AppTextField extends StatelessWidget {
       this.maxLines,
       this.minLines,
       required this.controller,
-      this.onChanged});
+      this.onChanged,
+      this.validator});
   final String hintText;
   final int? maxLines;
   final int? minLines;
   final TextEditingController controller;
   final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onTapOutside: (pointerDown) {
         FocusManager.instance.primaryFocus!.unfocus();
       },
+      validator: validator,
       onChanged: onChanged,
       controller: controller,
       textDirection: HiveDatabase.instance.selectedLanguage!

@@ -23,6 +23,7 @@ class HistoryAddLabelWidget extends StatefulWidget {
 
 class _HistoryAddLabelWidgetState extends State<HistoryAddLabelWidget> {
   TextEditingController labelController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   void dispose() {
     labelController.dispose();
@@ -41,30 +42,43 @@ class _HistoryAddLabelWidgetState extends State<HistoryAddLabelWidget> {
         right: 10,
         top: 20,
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const HistoryAddLabelTitle(),
-          AppTextField(
-            hintText: context.translate(LangKeys.labelHint),
-            controller: labelController,
-          ),
-          AppButton(
-            onPressed: () {
-              incrementTapCount();
-              widget.contact.name = labelController.text;
-              widget.contact.save();
-              context.read<HistoryBloc>().add(const HistoryEvent.getContacts());
-              context.pop();
-            },
-            child: Text(
-              context.translate(LangKeys.save),
-              style: AppTextStyles.medium14
-                  .copyWith(color: AppLightColors.backgroundColor),
+      child: Form(
+        key: formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const HistoryAddLabelTitle(),
+            AppTextField(
+              hintText: context.translate(LangKeys.labelHint),
+              controller: labelController,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return context.translate(LangKeys.labelRequired);
+                }
+                return null;
+              },
             ),
-          ),
-          const Gap(5),
-        ],
+            AppButton(
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  incrementTapCount();
+                  widget.contact.name = labelController.text;
+                  widget.contact.save();
+                  context
+                      .read<HistoryBloc>()
+                      .add(const HistoryEvent.getContacts());
+                  context.pop();
+                }
+              },
+              child: Text(
+                context.translate(LangKeys.save),
+                style: AppTextStyles.medium14
+                    .copyWith(color: AppLightColors.backgroundColor),
+              ),
+            ),
+            const Gap(5),
+          ],
+        ),
       ),
     );
   }
