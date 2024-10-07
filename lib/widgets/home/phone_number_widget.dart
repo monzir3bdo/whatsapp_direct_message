@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
 import 'package:whatsapp_direct_message/blocs/visibility/visibility_cubit.dart';
@@ -82,6 +83,7 @@ class PhoneWidget extends StatelessWidget {
       onChanged: (value) {
         context.read<SendMessageCubit>().phone = value;
       },
+      maxLength: 15,
       decoration: InputDecoration(
         hintText: context.translate(LangKeys.enterPhoneNumber),
         hintStyle: AppTextStyles.regular12.copyWith(

@@ -84,7 +84,8 @@ class ExtractTextSuccessDialog extends StatelessWidget {
               ),
               AppTextField(
                 hintText: context.translate(LangKeys.youCanEnterAMessage),
-                controller: TextEditingController(),
+                controller:
+                    context.read<ExtractSuccessCubit>().messageController,
                 minLines: 10,
               ),
               Gap(context.height * 0.01),
