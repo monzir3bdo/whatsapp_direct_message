@@ -12,22 +12,26 @@ class ExtractPhoneWithCountryCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InternationalPhoneWidget(
-      suffix: IconButton(
-        onPressed: () {
-          context.read<ExtractTextCubit>().retry();
-        },
-        icon: const Icon(
-          CupertinoIcons.xmark,
-          color: Colors.red,
-        ),
-      ),
-      initialValue: context.read<ExtractSuccessCubit>().phoneNumber,
-      controller: context.read<ExtractSuccessCubit>().phoneNumberController,
-      validator: (phoneNumber) {
-        phoneNumber!.length < 5
-            ? context.translate(LangKeys.enterPhoneNumber)
-            : null;
+    return BlocBuilder<ExtractSuccessCubit, ExtractSuccessState>(
+      builder: (context, state) {
+        return InternationalPhoneWidget(
+          suffix: IconButton(
+            onPressed: () {
+              context.read<ExtractTextCubit>().retry();
+            },
+            icon: const Icon(
+              CupertinoIcons.xmark,
+              color: Colors.red,
+            ),
+          ),
+          initialValue: context.read<ExtractSuccessCubit>().phoneNumber,
+          controller: context.read<ExtractSuccessCubit>().phoneNumberController,
+          validator: (phoneNumber) {
+            phoneNumber!.length < 5
+                ? context.translate(LangKeys.enterPhoneNumber)
+                : null;
+          },
+        );
       },
     );
   }
