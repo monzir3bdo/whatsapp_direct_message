@@ -25,6 +25,7 @@ Future<void> copy({required String data}) async {
 }
 
 Future<void> openWhatsapp(String phoneNumber, String message) async {
+  String? savedName;
   if (phoneNumber.startsWith('00')) {
     String newNumber = phoneNumber.replaceFirst('00', '+');
     launchUrl(Uri(
@@ -45,13 +46,14 @@ Future<void> openWhatsapp(String phoneNumber, String message) async {
   );
   if (HiveDatabase.instance.history!.values
       .any((value) => value.phoneNumber == phoneNumber)) {
-    await HiveDatabase.instance.history!.values
-        .firstWhere((value) => value.phoneNumber == phoneNumber)
-        .delete();
+    final oldNumber = HiveDatabase.instance.history!.values
+        .firstWhere((value) => value.phoneNumber == phoneNumber);
+    savedName = oldNumber.name;
+    await oldNumber.delete();
   }
 
   await HiveDatabase.instance.history!
-      .add(ContactModel(phoneNumber: phoneNumber));
+      .add(ContactModel(phoneNumber: phoneNumber, name: savedName));
 
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
