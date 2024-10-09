@@ -7,6 +7,7 @@ const String selectedLanguageKey = 'selectedLanguage';
 const String historyKey = 'history';
 const String tapCountKey = 'tapCount';
 const String isRateUsShownKey = 'isRateUsShown';
+const String isOnboardingVisitedKey = 'isOnboardingVisitedKey';
 
 class HiveDatabase {
   factory HiveDatabase() => instance;
@@ -18,6 +19,7 @@ class HiveDatabase {
   Box<ContactModel>? history;
   Box<int>? tapCount;
   Box<bool>? isRateUsShown;
+  Box<bool>? isOnboardingVisited;
   Future<void> init() async {
     await Hive.initFlutter();
     Hive.registerAdapter(ContactModelAdapter());
@@ -27,5 +29,6 @@ class HiveDatabase {
     history = await Hive.openBox<ContactModel>(historyKey);
     tapCount = await Hive.openBox<int>(tapCountKey);
     isRateUsShown = await Hive.openBox<bool>(isRateUsShownKey);
+    isOnboardingVisited = await Hive.openBox<bool>(isOnboardingVisitedKey);
   }
 }

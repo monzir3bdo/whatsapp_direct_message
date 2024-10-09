@@ -5,6 +5,8 @@ import 'package:whatsapp_direct_message/core/localization/app_localizations_setu
 import 'package:whatsapp_direct_message/core/routes/app_routes.dart';
 import 'package:whatsapp_direct_message/core/theme/app_theme.dart';
 
+import '../database/hive_data_base.dart';
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -25,6 +27,10 @@ class App extends StatelessWidget {
           themeMode: context.read<AppCubit>().isDark
               ? ThemeMode.dark
               : ThemeMode.light,
+          initialRoute: HiveDatabase.instance.isOnboardingVisited!
+                  .get(isOnboardingVisitedKey, defaultValue: false)!
+              ? AppRoutes.home
+              : AppRoutes.onboarding,
         );
       },
     );

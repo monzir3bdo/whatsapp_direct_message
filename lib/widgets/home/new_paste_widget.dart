@@ -43,6 +43,7 @@ class NewPasteWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
               CupertinoIcons.doc_on_clipboard_fill,

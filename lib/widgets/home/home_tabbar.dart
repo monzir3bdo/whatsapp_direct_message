@@ -14,18 +14,15 @@ class HomeTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10, right: 16, left: 16),
+      padding: const EdgeInsets.only(bottom: 10, right: 12, left: 12),
       child: Container(
         height: context.height * 0.051,
         decoration: BoxDecoration(
-          color: context
-              .color.greyTabBarColor, // Background color for unselected tabs
-          borderRadius:
-              BorderRadius.circular(42), // Stadium radius for unselected tabs
-        ),
+            color: context.color.greyTabBarColor,
+            borderRadius: BorderRadius.circular(42)),
         child: TabBar(
           controller: tabController,
-          onTap: (index) {},
+
           tabs: [
             context.translate(LangKeys.send),
             context.translate(LangKeys.history),

@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/blocs/history/get_history/history_bloc.dart';
-import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
-import 'package:whatsapp_direct_message/blocs/visibility/visibility_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/functions/functions.dart';
 import 'package:whatsapp_direct_message/widgets/history/history_widget.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_floating_action_button.dart';
+import 'package:whatsapp_direct_message/widgets/home/home_send.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_tabbar.dart';
-
-import '../widgets/home/main_home_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -67,22 +64,9 @@ class _HomeScreenState extends State<HomeScreen>
                 Expanded(
                   child: TabBarView(
                     controller: tabController,
-                    children: [
-                      MultiBlocProvider(
-                        providers: [
-                          BlocProvider(
-                            create: (context) => SendMessageCubit(),
-                          ),
-                          BlocProvider(
-                            create: (context) => VisibilityCubit(),
-                          ),
-                          BlocProvider(
-                            create: (context) => SendMessageCubit(),
-                          ),
-                        ],
-                        child: const HomeMainWidget(),
-                      ),
-                      const HistoryWidget(),
+                    children: const [
+                      HomeSend(),
+                      HistoryWidget(),
                     ],
                   ),
                 ),
