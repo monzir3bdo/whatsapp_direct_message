@@ -36,7 +36,7 @@ class NewPasteWidget extends StatelessWidget {
       },
       child: Container(
         width: context.width,
-        height: context.height * 0.155,
+        height: context.height - context.height * 0.83,
         padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
         decoration: BoxDecoration(
           color: AppLightColors.primary,

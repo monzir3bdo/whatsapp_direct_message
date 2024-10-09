@@ -7,6 +7,9 @@ class Assets {
   static const String animationsChangeSettings2 =
       'assets/animations/change_settings_2.json';
   static const String animationsEmpty = 'assets/animations/empty.json';
+  static const String imagesSplash = 'assets/images/splash.png';
+  static const String imagesSplashAndroid12 =
+      'assets/images/splash_android12.png';
   static const String langAr = 'lang/ar.json';
   static const String langEn = 'lang/en.json';
   static const String montserratMontserratArabicBold =
