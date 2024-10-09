@@ -2,36 +2,24 @@
 class Assets {
   Assets._();
 
-  static const String animationsChangeSettings =
-      'assets/animations/change_settings.json';
-  static const String animationsChangeSettings2 =
-      'assets/animations/change_settings_2.json';
+  static const String animationsChangeSettings = 'assets/animations/change_settings.json';
+  static const String animationsChangeSettings2 = 'assets/animations/change_settings_2.json';
   static const String animationsEmpty = 'assets/animations/empty.json';
   static const String imagesSplash = 'assets/images/splash.png';
-  static const String imagesSplashAndroid12 =
-      'assets/images/splash_android12.png';
+  static const String imagesSplashAndroid12 = 'assets/images/splash_android12.png';
   static const String langAr = 'lang/ar.json';
   static const String langEn = 'lang/en.json';
-  static const String montserratMontserratArabicBold =
-      'assets/fonts/montserrat/Montserrat-Arabic-Bold.ttf';
-  static const String montserratMontserratArabicLight =
-      'assets/fonts/montserrat/Montserrat-Arabic-Light-.ttf';
-  static const String montserratMontserratArabicMedium =
-      'assets/fonts/montserrat/Montserrat-Arabic-Medium.ttf';
-  static const String montserratMontserratArabicRegular =
-      'assets/fonts/montserrat/Montserrat-Arabic-Regular.ttf';
-  static const String montserratMontserratArabicSemiBold =
-      'assets/fonts/montserrat/Montserrat-Arabic-SemiBold.ttf';
-  static const String poppinsPoppinsBold =
-      'assets/fonts/poppins/Poppins-Bold.ttf';
-  static const String poppinsPoppinsLight =
-      'assets/fonts/poppins/Poppins-Light.ttf';
-  static const String poppinsPoppinsMedium =
-      'assets/fonts/poppins/Poppins-Medium.ttf';
-  static const String poppinsPoppinsRegular =
-      'assets/fonts/poppins/Poppins-Regular.ttf';
-  static const String poppinsPoppinsSemiBold =
-      'assets/fonts/poppins/Poppins-SemiBold.ttf';
+  static const String montserratMontserratArabicBold = 'assets/fonts/montserrat/Montserrat-Arabic-Bold.ttf';
+  static const String montserratMontserratArabicLight = 'assets/fonts/montserrat/Montserrat-Arabic-Light-.ttf';
+  static const String montserratMontserratArabicMedium = 'assets/fonts/montserrat/Montserrat-Arabic-Medium.ttf';
+  static const String montserratMontserratArabicRegular = 'assets/fonts/montserrat/Montserrat-Arabic-Regular.ttf';
+  static const String montserratMontserratArabicSemiBold = 'assets/fonts/montserrat/Montserrat-Arabic-SemiBold.ttf';
+  static const String poppinsPoppinsBold = 'assets/fonts/poppins/Poppins-Bold.ttf';
+  static const String poppinsPoppinsLight = 'assets/fonts/poppins/Poppins-Light.ttf';
+  static const String poppinsPoppinsMedium = 'assets/fonts/poppins/Poppins-Medium.ttf';
+  static const String poppinsPoppinsRegular = 'assets/fonts/poppins/Poppins-Regular.ttf';
+  static const String poppinsPoppinsSemiBold = 'assets/fonts/poppins/Poppins-SemiBold.ttf';
   static const String svgWaBusiness = 'assets/svg/waBusiness.svg';
   static const String svgWhatsapp = 'assets/svg/whatsapp.svg';
+
 }
