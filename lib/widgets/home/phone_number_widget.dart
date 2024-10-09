@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
 import 'package:whatsapp_direct_message/blocs/visibility/visibility_cubit.dart';
@@ -21,36 +20,42 @@ class PhoneNumberWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<VisibilityCubit, VisibilityState>(
       builder: (context, state) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            PhoneTitle(title: context.translate(LangKeys.phoneNumber)),
-            const SizedBox(
-              height: 10,
-            ),
-            Visibility(
-              visible: !context.read<VisibilityCubit>().showCountryPicker,
-              child: const PhoneWidget(),
-            ),
-            Visibility(
-              visible: context.read<VisibilityCubit>().showCountryPicker,
-              child: InternationalPhoneWidget(
-                validator: context.read<VisibilityCubit>().showCountryPicker
-                    ? (phoneNumber) {
-                        if (phoneNumber!.length < 6) {
-                          return context.translate(LangKeys.enterPhoneNumber);
-                        }
-                        return null;
-                      }
-                    : null,
-                controller: context.read<SendMessageCubit>().phoneController,
-                onInputChanged: (number) {
-                  context.read<SendMessageCubit>().phone = number.phoneNumber;
-                },
+        return ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: context.height * 0.19,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              PhoneTitle(title: context.translate(LangKeys.phoneNumber)),
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            const ShowCountryPickerCheckBox(),
-          ],
+              Visibility(
+                visible: !context.read<VisibilityCubit>().showCountryPicker,
+                child: const PhoneWidget(),
+              ),
+              Visibility(
+                visible: context.read<VisibilityCubit>().showCountryPicker,
+                child: InternationalPhoneWidget(
+                  validator: context.read<VisibilityCubit>().showCountryPicker
+                      ? (phoneNumber) {
+                          if (phoneNumber!.length < 6) {
+                            return context.translate(LangKeys.enterPhoneNumber);
+                          }
+                          return null;
+                        }
+                      : null,
+                  controller: context.read<SendMessageCubit>().phoneController,
+                  onInputChanged: (number) {
+                    context.read<SendMessageCubit>().phone = number.phoneNumber;
+                  },
+                ),
+              ),
+              const ShowCountryPickerCheckBox(),
+            ],
+          ),
         );
       },
     );

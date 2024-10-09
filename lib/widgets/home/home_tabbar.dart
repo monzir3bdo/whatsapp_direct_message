@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:whatsapp_direct_message/blocs/history/get_history/history_bloc.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
@@ -10,11 +8,9 @@ import '../../../core/theme/colors.dart';
 class HomeTabBar extends StatelessWidget {
   const HomeTabBar({
     super.key,
-    required TabController tabController,
-  }) : _tabController = tabController;
-
-  final TabController _tabController;
-
+    required this.tabController,
+  });
+  final TabController tabController;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,12 +24,8 @@ class HomeTabBar extends StatelessWidget {
               BorderRadius.circular(42), // Stadium radius for unselected tabs
         ),
         child: TabBar(
-          controller: _tabController,
-          onTap: (index) {
-            if (index == 1) {
-              context.read<HistoryBloc>().add(const HistoryEvent.getContacts());
-            }
-          },
+          controller: tabController,
+          onTap: (index) {},
           tabs: [
             context.translate(LangKeys.send),
             context.translate(LangKeys.history),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
+import 'package:whatsapp_direct_message/blocs/history/get_history/history_bloc.dart';
 import 'package:whatsapp_direct_message/blocs/send/send_message_cubit.dart';
 import 'package:whatsapp_direct_message/blocs/visibility/visibility_cubit.dart';
+import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/functions/functions.dart';
 import 'package:whatsapp_direct_message/widgets/history/history_widget.dart';
 import 'package:whatsapp_direct_message/widgets/home/home_floating_action_button.dart';
@@ -18,19 +21,26 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
+  late TabController tabController;
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
     //@monzir3bdo where should we put the review app function?
+    tabController.addListener(
+      () {
+        if (tabController.index == 1) {
+          context.read<HistoryBloc>().add(const HistoryEvent.getContacts());
+        }
+      },
+    );
     showReviewApp();
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+    tabController.removeListener(() {});
+    tabController.dispose();
     super.dispose();
   }
 
@@ -42,39 +52,43 @@ class _HomeScreenState extends State<HomeScreen>
         onTap: () {
           FocusManager.instance.primaryFocus!.unfocus();
         },
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 80,
-            ),
-            HomeTabBar(tabController: _tabController),
-            const SizedBox(
-              height: 20,
-            ),
-            Expanded(
-              child: TabBarView(
-                physics: const NeverScrollableScrollPhysics(),
-                controller: _tabController,
-                children: [
-                  MultiBlocProvider(
-                    providers: [
-                      BlocProvider(
-                        create: (context) => SendMessageCubit(),
+        child: SafeArea(
+          child: DefaultTabController(
+            length: 2,
+            child: Column(
+              children: [
+                Gap(context.height * 0.02),
+                HomeTabBar(
+                  tabController: tabController,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Expanded(
+                  child: TabBarView(
+                    controller: tabController,
+                    children: [
+                      MultiBlocProvider(
+                        providers: [
+                          BlocProvider(
+                            create: (context) => SendMessageCubit(),
+                          ),
+                          BlocProvider(
+                            create: (context) => VisibilityCubit(),
+                          ),
+                          BlocProvider(
+                            create: (context) => SendMessageCubit(),
+                          ),
+                        ],
+                        child: const HomeMainWidget(),
                       ),
-                      BlocProvider(
-                        create: (context) => VisibilityCubit(),
-                      ),
-                      BlocProvider(
-                        create: (context) => SendMessageCubit(),
-                      ),
+                      const HistoryWidget(),
                     ],
-                    child: const HomeMainWidget(),
                   ),
-                  const HistoryWidget(),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

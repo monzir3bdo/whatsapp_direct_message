@@ -15,26 +15,31 @@ class MessageWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(context.translate(LangKeys.message),
-            style: AppTextStyles.medium14.copyWith(
-              color: AppLightColors.primary,
-            )),
-        const SizedBox(
-          height: 10,
-        ),
-        SizedBox(
-          height: context.height * 0.18,
-          child: AppTextField(
-            controller: context.read<SendMessageCubit>().messageController,
-            hintText: context.translate(LangKeys.enterYourMessageOptional),
-            maxLines: 10,
-            minLines: 10,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+          maxHeight: context.height * 0.22, minWidth: context.width),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(context.translate(LangKeys.message),
+              style: AppTextStyles.medium14.copyWith(
+                color: AppLightColors.primary,
+              )),
+          const SizedBox(
+            height: 10,
           ),
-        ),
-      ],
+          Expanded(
+            child: AppTextField(
+              controller: context.read<SendMessageCubit>().messageController,
+              hintText: context.translate(
+                LangKeys.enterYourMessageOptional,
+              ),
+              minLines: 10,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
