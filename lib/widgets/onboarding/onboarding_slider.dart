@@ -30,9 +30,9 @@ class OnboardingSlider extends StatelessWidget {
             children: [
               OnboardingImage(image: onboardingData[index].image),
               const Gap(20),
-              const OnboardingTitle(),
+              OnboardingTitle(titleKey: onboardingData[index].title),
               const Gap(20),
-              const OnboardingSubtitle(),
+              OnboardingSubtitle(subtitleKey: onboardingData[index].subtitle),
               const Gap(10),
               const OnboardingIndicator(),
             ],

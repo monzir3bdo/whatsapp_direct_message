@@ -63,4 +63,10 @@ class LangKeys {
   static const String pastTextAndGetNumber = 'paste_text_and_get_number';
   static const String withoutCountryCode = 'without_country_code';
   static const String labelRequired = 'label_required';
+  static const String onboarding1Title = 'onboarding_1_title';
+  static const String onboarding1Subtitle = 'onboarding_1_subtitle';
+  static const String onboarding2Title = 'onboarding_2_title';
+  static const String onboarding2Subtitle = 'onboarding_2_title';
+  static const String onboarding3Title = 'onboarding_3_title';
+  static const String onboarding3Subtitle = 'onboarding_3_subtitle';
 }

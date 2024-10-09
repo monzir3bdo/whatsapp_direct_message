@@ -52,5 +52,11 @@
     "share_text": "\"Whatsapp Direct is your quick gateway to communication! Now, you can send WhatsApp messages to any number without the hassle of saving it in your contacts. Just enter the number, type your message, and let the app open a fast communication window! Say goodbye to the hassle of saving numbers and enjoy quicker, easier messaging",
     "paste_text_and_get_number": "Paste Any Text and go to the Whatsapp",
     "without_country_code": "Without Country Code",
-    "label_required": "Label Required"
+    "label_required": "Label Required",
+    "onboarding_1_title": "Send WhatsApp Messages Without Saving Numbers",
+    "onboarding_1_subtitle": "Quickly send messages directly to WhatsApp without the hassle of adding new numbers to your contacts",
+    "onboarding_2_title": "Generate WhatsApp Links for Quick Sharing",
+    "onboarding_2_subtitle": "Create a link to your WhatsApp number for easy sharing, without needing to type your number every time",
+    "onboarding_3_title": "Extract Phone Numbers from Any Text",
+    "onboarding_3_subtitle": "Easily pull out phone numbers from messages or text and use them directly in WhatsApp"
 }
