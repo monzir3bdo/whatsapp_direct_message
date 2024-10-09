@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
-import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 
-import '../../../core/theme/colors.dart';
+import '../../core/theme/colors.dart';
 
 class HomeTabBar extends StatelessWidget {
   const HomeTabBar({
@@ -22,24 +21,16 @@ class HomeTabBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(42)),
         child: TabBar(
           controller: tabController,
-
           tabs: [
             context.translate(LangKeys.send),
             context.translate(LangKeys.history),
           ].map((e) => Tab(text: e)).toList(),
-          dividerHeight: 0,
-          labelColor: Colors.white,
-          unselectedLabelColor: AppLightColors.primary,
-          indicatorSize:
-              TabBarIndicatorSize.tab, // Full width background for selected tab
+          indicatorWeight: 0,
           indicator: BoxDecoration(
             color: AppLightColors.primary, // Background color for selected tab
             borderRadius:
                 BorderRadius.circular(42), // Stadium shape for selected tab
           ),
-          indicatorWeight: 0, // Removes the underline thickness
-          labelStyle: AppTextStyles.semiBold16.copyWith(fontSize: 14),
-          unselectedLabelStyle: AppTextStyles.semiBold16.copyWith(fontSize: 14),
         ),
       ),
     );

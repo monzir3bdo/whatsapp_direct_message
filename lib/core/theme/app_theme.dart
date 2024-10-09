@@ -66,6 +66,14 @@ ThemeData lightTheme() => ThemeData(
         ColorExtension.light,
       ],
       colorScheme: ColorScheme.fromSeed(seedColor: AppLightColors.primary),
+      tabBarTheme: const TabBarTheme(
+        // labelStyle: AppTextStyles.bold16.copyWith(fontSize: 14),
+        // unselectedLabelStyle: AppTextStyles.bold16.copyWith(fontSize: 14),
+        dividerHeight: 0,
+        labelColor: Colors.white,
+        unselectedLabelColor: AppLightColors.primary,
+        indicatorSize: TabBarIndicatorSize.tab,
+      ),
     );
 ThemeData darkTheme() => ThemeData(
       fontFamily: HiveDatabase.instance.selectedLanguage!
@@ -117,6 +125,14 @@ ThemeData darkTheme() => ThemeData(
       ),
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppDarkColors.primary,
+      ),
+      tabBarTheme: const TabBarTheme(
+        // labelStyle: AppTextStyles.bold16.copyWith(fontSize: 14),
+        // unselectedLabelStyle: AppTextStyles.bold16.copyWith(fontSize: 14),
+        dividerHeight: 0,
+        labelColor: Colors.white,
+        unselectedLabelColor: AppLightColors.primary,
+        indicatorSize: TabBarIndicatorSize.tab,
       ),
       extensions: <ThemeExtension<dynamic>>[
         ColorExtension.dark,

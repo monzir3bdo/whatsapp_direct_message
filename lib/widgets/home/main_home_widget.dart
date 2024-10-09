@@ -32,7 +32,7 @@ class HomeMainWidget extends StatelessWidget {
               const SendWidgets(),
               Gap(context.height * 0.005),
               const GenerateWhatsappLinkWidget(),
-              Gap(context.height * 0.01),
+              Gap(context.height * 0.04),
               const NewPasteWidget(),
             ],
           ),

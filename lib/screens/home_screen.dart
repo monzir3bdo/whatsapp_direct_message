@@ -55,12 +55,8 @@ class _HomeScreenState extends State<HomeScreen>
             child: Column(
               children: [
                 Gap(context.height * 0.02),
-                HomeTabBar(
-                  tabController: tabController,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
+                HomeTabBar(tabController: tabController),
+                const SizedBox(height: 20),
                 Expanded(
                   child: TabBarView(
                     controller: tabController,
