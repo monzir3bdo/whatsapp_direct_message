@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:whatsapp_direct_message/blocs/onboarding/onboarding_cubit.dart';
+import 'package:whatsapp_direct_message/core/database/hive_data_base.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 
 class OnboardingIndicator extends StatelessWidget {
@@ -10,6 +11,11 @@ class OnboardingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
+      textDirection:
+          HiveDatabase.instance.selectedLanguage!.get(selectedLanguageKey) ==
+                  'ar'
+              ? TextDirection.rtl
+              : TextDirection.ltr,
       controller:
           context.read<OnboardingCubit>().pageController, // PageController
       count: 3,

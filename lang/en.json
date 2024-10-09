@@ -59,5 +59,8 @@
     "onboarding_2_subtitle": "Create a link to your WhatsApp number for easy sharing, without needing to type your number every time",
     "onboarding_3_title": "Extract Phone Numbers from Any Text",
     "onboarding_3_subtitle": "Easily pull out phone numbers from messages or text and use them directly in WhatsApp",
-    "skip": "Skip"
+    "skip": "Skip",
+    "next": "Next",
+    "next": "Next",
+    "go_to_home": "Go to Home"
 }
