@@ -9,6 +9,8 @@ import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
 import 'package:whatsapp_direct_message/widgets/home/show_country_picker.dart';
 
+import '../../core/functions/functions.dart';
+import '../../core/validators/validators.dart';
 import 'international_phon_widget.dart';
 
 class PhoneNumberWidgets extends StatelessWidget {
@@ -37,6 +39,9 @@ class PhoneNumberWidgets extends StatelessWidget {
               child: InternationalPhoneWidget(
                 validator: context.read<VisibilityCubit>().showCountryPicker
                     ? (phoneNumber) {
+                        if(!isNumeric(phoneNumber??'')){
+                          return context.translate(LangKeys.enterValidPhoneNumber);
+                        }
                         if (phoneNumber!.length < 6) {
                           return context.translate(LangKeys.enterPhoneNumber);
                         }
@@ -45,7 +50,8 @@ class PhoneNumberWidgets extends StatelessWidget {
                     : null,
                 controller: context.read<SendMessageCubit>().phoneController,
                 onInputChanged: (number) {
-                  context.read<SendMessageCubit>().phone = number.phoneNumber;
+                  String convertedNumber = convertToEnglishDigits(number.phoneNumber ?? '');
+                  context.read<SendMessageCubit>().phone = convertedNumber;
                 },
               ),
             ),

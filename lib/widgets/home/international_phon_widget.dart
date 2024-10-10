@@ -38,6 +38,7 @@ class InternationalPhoneWidget extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: InternationalPhoneNumberInput(
+          formatInput: false,
           inputDecoration: InputDecoration(
               suffixIcon: suffix,
               focusedBorder: const OutlineInputBorder(

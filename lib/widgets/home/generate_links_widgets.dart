@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:whatsapp_direct_message/blocs/generate/generate_link_cubit.dart';
 import 'package:whatsapp_direct_message/core/extensions/build_context_extension.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
+import 'package:whatsapp_direct_message/core/validators/validators.dart';
 import 'package:whatsapp_direct_message/widgets/home/generate_or_copy_widget.dart';
 
 import '../../core/functions/functions.dart';
@@ -49,6 +50,9 @@ class GenerateLinkWidgets extends StatelessWidget {
                   },
                 ),
                 validator: (phoneNumber) {
+                  if(!isNumeric(phoneNumber??'')){
+                    return context.translate(LangKeys.enterValidPhoneNumber);
+                  }
                   if (phoneNumber!.length < 6) {
                     return context.translate(LangKeys.enterPhoneNumber);
                   }
@@ -57,7 +61,9 @@ class GenerateLinkWidgets extends StatelessWidget {
                 controller:
                     context.read<GenerateLinkCubit>().generateLinkController,
                 onInputChanged: (number) {
-                  context.read<GenerateLinkCubit>().phone = number.phoneNumber!;
+                  String convertedNumber =
+                      convertToEnglishDigits(number.phoneNumber??'');
+                  context.read<GenerateLinkCubit>().phone = convertedNumber;
                 },
               ),
             ),
