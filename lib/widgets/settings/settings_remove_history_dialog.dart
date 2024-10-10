@@ -28,7 +28,7 @@ class SettingsRemoveHistoryDialog extends StatelessWidget {
           onPressed: () {
             HiveDatabase.instance.history!.clear();
             context.read<HistoryBloc>().add(const HistoryEvent.getContacts());
-            SnackBars.showSucessSnackBar(
+            SnackBars.showSuccessSnackBar(
               context,
               context.translate(LangKeys.historyRemovedSuccessfully),
             );
