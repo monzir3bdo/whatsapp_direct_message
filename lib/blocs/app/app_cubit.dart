@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,8 +15,9 @@ class AppCubit extends Cubit<AppState> {
 
   bool saveNumber = HiveDatabase.instance.isSaveEnabled!
       .get(saveEnabledKey, defaultValue: true)!;
-  String locale = HiveDatabase.instance.selectedLanguage!
-      .get(selectedLanguageKey, defaultValue: 'en')!;
+  String locale = HiveDatabase.instance.selectedLanguage!.get(
+      selectedLanguageKey,
+      defaultValue: Platform.localeName.split('_')[0])!;
 
   void changeTheme() async {
     isDark = !isDark;
