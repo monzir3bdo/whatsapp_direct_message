@@ -11,22 +11,17 @@ class GenerateWhatsappLinkWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        maxHeight: context.height * 0.22,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const GenerateLinkToYourWhatsappTitle(),
-          Gap(context.height * 0.005),
-          BlocProvider(
-            create: (context) => GenerateLinkCubit(),
-            child: const GenerateLinkWidgets(),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const GenerateLinkToYourWhatsappTitle(),
+        Gap(context.height * 0.005),
+        BlocProvider(
+          create: (context) => GenerateLinkCubit(),
+          child: const GenerateLinkWidgets(),
+        ),
+      ],
     );
   }
 }

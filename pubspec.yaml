@@ -29,6 +29,7 @@ dependencies:
   share_plus: ^10.0.2
   flutter_native_splash: ^2.4.1
   smooth_page_indicator: ^1.2.0+3
+  device_preview: ^1.2.0
 
 dev_dependencies:
   flutter_test:

@@ -20,42 +20,37 @@ class PhoneNumberWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<VisibilityCubit, VisibilityState>(
       builder: (context, state) {
-        return ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: context.height * 0.19,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              PhoneTitle(title: context.translate(LangKeys.phoneNumber)),
-              const SizedBox(
-                height: 10,
-              ),
-              Visibility(
-                visible: !context.read<VisibilityCubit>().showCountryPicker,
-                child: const PhoneWidget(),
-              ),
-              Visibility(
-                visible: context.read<VisibilityCubit>().showCountryPicker,
-                child: InternationalPhoneWidget(
-                  validator: context.read<VisibilityCubit>().showCountryPicker
-                      ? (phoneNumber) {
-                          if (phoneNumber!.length < 6) {
-                            return context.translate(LangKeys.enterPhoneNumber);
-                          }
-                          return null;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            PhoneTitle(title: context.translate(LangKeys.phoneNumber)),
+            const SizedBox(
+              height: 10,
+            ),
+            Visibility(
+              visible: !context.read<VisibilityCubit>().showCountryPicker,
+              child: const PhoneWidget(),
+            ),
+            Visibility(
+              visible: context.read<VisibilityCubit>().showCountryPicker,
+              child: InternationalPhoneWidget(
+                validator: context.read<VisibilityCubit>().showCountryPicker
+                    ? (phoneNumber) {
+                        if (phoneNumber!.length < 6) {
+                          return context.translate(LangKeys.enterPhoneNumber);
                         }
-                      : null,
-                  controller: context.read<SendMessageCubit>().phoneController,
-                  onInputChanged: (number) {
-                    context.read<SendMessageCubit>().phone = number.phoneNumber;
-                  },
-                ),
+                        return null;
+                      }
+                    : null,
+                controller: context.read<SendMessageCubit>().phoneController,
+                onInputChanged: (number) {
+                  context.read<SendMessageCubit>().phone = number.phoneNumber;
+                },
               ),
-              const ShowCountryPickerCheckBox(),
-            ],
-          ),
+            ),
+            const ShowCountryPickerCheckBox(),
+          ],
         );
       },
     );

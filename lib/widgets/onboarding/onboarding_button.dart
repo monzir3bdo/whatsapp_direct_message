@@ -32,7 +32,7 @@ class OnboardingButton extends StatelessWidget {
                           .read<OnboardingCubit>()
                           .markOnboardingCompleted();
                       if (context.mounted) {
-                        context.pushNamed(AppRoutes.home);
+                        context.pushReplacementNamed(AppRoutes.home);
                       }
                     },
                   );

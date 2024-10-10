@@ -14,6 +14,14 @@ extension BuildContextExtension on BuildContext {
     );
   }
 
+  Future<void> pushReplacementNamed(String destination, {Object? arguments}) {
+    return Navigator.pushReplacementNamed(
+      this,
+      destination,
+      arguments: arguments,
+    );
+  }
+
   String translate(String key) {
     return AppLocalizations.of(this)!.translate(key)!;
   }
