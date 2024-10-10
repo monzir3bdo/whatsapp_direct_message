@@ -1,5 +1,8 @@
+import 'package:whatsapp_direct_message/core/functions/functions.dart';
+
 class CustomRegex {
   static List<String> extractPhoneNumberFromString(String input) {
+    input = convertToEnglishDigits(input);
     RegExp regExp = RegExp(
         r'(\+|00)?[\s-]?\(?\d{1,4}\)?[\s-]?\d{1,4}[\s-]?\d{1,4}[\s-]?\d{1,4}');
 
