@@ -12,27 +12,29 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppState>(
-      builder: (context, state) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: AppRoutes.onGenerate,
-          theme: lightTheme(),
-          darkTheme: darkTheme(),
-          locale: Locale(context.read<AppCubit>().locale),
-          supportedLocales: AppLocalizationsSetup.supportedLocales,
-          localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
-          localeResolutionCallback:
-              AppLocalizationsSetup.localeResolutionCallback,
-          themeMode: context.read<AppCubit>().isDark
-              ? ThemeMode.dark
-              : ThemeMode.light,
-          initialRoute: HiveDatabase.instance.isOnboardingVisited!
-                  .get(isOnboardingVisitedKey, defaultValue: false)!
-              ? AppRoutes.home
-              : AppRoutes.onboarding,
-        );
-      },
+    return MediaQuery.withNoTextScaling(
+      child: BlocBuilder<AppCubit, AppState>(
+        builder: (context, state) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: AppRoutes.onGenerate,
+            theme: lightTheme(),
+            darkTheme: darkTheme(),
+            locale: Locale(context.read<AppCubit>().locale),
+            supportedLocales: AppLocalizationsSetup.supportedLocales,
+            localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
+            localeResolutionCallback:
+                AppLocalizationsSetup.localeResolutionCallback,
+            themeMode: context.read<AppCubit>().isDark
+                ? ThemeMode.dark
+                : ThemeMode.light,
+            initialRoute: HiveDatabase.instance.isOnboardingVisited!
+                    .get(isOnboardingVisitedKey, defaultValue: false)!
+                ? AppRoutes.home
+                : AppRoutes.onboarding,
+          );
+        },
+      ),
     );
   }
 }
