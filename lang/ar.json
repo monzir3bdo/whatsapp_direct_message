@@ -62,5 +62,6 @@
     "skip": "تخطي",
     "next": "التالي",
     "go_to_home": "الذهاب إلى الرئيسية",
-    "enter_valid_phone_number": "أدخل رقم هاتف صالح"
+    "enter_valid_phone_number": "أدخل رقم هاتف صالح",
+    "app_name": "ارسل للواتساب"
 }

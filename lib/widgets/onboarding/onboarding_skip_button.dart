@@ -16,7 +16,7 @@ class OnboardingSkipButton extends StatelessWidget {
       onPressed: () async {
         await context.read<OnboardingCubit>().markOnboardingCompleted();
         if (context.mounted) {
-          context.pushNamed(AppRoutes.home);
+          context.pushReplacementNamed(AppRoutes.home);
         }
       },
       child: Text(

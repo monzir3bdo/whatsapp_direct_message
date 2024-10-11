@@ -62,5 +62,6 @@
     "skip": "Skip",
     "next": "Next",
     "go_to_home": "Go to Home",
-    "enter_valid_phone_number": "Enter Valid Phone Number"
+    "enter_valid_phone_number": "Enter Valid Phone Number",
+    "app_name": "Whatsapp Direct Message"
 }

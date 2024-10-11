@@ -17,7 +17,7 @@ class AppCubit extends Cubit<AppState> {
       .get(saveEnabledKey, defaultValue: true)!;
   String locale = HiveDatabase.instance.selectedLanguage!.get(
       selectedLanguageKey,
-      defaultValue: Platform.localeName.split('_')[0])!;
+      defaultValue: Platform.localeName.split('_')[0])!; //en_US
 
   void changeTheme() async {
     isDark = !isDark;

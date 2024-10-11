@@ -73,4 +73,5 @@ class LangKeys {
   static const String next = 'next';
   static const String goToHome = 'go_to_home';
   static const String enterValidPhoneNumber = 'enter_valid_phone_number';
+  static const String appName = 'app_name';
 }

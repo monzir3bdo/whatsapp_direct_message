@@ -18,11 +18,17 @@ class App extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRoutes.onGenerate,
+            title: HiveDatabase.instance.selectedLanguage!
+                        .get(selectedLanguageKey) ==
+                    'en'
+                ? "Whatsapp Direct Message"
+                : "ارسل للواتساب",
             theme: lightTheme(),
             darkTheme: darkTheme(),
             locale: Locale(context.read<AppCubit>().locale),
             supportedLocales: AppLocalizationsSetup.supportedLocales,
-            localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
+            localizationsDelegates:
+                AppLocalizationsSetup.localizationsDelegates,
             localeResolutionCallback:
                 AppLocalizationsSetup.localeResolutionCallback,
             themeMode: context.read<AppCubit>().isDark

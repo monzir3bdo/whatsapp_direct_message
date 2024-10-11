@@ -7,7 +7,7 @@ import 'package:whatsapp_direct_message/screens/onboarding_screen.dart';
 import 'package:whatsapp_direct_message/screens/settings_screen.dart';
 
 class AppRoutes {
-  static const onboarding = '/';
+  static const onboarding = '/onboarding';
   static const home = '/home';
   static const settingsScreen = '/settings';
 
