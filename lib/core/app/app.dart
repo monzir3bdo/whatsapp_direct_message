@@ -16,6 +16,7 @@ class App extends StatelessWidget {
       child: BlocBuilder<AppCubit, AppState>(
         builder: (context, state) {
           return MaterialApp(
+<<<<<<< Updated upstream
             title: HiveDatabase.instance.selectedLanguage!.get(selectedLanguageKey,
                 defaultValue: 'en') == 'en'? 'WhatsApp Direct Message': 'ارسل للواتساب',
             debugShowCheckedModeBanner: false,
@@ -25,12 +26,20 @@ class App extends StatelessWidget {
                     'en'
                 ? "Whatsapp Direct Message"
                 : "ارسل للواتساب",
+=======
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: AppRoutes.onGenerate,
+>>>>>>> Stashed changes
             theme: lightTheme(),
             darkTheme: darkTheme(),
             locale: Locale(context.read<AppCubit>().locale),
             supportedLocales: AppLocalizationsSetup.supportedLocales,
+<<<<<<< Updated upstream
             localizationsDelegates:
                 AppLocalizationsSetup.localizationsDelegates,
+=======
+            localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
+>>>>>>> Stashed changes
             localeResolutionCallback:
                 AppLocalizationsSetup.localeResolutionCallback,
             themeMode: context.read<AppCubit>().isDark
