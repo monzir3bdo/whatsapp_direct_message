@@ -16,6 +16,8 @@ class App extends StatelessWidget {
       child: BlocBuilder<AppCubit, AppState>(
         builder: (context, state) {
           return MaterialApp(
+            title: HiveDatabase.instance.selectedLanguage!.get(selectedLanguageKey,
+                defaultValue: 'en') == 'en'? 'WhatsApp Direct Message': 'ارسل للواتساب',
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRoutes.onGenerate,
             title: HiveDatabase.instance.selectedLanguage!

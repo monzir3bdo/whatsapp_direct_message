@@ -85,12 +85,16 @@ class PhoneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style:AppTextStyles.medium14
+              .copyWith(fontSize: 12, color: context.color.textColor),
       keyboardType: TextInputType.number,
       onChanged: (value) {
         context.read<SendMessageCubit>().phone = value;
       },
       maxLength: 15,
+      
       decoration: InputDecoration(
+        
         hintText: context.translate(LangKeys.enterPhoneNumber),
         hintStyle: AppTextStyles.regular12.copyWith(
           color:
