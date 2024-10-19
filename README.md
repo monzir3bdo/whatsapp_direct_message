@@ -37,6 +37,8 @@ We welcome contributions from anyone who is starting out and wants to learn thro
 
 - [Monzir3bdo](https://github.com/Monzir3bdo)
 - [Ahmed-Ibrahim-a-a](https://github.com/Ahmed-Ibrahim-a-a)
+## Design
+[![Figma](https://img.shields.io/badge/Figma-Design-blue?logo=figma&style=for-the-badge)]([https://www.figma.com/your-figma-design-link](https://www.figma.com/community/file/1426246018940157676/whatsapp-direct-message))
 
 ---
 
