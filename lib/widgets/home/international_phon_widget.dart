@@ -31,9 +31,9 @@ class InternationalPhoneWidget extends StatelessWidget {
         border: Border.all(
           color: context.read<AppCubit>().isDark
               ? AppLightColors.backgroundColor.withOpacity(0.1)
-              : AppLightColors.textFieldBorderColor,
+              : AppDarkColors.backgroundColor.withOpacity(0.1),
         ),
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(4),
       ),
       child: Directionality(
         textDirection: TextDirection.ltr,

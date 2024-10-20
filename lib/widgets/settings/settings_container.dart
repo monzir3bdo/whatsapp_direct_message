@@ -15,10 +15,9 @@ class SettingsContainer extends StatelessWidget {
         padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
         decoration: BoxDecoration(
           color: context.color.containerColor,
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: BorderRadius.circular(5),
           border: Border.all(
-            //todo: Change the border to match the theme
-            color: context.color.containerBorderColor!.withOpacity(0.2),
+            color: context.color.containerBorderColor!.withOpacity(0.15),
           ),
         ),
         child: child,
