@@ -16,15 +16,13 @@ class App extends StatelessWidget {
       child: BlocBuilder<AppCubit, AppState>(
         builder: (context, state) {
           return MaterialApp(
-            title: HiveDatabase.instance.selectedLanguage!.get(selectedLanguageKey,
-                defaultValue: 'en') == 'en'? 'WhatsApp Direct Message': 'ارسل للواتساب',
+            title: HiveDatabase.instance.selectedLanguage!
+                        .get(selectedLanguageKey, defaultValue: 'en') ==
+                    'en'
+                ? 'WhatsApp Direct Message'
+                : 'ارسل للواتساب',
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRoutes.onGenerate,
-            title: HiveDatabase.instance.selectedLanguage!
-                        .get(selectedLanguageKey) ==
-                    'en'
-                ? "Whatsapp Direct Message"
-                : "ارسل للواتساب",
             theme: lightTheme(),
             darkTheme: darkTheme(),
             locale: Locale(context.read<AppCubit>().locale),
