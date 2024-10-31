@@ -36,7 +36,7 @@ ThemeData lightTheme() => ThemeData(
         focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(6)),
           borderSide: BorderSide(
-            color: AppLightColors.black.withOpacity(0.2),
+            color: AppLightColors.black.withOpacity(0.1),
           ),
         ),
         enabledBorder: OutlineInputBorder(
@@ -46,7 +46,7 @@ ThemeData lightTheme() => ThemeData(
             ),
           ),
           borderSide: BorderSide(
-            color: AppLightColors.black.withOpacity(0.2),
+            color: AppLightColors.black.withOpacity(0.1),
           ),
         ),
         border: OutlineInputBorder(
@@ -56,7 +56,7 @@ ThemeData lightTheme() => ThemeData(
             ),
           ),
           borderSide: BorderSide(
-            color: AppLightColors.black.withOpacity(0.2),
+            color: AppLightColors.black.withOpacity(0.1),
           ),
         ),
         hintStyle: const TextStyle(color: AppLightColors.lightGrey),
@@ -93,26 +93,26 @@ ThemeData darkTheme() => ThemeData(
                 borderRadius: BorderRadius.circular(8),
               ),
               backgroundColor: AppLightColors.primary)),
-      inputDecorationTheme: const InputDecorationTheme(
+      inputDecorationTheme: InputDecorationTheme(
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
           borderSide: BorderSide(
-            color: AppLightColors.primary,
+            color: AppLightColors.backgroundColor.withOpacity(0.1),
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           borderSide: BorderSide(
-            color: AppLightColors.primary,
+            color: AppLightColors.backgroundColor.withOpacity(0.1),
           ),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           borderSide: BorderSide(
-            color: AppLightColors.primary,
+            color: AppLightColors.backgroundColor.withOpacity(0.1),
           ),
         ),
-        hintStyle: TextStyle(color: Colors.white),
+        hintStyle: const TextStyle(color: Colors.white),
       ),
       scaffoldBackgroundColor: AppDarkColors.backgroundColor,
       dialogTheme: DialogTheme(

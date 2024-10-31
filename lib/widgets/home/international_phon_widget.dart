@@ -30,10 +30,10 @@ class InternationalPhoneWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: context.read<AppCubit>().isDark
-              ? AppDarkColors.textFieldBorderColor
-              : AppLightColors.textFieldBorderColor,
+              ? AppLightColors.backgroundColor.withOpacity(0.1)
+              : AppDarkColors.backgroundColor.withOpacity(0.1),
         ),
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(4),
       ),
       child: Directionality(
         textDirection: TextDirection.ltr,
