@@ -39,29 +39,21 @@ class PhoneNumberWidgets extends StatelessWidget {
               child: InternationalPhoneWidget(
                 validator: context.read<VisibilityCubit>().showCountryPicker
                     ? (phoneNumber) {
-<<<<<<< Updated upstream
-                        if(!isNumeric(phoneNumber??'')){
-                          return context.translate(LangKeys.enterValidPhoneNumber);
+                        if (!isNumeric(phoneNumber ?? '')) {
+                          return context
+                              .translate(LangKeys.enterValidPhoneNumber);
                         }
                         if (phoneNumber!.length < 6) {
                           return context.translate(LangKeys.enterPhoneNumber);
                         }
-=======
-                        if (phoneNumber!.length < 6) {
-                          return context.translate(LangKeys.enterPhoneNumber);
-                        }
->>>>>>> Stashed changes
                         return null;
                       }
                     : null,
                 controller: context.read<SendMessageCubit>().phoneController,
                 onInputChanged: (number) {
-<<<<<<< Updated upstream
-                  String convertedNumber = convertToEnglishDigits(number.phoneNumber ?? '');
+                  String convertedNumber =
+                      convertToEnglishDigits(number.phoneNumber ?? '');
                   context.read<SendMessageCubit>().phone = convertedNumber;
-=======
-                  context.read<SendMessageCubit>().phone = number.phoneNumber;
->>>>>>> Stashed changes
                 },
               ),
             ),
@@ -95,16 +87,14 @@ class PhoneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style:AppTextStyles.medium14
-              .copyWith(fontSize: 12, color: context.color.textColor),
+      style: AppTextStyles.medium14
+          .copyWith(fontSize: 12, color: context.color.textColor),
       keyboardType: TextInputType.number,
       onChanged: (value) {
         context.read<SendMessageCubit>().phone = value;
       },
       maxLength: 15,
-      
       decoration: InputDecoration(
-        
         hintText: context.translate(LangKeys.enterPhoneNumber),
         hintStyle: AppTextStyles.regular12.copyWith(
           color:
