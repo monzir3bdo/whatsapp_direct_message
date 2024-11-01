@@ -7,6 +7,7 @@ import 'package:whatsapp_direct_message/core/extensions/build_context_extension.
 import 'package:whatsapp_direct_message/core/localization/lang_keys.dart';
 import 'package:whatsapp_direct_message/core/theme/app_text_styels.dart';
 import 'package:whatsapp_direct_message/core/theme/colors.dart';
+import 'package:whatsapp_direct_message/widgets/home/camera_button.dart';
 import 'package:whatsapp_direct_message/widgets/home/show_country_picker.dart';
 
 import '../../core/functions/functions.dart';
@@ -95,6 +96,7 @@ class PhoneWidget extends StatelessWidget {
       },
       maxLength: 15,
       decoration: InputDecoration(
+        suffixIcon: const CameraButton(),
         hintText: context.translate(LangKeys.enterPhoneNumber),
         hintStyle: AppTextStyles.regular12.copyWith(
           color:
